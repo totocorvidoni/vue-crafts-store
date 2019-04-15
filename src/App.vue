@@ -7,25 +7,29 @@
   </div>
 </template>
 
-<style lang="scss">
-// Globals ===
+<script>
+export default {
+  name: 'app',
+  beforeCreate: function() {
+    this.$store.dispatch('setMainCategories');
+  }
+}
+</script>
 
-// 
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700|Raleway:300,400,700&subset=latin-ext');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: $color-text;
 }
 nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  background-color: $color1;
 }
 </style>
