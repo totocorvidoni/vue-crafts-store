@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss">
 .featured-category {
-  background: $color3-faded;
+  background: $color3;
   padding: 0.5em;
   text-align: center;
   font-family: $font-title;
@@ -33,10 +33,10 @@ export default {
 }
 
 .featured-category:nth-child(3n + 1) {
-  background: $color4-faded;
+  background: $color4 ;
 }
 
 .featured-category:nth-child(3n) {
-  background: $color2-faded;
+  background: $color2 ;
 }
 </style>

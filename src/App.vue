@@ -31,6 +31,6 @@ export default {
   color: $color-text;
 }
 nav {
-  background-color: $color1;
+  background-color: $color1-strong;
 }
 </style>

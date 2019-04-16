@@ -2,14 +2,14 @@
   <div>
     <h1 class="title">PUPE LEPÚ</h1>
     <div class="category-wrapper">
-      <featured-category v-for="category in categoryNames">{{ category }}</featured-category>
+      <featured-category v-for="category in mainCategories" :key="category.id">{{ category.name }}</featured-category>
     </div>
   </div>
 </template>
 
 <script>
-import featuredCategory from "@/components/FeaturedCategory.vue";
 import { mapGetters } from "vuex";
+import featuredCategory from "@/components/FeaturedCategory.vue";
 
 export default {
   components: {
@@ -17,7 +17,7 @@ export default {
   },
   methods: {},
   computed: {
-    ...mapGetters(['categoryNames'])
+    ...mapGetters(['mainCategories'])
   }
 };
 </script>
