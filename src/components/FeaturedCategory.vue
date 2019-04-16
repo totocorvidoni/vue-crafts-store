@@ -1,29 +1,24 @@
 <template>
-  <div>
-    <div class="main-categories" v-for="category in names" :key="category.id">
-      <h1>{{ category.name }}</h1>
+    <div class="featured-category">
+      <h1>
+        <slot></slot>
+      </h1>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "main-categories",
+  name: "featured-category",
   props: {
     id: Number,
     name: String,
     image: String
-  },
-  computed: {
-    names() {
-      return this.$store.state.mainCategories;
-    }
   }
 };
 </script>
 
 <style lang="scss">
-.main-categories {
+.featured-category {
   background: $color3-faded;
   padding: 0.5em;
   text-align: center;
@@ -37,11 +32,11 @@ export default {
   }
 }
 
-.main-categories:nth-child(3n + 1) {
+.featured-category:nth-child(3n + 1) {
   background: $color4-faded;
 }
 
-.main-categories:nth-child(3n) {
+.featured-category:nth-child(3n) {
   background: $color2-faded;
 }
 </style>

@@ -1,18 +1,24 @@
 <template>
   <div>
     <h1 class="title">PUPE LEPÚ</h1>
-    <main-categories class="category-wrapper"></main-categories>
+    <div class="category-wrapper">
+      <featured-category v-for="category in categoryNames">{{ category }}</featured-category>
+    </div>
   </div>
 </template>
 
 <script>
-import mainCategories from "@/components/MainCategories.vue";
+import featuredCategory from "@/components/FeaturedCategory.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
-    mainCategories
+    featuredCategory
   },
   methods: {},
+  computed: {
+    ...mapGetters(['categoryNames'])
+  }
 };
 </script>
 

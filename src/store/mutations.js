@@ -1,5 +1,5 @@
 export default {
-  setMainCategories(state, payload) {
-    state.mainCategories = payload;
+  setAllCategories(state, payload) {
+    state.allCategories = payload;
   }
 };

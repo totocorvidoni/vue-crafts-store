@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> 
+      <router-link to="/">PUPE LEPÚ</router-link> 
+      <router-link to="/tienda">Tienda</router-link>
     </nav>
     <router-view />
   </div>
@@ -11,7 +12,7 @@
 export default {
   name: 'app',
   beforeCreate: function() {
-    this.$store.dispatch('setMainCategories');
+    this.$store.dispatch('setFeaturedCategories');
   }
 }
 </script>
@@ -26,7 +27,7 @@ export default {
   box-sizing: border-box;
 }
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: $font-body;
   color: $color-text;
 }
 nav {
