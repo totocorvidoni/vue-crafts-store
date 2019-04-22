@@ -23,5 +23,12 @@ export default {
     //   });
     // });
     commit("setAllCategories", response.data);
+  },
+  async setDisplayedProducts({ commit }, categoryId) {
+    commit("startLoadingProducts");
+    const response = await API.get(`products/?category=${categoryId}`);
+    console.log(response.data);
+    commit("setDisplayedProducts", response.data);
+    commit("stopLoadingProducts");
   }
 };

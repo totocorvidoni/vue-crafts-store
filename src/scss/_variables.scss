@@ -8,11 +8,16 @@ $color2: hsl(61, 97%, 87%);
 $color3: hsl(159, 61%, 80%);
 $color4: hsl(199, 100%, 85%);
 $color-background: #ffffff;
-$color-text: #4f6174;
-$color-text-light: #4a616e;
-$color-text-faded: #4f617499;
-$black: #000;
+$color-dark: #4f6174;
+$color-dark-light: #4a616e;
+$color-dark-faded: #4f617499;
+$color-light: #ffffff;
+$black: #000000;
 
 // Fonts ---
 $font-title: 'Oswald', Helvetica, Arial, sans-serif;
 $font-body: 'Raleway', Helvetica, Arial, sans-serif;
+
+// Transition ---
+$transition-hover: all 100ms ease-out;
+$transition-slide: all 200ms cubic-bezier(0.71, 0.35, 0.01, 1.48);

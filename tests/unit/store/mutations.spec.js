@@ -1,9 +1,17 @@
 import mutations from '@/store/mutations';
 
-describe('setMainCategories', () => {
-  it('sets the state for mainCategory', () => {
+describe('setAllCategories', () => {
+  it('sets the state for allCategories', () => {
     const state = { mainCategories: [] };
-    mutations.setMainCategories(state, ['Mock Category']);
-    expect(state.mainCategories).toEqual(['Mock Category']);
+    mutations.setAllCategories(state, ['Mock Category']);
+    expect(state.allCategories).toEqual(['Mock Category']);
+  });
+});
+
+describe('setActiveMenuCategory', () => {
+  it('sets the state for activeMenuCategory', () => {
+    const state = { activeMenuCategory: null };
+    mutations.setActiveMenuCategory(state, 30);
+    expect(state.activeMenuCategory).toEqual(30);
   });
 });

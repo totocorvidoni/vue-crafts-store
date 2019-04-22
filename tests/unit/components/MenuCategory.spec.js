@@ -1,0 +1,1 @@
+import MenuCategory from '@/components/MenuCategory.vue'

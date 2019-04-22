@@ -9,7 +9,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    allCategories: []
+    allCategories: [],
+    activeMenuCategory: null,
+    displayedCategory: null,
+    displayedProducts: null,
+    productsLoading: false
   },
   mutations,
   actions,

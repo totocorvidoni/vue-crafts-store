@@ -28,9 +28,20 @@ export default {
 }
 #app {
   font-family: $font-body;
-  color: $color-text;
+  color: $color-dark;
+  font-size: 16pt;
 }
 nav {
   background-color: $color1-strong;
+}
+
+// ==== Used by more than one component ====
+.category {
+  font-family: $font-title;
+  h1 {
+    color: $black;
+    opacity: 0.33;
+    text-transform: uppercase;
+  }
 }
 </style>

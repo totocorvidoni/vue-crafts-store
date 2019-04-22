@@ -8,21 +8,24 @@
         :name="category.name"
       ></menu-category>
     </div>
-    <div class="store-products">this will be my products</div>
+    <div class="store-products">
+      <product-gallery></product-gallery>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import menuCategory from "@/components/MenuCategory.vue";
+import productGallery from "@/components/ProductGallery.vue";
 
 export default {
   name: "shop",
   components: {
-    menuCategory
+    menuCategory, productGallery
   },
   computed: {
-    ...mapGetters(["mainCategories"])
+    ...mapGetters(["mainCategories"]),
   }
 };
 </script>
@@ -34,7 +37,7 @@ export default {
 }
 
 .store-categories {
-  background: $color3;
+  // background: $color3;
 }
 
 .store-products {
