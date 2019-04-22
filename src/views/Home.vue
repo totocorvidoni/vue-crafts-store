@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="title">PUPE LEPÚ</h1>
+    <h1 class="title brand">PUPE LEPÚ</h1>
     <div class="category-wrapper">
       <featured-category v-for="category in mainCategories" :key="category.id">{{ category.name }}</featured-category>
     </div>
@@ -23,13 +23,11 @@ export default {
 </script>
 
 <style lang="scss">
-.title {
-  font-family: $font-title;
-  text-align: center;
-  text-transform: uppercase;
+.brand {
   font-size: 10rem;
   font-weight: 300;
   padding: 1rem;
+  text-transform: uppercase;
 }
 .category-wrapper {
   display: grid;

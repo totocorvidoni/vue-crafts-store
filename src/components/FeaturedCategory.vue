@@ -1,5 +1,5 @@
 <template>
-  <div class="featured-category category">
+  <div class="featured-category category color-step">
     <h1>
       <slot></slot>
     </h1>
@@ -19,18 +19,9 @@ export default {
 
 <style lang="scss">
 .featured-category {
-  background: $color3;
   font-size: 2rem;
   font-weight: 700;
   padding: 0.5em;
   text-align: center;
-}
-
-.featured-category:nth-child(3n + 1) {
-  background: $color4;
-}
-
-.featured-category:nth-child(3n) {
-  background: $color2;
 }
 </style>
