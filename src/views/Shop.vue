@@ -62,11 +62,9 @@ export default {
 .store-catalog {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 2rem;
   padding: 1em;
-  height: 100%;
-  width: 100%;
 }
 
 .spinner-wrapper {
