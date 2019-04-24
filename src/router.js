@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Shop from "./views/Shop.vue";
+import Product from "./views/Product.vue";
 
 Vue.use(Router);
 
@@ -16,7 +17,7 @@ export default new Router({
     },
     {
       path: "/tienda",
-      name: "tienda",
+      name: "shop",
       component: Shop,
       children: [
         {
@@ -24,6 +25,11 @@ export default new Router({
           name: "amigurumis"
         }
       ]
+    },
+    {
+      path: "/productos/:id",
+      name: "products",
+      component: Product
     }
     // {
     //   path: "/about",

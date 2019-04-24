@@ -8,36 +8,33 @@ const API = axios.create({
   }
 });
 
-const stripRegex = /(<([^>]+)>)/gi;
+function stripHTML(product) {
+  const stripRegex = /(<([^>]+)>)/gi;
+  product.description = product.description.replace(stripRegex, "");
+  product.short_description = product.short_description.replace(stripRegex, "");
+  return product;
+}
 
 export default {
   async setFeaturedCategories({ commit }) {
     const response = await API.get("products/categories");
-    // const categories = response.data.filter(category => {
-    //   return category.parent == 0 && category.id !== 29; // The id of uncategorized posts
-    // });
-    // const featuredCategories = [];
-    // await categories.forEach(category => {
-    //   featuredCategories.push({
-    //     id: category.id,
-    //     name: category.name
-    //     // image: category.image.src
-    //   });
-    // });
     commit("setAllCategories", response.data);
   },
+
   async setDisplayedProducts({ commit }, categoryId) {
     commit("startLoadingProducts");
     const response = await API.get(`products/?category=${categoryId}`);
     const products = response.data;
     products.forEach(product => {
-      product.description = product.description.replace(stripRegex, "");
-      product.short_description = product.short_description.replace(
-        stripRegex,
-        ""
-      );
+      stripHTML(product);
     });
     commit("setDisplayedProducts", products);
     commit("stopLoadingProducts");
+  },
+
+  async setActiveProduct({ commit }, productId) {
+    const response = await API.get(`products/${productId}`);
+    const product = stripHTML(response.data);
+    commit("setActiveProduct", product);
   }
 };

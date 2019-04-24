@@ -1,9 +1,9 @@
 // Colors ---
 $color1-strong: hsl(16, 100%, 80%);
 $color2-strong: hsl(54, 77%, 52%);
-$color3-strong: hsla(159, 60%, 60%);
+$color3-strong: hsl(159, 60%, 60%);
 $color4-strong: hsl(199, 60%, 60%);
-$color1: hsla(16, 100%, 80%, 0.5);
+$color1: hsl(16, 100%, 85%);
 $color2: hsl(61, 97%, 87%);
 $color3: hsl(159, 61%, 80%);
 $color4: hsl(199, 100%, 85%);
@@ -24,7 +24,7 @@ $font-body: 'Poppins', Helvetica, Arial, sans-serif;
 $border-card: 1px solid #446a5f3b;
 
 // Transition ---
-$transition-hover: all 100ms ease-out;
+$transition-list-item: all 100ms ease-out;
 $transition-slide: all 200ms cubic-bezier(0.71, 0.35, 0.01, 1.48);
 $transition-loading: all 350ms ease;
 $transition-card: all 0.7s ease;

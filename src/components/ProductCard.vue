@@ -1,5 +1,5 @@
 <template>
-  <div class="product-card">
+  <div class="product-card" @click="onCardClick">
     <img :src="images[0].large" :alt="images[0].alt" class="image">
     <div class="details">
       <div class="name">
@@ -24,7 +24,13 @@ export default {
     shortDescription: String,
     tags: Array,
     price: String
-  }
+  },
+  methods: {
+    onCardClick() {
+      this.$router.push({ name: "products", params: { id: this.id } });
+    }
+  },
+  computed: {}
 };
 </script>
 
@@ -65,19 +71,19 @@ export default {
       grid-area: name;
       align-self: center;
       margin-bottom: 0.5em;
+    }
 
-      .title {
-        grid-area: title;
-        color: $color-dark;
-        font-family: $font-body;
-      }
+    .title {
+      grid-area: title;
+      color: $color-dark;
+      font-family: $font-body;
+    }
 
-      .description {
-        grid-area: description;
-        color: $color-dark-faded;
-        text-align: center;
-        font-size: 0.9em;
-      }
+    .description {
+      grid-area: description;
+      color: $color-dark-faded;
+      text-align: center;
+      font-size: 0.9em;
     }
 
     .tags {

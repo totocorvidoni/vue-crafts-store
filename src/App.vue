@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">PUPE LEPÚ</router-link>
-      <router-link to="/tienda">Tienda</router-link>
-    </nav>
+    <header>
+      <nav>
+        <router-link to="/" class="color-step">PUPE LEPÚ</router-link>
+        <router-link to="/tienda" class="color-step">Tienda</router-link>
+        <router-link to="/tienda" class="color-step">Pedidos</router-link>
+        <router-link to="/tienda" class="color-step">Nosotros</router-link>
+        <router-link to="/tienda" class="color-step">Contactanos</router-link>
+      </nav>
+    </header>
     <router-view/>
   </div>
 </template>
@@ -26,13 +31,34 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
 #app {
   font-family: $font-body;
   color: $color-dark;
   font-size: 16pt;
 }
+
+header {
+  background-color: $color3;
+  z-index: 10;
+}
+
 nav {
-  background-color: $color1-strong;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  font-family: $font-title;
+  a {
+    text-decoration: none;
+    color: $color-adaptable;
+    padding: 5px;
+    text-transform: uppercase;
+    transition: $transition-list-item;
+    &:hover {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
 }
 
 // ==== Used by more than one component ====
@@ -50,7 +76,7 @@ nav {
 }
 
 .color-step {
-  background: $color3;
+  background: $color1;
   &:nth-child(3n + 1) {
     background: $color4;
   }
@@ -60,16 +86,12 @@ nav {
 }
 
 .border-color-step {
-  border-color: $color3;
+  border-color: $color1;
   &:nth-child(3n + 1) {
     border-color: $color4;
   }
   &:nth-child(3n) {
     border-color: $color2;
   }
-}
-
-.flex {
-  display: flex;
 }
 </style>

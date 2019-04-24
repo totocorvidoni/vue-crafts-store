@@ -70,7 +70,7 @@ export default {
   text-transform: uppercase;
   width: 100%;
   & > * {
-    transition: $transition-hover;
+    transition: $transition-list-item;
     transform: translateX(-20px);
   }
   & .category {

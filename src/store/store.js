@@ -11,6 +11,7 @@ export default new Vuex.Store({
   state: {
     allCategories: [],
     activeMenuCategory: null,
+    activeProduct: { id: "test", name: "test yes", description: "test no" },
     displayedCategory: null,
     displayedProducts: null,
     productsLoading: false

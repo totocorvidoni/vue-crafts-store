@@ -5,6 +5,9 @@ export default {
   setActiveMenuCategory(state, menuCategoryId) {
     state.activeMenuCategory = menuCategoryId;
   },
+  setActiveProduct(state, productInfo) {
+    state.activeProduct = productInfo;
+  },
   setDisplayedCategory(state, categoryId) {
     state.displayedCategory = categoryId;
   },
