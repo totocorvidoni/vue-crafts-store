@@ -75,6 +75,13 @@ nav {
   }
 }
 
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: $transition-slow-and-steady;
+}
+
 .color-step {
   background: $color1;
   &:nth-child(3n + 1) {

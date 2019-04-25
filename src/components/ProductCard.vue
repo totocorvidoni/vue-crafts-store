@@ -1,6 +1,6 @@
 <template>
   <div class="product-card" @click="onCardClick">
-    <img :src="images[0].large" :alt="images[0].alt" class="image">
+    <img :src="images[0].shop_catalog" :alt="images[0].alt" class="image">
     <div class="details">
       <div class="name">
         <h2 class="title">{{ name }}</h2>
@@ -35,6 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .product-card {
   display: grid;
   grid-template-rows: 300px auto;
@@ -43,14 +44,10 @@ export default {
   border-bottom-right-radius: 1em;
   cursor: pointer;
   font-family: $font-body;
-  transition: $transition-card;
+  transition: $transition-slow-and-steady;
   overflow: hidden;
 
   .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: $transition-card;
     z-index: -10;
   }
 
@@ -115,9 +112,9 @@ export default {
   }
 
   &:hover {
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: $shadow;
     .image {
-      transform: translate(2%, -2%) scale(1.1);
+      transform: $image-zoom;
     }
   }
 }
