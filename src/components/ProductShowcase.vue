@@ -17,7 +17,7 @@
       class="thumb"
       v-for="image in images"
       :key="image.id"
-      v-show="image.id !== activeImage"
+      :class="{ active: image.id == activeImage }"
       @click="onThumbClick"
     >
       <img :src="image.shop_catalog" :alt="image.alt" class="image" :data-id="image.id">
@@ -54,7 +54,6 @@ export default {
       this.$viewer = viewer;
     },
     onThumbClick(e) {
-      console.log(e, e.target);
       const id = parseInt(e.target.dataset.id, 10);
       this.activeImage = id;
     }
@@ -62,6 +61,12 @@ export default {
 
   created() {
     this.activeImage = this.images[0].id;
+  },
+
+  watch: {
+    $route(to, from) {
+      this.activeImage = this.images[0].id;
+    }
   }
 };
 </script>
@@ -84,6 +89,9 @@ export default {
 
   .viewer {
     grid-column: 1 / -1;
+    .image:hover {
+      transform: $image-zoom;
+    }
   }
 
   .image {
@@ -93,9 +101,20 @@ export default {
     width: 100%;
     height: 100%;
     &:hover {
-      transform: $image-zoom;
       filter: $little-light;
     }
+  }
+
+  .thumb {
+    transition: $transition-slow-and-steady;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .active {
+    opacity: 1;
   }
 }
 </style>

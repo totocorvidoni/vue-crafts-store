@@ -1,19 +1,19 @@
 <template>
   <div class="full-product">
     <main class="product">
-      <showcase :images="images"/>
+      <showcase :images="info.images" />
       <div class="information">
         <h1 class="name">{{ info.name }}</h1>
         <p class="description" v-html="info.description"></p>
       </div>
     </main>
-    <router-link :to="{ name: 'products', params: { id: '96'} }">GO</router-link>
+    <router-link :to="{ name: 'products', params: { id: '96' } }">GO</router-link>
   </div>
 </template>
 
 <script>
 import store from "@/store/store"; // to access the store before component is created.
-import showcase from "@/components/product-showcase.vue";
+import showcase from "@/components/ProductShowcase.vue";
 
 export default {
   name: "full-product",
@@ -24,9 +24,6 @@ export default {
   computed: {
     info() {
       return this.$store.state.activeProduct;
-    },
-    images() {
-      return this.info.images;
     }
   },
 
@@ -37,7 +34,6 @@ export default {
 
   async beforeRouteUpdate(to, from, next) {
     await this.$store.dispatch("setActiveProduct", to.params.id);
-    this.activeImage = this.images[0].id;
     next();
   }
 };
