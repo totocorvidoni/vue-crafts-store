@@ -30,7 +30,10 @@ $transition-loading: all 350ms ease;
 $transition-slow-and-steady: all 1s ease;
 
 // Transform ---
-$image-zoom: translate(2%, -2%) scale(1.1);
+$image-zoom: translate(1%, -1%) scale(1.05);
 
 // Box Shadow ---
-$shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+$shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+
+// Filter ---
+$little-light: brightness(110%);

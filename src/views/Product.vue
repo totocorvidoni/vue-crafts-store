@@ -4,7 +4,7 @@
       <showcase :images="images"/>
       <div class="information">
         <h1 class="name">{{ info.name }}</h1>
-        <p class="description">{{ info.description }}</p>
+        <p class="description" v-html="info.description"></p>
       </div>
     </main>
     <router-link :to="{ name: 'products', params: { id: '96'} }">GO</router-link>
@@ -47,7 +47,31 @@ export default {
 .full-product {
   .product {
     display: flex;
+    justify-content: center;
     padding: 2rem;
+
+    .showcase {
+      padding: 1em;
+    }
+
+    .information {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      b {
+        color: $color1;
+      }
+
+      .name {
+      }
+
+      .description {
+        text-align: justify;
+        max-width: 700px;
+      }
+    }
   }
 }
 </style>

@@ -10,9 +10,9 @@
     </aside>
     <main class="store-catalog">
       <transition name="fade">
-      <div class="spinner-wrapper" v-show="isLoading">
-        <looping-rhombuses-spinner class="spinner" :rhombus-size="70" :animation-duration="2000"/>
-      </div>
+        <div class="spinner-wrapper" v-show="isLoading">
+          <looping-rhombuses-spinner class="spinner" :rhombus-size="70" :animation-duration="2000"/>
+        </div>
       </transition>
       <product-card
         v-for="product in productsToDisplay"
@@ -23,6 +23,8 @@
         :shortDescription="product.short_description"
         :tags="product.tags"
         :price="product.price"
+        :priceRegular="product.regular_price"
+        :onSale="product.on_sale"
       ></product-card>
     </main>
   </div>
@@ -76,6 +78,7 @@ export default {
   height: 100%;
   width: 100%;
 }
+
 // overwrites the epic-spinners :color directive to use sass variables
 .spinner > * {
   background-color: $color3 !important;

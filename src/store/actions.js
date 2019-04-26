@@ -8,13 +8,6 @@ const API = axios.create({
   }
 });
 
-function stripHTML(product) {
-  const stripRegex = /(<([^>]+)>)/gi;
-  product.description = product.description.replace(stripRegex, "");
-  product.short_description = product.short_description.replace(stripRegex, "");
-  return product;
-}
-
 export default {
   async setFeaturedCategories({ commit }) {
     const response = await API.get("products/categories");
@@ -25,16 +18,12 @@ export default {
     commit("startLoadingProducts");
     const response = await API.get(`products/?category=${categoryId}`);
     const products = response.data;
-    products.forEach(product => {
-      stripHTML(product);
-    });
     commit("setDisplayedProducts", products);
     commit("stopLoadingProducts");
   },
 
   async setActiveProduct({ commit }, productId) {
     const response = await API.get(`products/${productId}`);
-    const product = stripHTML(response.data);
-    commit("setActiveProduct", product);
+    commit("setActiveProduct", response.data);
   }
 };

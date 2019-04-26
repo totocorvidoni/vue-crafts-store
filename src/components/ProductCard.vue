@@ -4,12 +4,15 @@
     <div class="details">
       <div class="name">
         <h2 class="title">{{ name }}</h2>
-        <p class="description">{{ shortDescription }}</p>
+        <p class="description" v-html="shortDescription"></p>
       </div>
       <div class="tags">
         <span v-for="tag in tags" :key="tag.id" class="tag">{{ tag.name }}</span>
       </div>
-      <span class="price">${{ price }}</span>
+      <div class="price-wrapper">
+        <span v-if="onSale" class="discount">${{ priceRegular }}</span>
+        <span class="price">${{ price }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -23,19 +26,22 @@ export default {
     name: String,
     shortDescription: String,
     tags: Array,
-    price: String
+    price: String,
+    priceRegular: String,
+    onSale: Boolean
   },
+
   methods: {
     onCardClick() {
       this.$router.push({ name: "products", params: { id: this.id } });
     }
   },
+
   computed: {}
 };
 </script>
 
 <style lang="scss">
-
 .product-card {
   display: grid;
   grid-template-rows: 300px auto;
@@ -58,7 +64,7 @@ export default {
       "name name name name"
       "tag   tag   tag  price";
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 1fr auto;
     background: $color-light;
     height: 100%;
     font-size: 0.8em;
@@ -98,16 +104,27 @@ export default {
       }
     }
 
-    .price {
+    .price-wrapper {
+      position: relative;
       grid-area: price;
-      align-self: end;
-      margin-left: auto;
       justify-self: end;
-      background: $color-good;
-      border-radius: 0.5em;
-      padding: 0.25em 0.5em;
-      color: $color-light;
-      font-weight: 700;
+
+      .price {
+        padding: 0.25em 0.5em;
+        background: $color-good;
+        color: $color-light;
+        border-radius: 0.5em;
+        font-weight: 700;
+      }
+
+      .discount {
+        position: absolute;
+        top: -100%;
+        right: 0;
+        color: $color-dark-faded;
+        text-align: center;
+        text-decoration: line-through $color-bad;
+      }
     }
   }
 
@@ -115,6 +132,7 @@ export default {
     box-shadow: $shadow;
     .image {
       transform: $image-zoom;
+      filter: $little-light;
     }
   }
 }

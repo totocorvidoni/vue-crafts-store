@@ -14,7 +14,7 @@
       </template>
     </viewer>
     <div
-      class="thumb-wrapper"
+      class="thumb"
       v-for="image in images"
       :key="image.id"
       v-show="image.id !== activeImage"
@@ -77,15 +77,13 @@ export default {
   width: 400px;
   height: 500px;
 
-  .viewer {
-    grid-column: 1 / -1;
+  & > * {
     overflow: hidden;
     border-radius: 0.25rem;
   }
 
-  .thumb-wrapper {
-    overflow: hidden;
-    border-radius: 0.25rem;
+  .viewer {
+    grid-column: 1 / -1;
   }
 
   .image {
@@ -96,6 +94,7 @@ export default {
     height: 100%;
     &:hover {
       transform: $image-zoom;
+      filter: $little-light;
     }
   }
 }
