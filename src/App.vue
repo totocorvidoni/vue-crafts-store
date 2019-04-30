@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <header>
+      <router-link to="/" class="logo">PUPE LEPÚ</router-link>
       <nav>
-        <router-link to="/" class="color-step">PUPE LEPÚ</router-link>
-        <router-link to="/tienda" class="color-step">Tienda</router-link>
-        <router-link to="/tienda" class="color-step">Pedidos</router-link>
-        <router-link to="/tienda" class="color-step">Nosotros</router-link>
-        <router-link to="/tienda" class="color-step">Contactanos</router-link>
+        <router-link to="/tienda" class>Tienda</router-link>
+        <router-link to="/tienda" class>Pedidos</router-link>
+        <router-link to="/tienda" class>Nosotros</router-link>
+        <router-link to="/tienda" class>Contactanos</router-link>
       </nav>
     </header>
     <router-view/>
@@ -39,26 +39,36 @@ export default {
 }
 
 header {
+  display: flex;
+  align-items: center;
   background-color: $color3;
   z-index: 10;
+  font-family: $font-title;
+  font-weight: 700;
+
+  a {
+    text-decoration: none;
+    color: $color-adaptable;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    transition: $transition-list-item;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.logo {
+  color: $color-light;
+  white-space: nowrap;
+  font-size: 1.3em;
+  font-weight: 400;
 }
 
 nav {
   display: grid;
   grid-auto-flow: column;
-  justify-content: end;
-  font-family: $font-title;
-  a {
-    text-decoration: none;
-    color: $color-adaptable;
-    padding: 5px;
-    text-transform: uppercase;
-    transition: $transition-list-item;
-    &:hover {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-  }
 }
 
 // ==== Used by more than one component ====
@@ -80,6 +90,14 @@ nav {
   height: 100%;
   object-fit: cover;
   transition: $transition-slow-and-steady;
+}
+
+.price {
+  background: $color-good;
+  border-radius: 0.5em;
+  color: $color-light;
+  font-weight: 700;
+  padding: 0.25em 0.5em;
 }
 
 .color-step {
