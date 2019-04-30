@@ -105,24 +105,13 @@ export default {
     }
 
     .price-wrapper {
-      position: relative;
       grid-area: price;
       justify-self: end;
 
-      .price {
-        padding: 0.25em 0.5em;
-        background: $color-good;
-        color: $color-light;
-        border-radius: 0.5em;
-        font-weight: 700;
-      }
-
       .discount {
-        position: absolute;
-        top: -100%;
-        right: 0;
+        font-weight: 700;
+        margin-right: 5px;
         color: $color-dark-faded;
-        text-align: center;
         text-decoration: line-through $color-bad;
       }
     }
