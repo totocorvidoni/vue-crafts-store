@@ -2,7 +2,13 @@
   <div>
     <h1 class="title brand">PUPE LEPÚ</h1>
     <div class="category-wrapper">
-      <featured-category v-for="category in mainCategories" :key="category.id">{{ category.name }}</featured-category>
+      <featured-category
+        v-for="category in mainCategories"
+        :key="category.id"
+        :id="category.id"
+        :image="category.image"
+        :name="category.name"
+      >{{ category.name }}</featured-category>
     </div>
   </div>
 </template>
@@ -17,22 +23,23 @@ export default {
   },
   methods: {},
   computed: {
-    ...mapGetters(['mainCategories'])
+    ...mapGetters(["mainCategories"])
   }
 };
 </script>
 
 <style lang="scss">
+
 .brand {
   font-size: 10rem;
   font-weight: 300;
   padding: 1rem;
   text-transform: uppercase;
 }
+
 .category-wrapper {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   height: 400px;
-  // justify-items: center;
 }
 </style>

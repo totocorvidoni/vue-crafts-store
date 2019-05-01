@@ -51,6 +51,13 @@ export default {
     isLoading() {
       return this.$store.state.productsLoading;
     }
+  },
+
+  beforeRouteUpdate(to, from, next) {
+    const id = to.params.categoryId;
+    this.$store.dispatch("setDisplayedProducts", id);
+    this.$store.commit("setActiveMenuCategory", id);
+    next();
   }
 };
 </script>

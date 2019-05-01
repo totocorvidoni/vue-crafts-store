@@ -38,9 +38,8 @@ export default {
       this.$store.commit("setActiveMenuCategory", payload);
     },
     showProducts(id) {
-      if ((this.$store.state.displayedCategory !== id)) {
-        this.$store.dispatch("setDisplayedProducts", id);
-        this.$store.commit("setDisplayedCategory", id);
+      if (this.$store.state.displayedCategory !== id) {
+        this.$router.push({ path: `/tienda/${id}` });
       }
     },
     onMainCategoryClick(id) {
@@ -99,7 +98,7 @@ export default {
 }
 
 .menu-active > * {
-  transform: translatex(0);
+  transform: translateX(0);
 }
 
 .menu-sub-categories {

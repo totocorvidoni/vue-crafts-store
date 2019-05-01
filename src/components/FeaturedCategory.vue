@@ -1,8 +1,6 @@
 <template>
   <div class="featured-category category color-step">
-    <h1>
-      <slot></slot>
-    </h1>
+    <h1>{{ name }}</h1>
   </div>
 </template>
 
@@ -12,7 +10,7 @@ export default {
   props: {
     id: Number,
     name: String,
-    image: String
+    image: Object
   }
 };
 </script>
