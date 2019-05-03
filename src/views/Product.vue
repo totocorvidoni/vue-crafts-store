@@ -15,33 +15,51 @@
         <div class="price">${{ info.price }}</div>
       </div>
     </main>
-    <router-link :to="{ name: 'products', params: { id: '96' } }">GO</router-link>
+    <div class="related">
+      <product-card
+        v-for="product in relatedProducts"
+        :key="product.id"
+        :id="product.id"
+        :name="product.name"
+        :image="product.images[0]"
+        :price="product.price"
+      />
+      <router-link :to="{ name: 'products', params: { id: '96' } }">GO</router-link>
+    </div>
   </div>
 </template>
 
 <script>
 import store from "@/store/store"; // to access the store before component is created.
-import showcase from "@/components/ProductShowcase.vue";
+import Showcase from "@/components/ProductShowcase.vue";
+import ProductCard from "@/components/ProductCard.vue";
 
 export default {
   name: "full-product",
   components: {
-    showcase
+    Showcase,
+    ProductCard
   },
 
   computed: {
     info() {
       return this.$store.state.activeProduct;
+    },
+
+    relatedProducts() {
+      return this.$store.state.relatedProducts;
     }
   },
 
   async beforeRouteEnter(to, from, next) {
     await store.dispatch("setActiveProduct", to.params.id);
+    await store.dispatch("setRelatedProducts", store.state.activeProduct.related_ids);
     next();
   },
 
   async beforeRouteUpdate(to, from, next) {
     await this.$store.dispatch("setActiveProduct", to.params.id);
+    await this.$store.dispatch("setRelatedProducts", this.$store.state.activeProduct.related_ids);
     next();
   }
 };
