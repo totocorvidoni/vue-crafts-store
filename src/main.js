@@ -5,7 +5,14 @@ import router from "./router";
 import store from "./store/store";
 
 Vue.config.productionTip = false;
-Vue.prototype.$http = axios;
+Vue.prototype.axios = axios.create({
+  baseURL: process.env.VUE_APP_WOO_URL,
+  auth: {
+    username: process.env.VUE_APP_WOO_KEY,
+    password: process.env.VUE_APP_WOO_PASS
+  }
+});
+
 new Vue({
   router,
   store,
