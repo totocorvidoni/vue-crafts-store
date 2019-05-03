@@ -1,6 +1,6 @@
 <template>
   <div class="product-card" @click="onCardClick">
-    <img :src="images[0].shop_catalog" :alt="images[0].alt" class="image">
+    <img :src="image.shop_catalog" :alt="image.alt" class="image">
     <div class="details">
       <div class="name">
         <h2 class="title">{{ name }}</h2>
@@ -21,14 +21,14 @@
 export default {
   name: "product-card",
   props: {
-    id: Number,
-    images: Array,
-    name: String,
-    shortDescription: String,
-    tags: Array,
-    price: String,
-    priceRegular: String,
-    onSale: Boolean
+    id: { type: Number },
+    image: { type: Object },
+    name: { type: String },
+    shortDescription: { type: String },
+    tags: { type: Array },
+    price: { type: String },
+    priceRegular: { type: String },
+    onSale: { type: Boolean }
   },
 
   methods: {
@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 .product-card {
   display: grid;
-  grid-template-rows: 300px auto;
+  grid-template-rows: 3fr 2fr;
   border: $border-card;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -52,6 +52,7 @@ export default {
   font-family: $font-body;
   transition: $transition-slow-and-steady;
   overflow: hidden;
+  height: 100%;
 
   .image {
     z-index: -10;
