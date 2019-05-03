@@ -33,17 +33,19 @@ export default {
     id: Number
   },
   methods: {
-    expandCategory(id) {
+    toggleCategory(id) {
       const payload = id == this.$store.state.activeMenuCategory ? null : id;
       this.$store.commit("setActiveMenuCategory", payload);
     },
+
     showProducts(id) {
       if (this.$store.state.displayedCategory !== id) {
         this.$router.push({ path: `/tienda/${id}` });
       }
     },
+
     onMainCategoryClick(id) {
-      this.expandCategory(id);
+      this.toggleCategory(id);
       this.showProducts(id);
     }
   },
@@ -68,26 +70,32 @@ export default {
   text-align: start;
   text-transform: uppercase;
   width: 100%;
+
   & > * {
     transition: $transition-list-item;
     transform: translateX(-20px);
   }
+
   & .category {
     padding: 0.5em 2em 0.5em 0.5em;
   }
+
   &:hover {
     & > * {
       transform: translateX(0);
       color: $color-dark-faded;
     }
+
     & .marker {
       border-left-color: $color-dark-faded;
     }
   }
+
   &:focus {
     outline: none;
   }
 }
+
 .marker {
   margin: auto 0;
   width: 0;
@@ -108,9 +116,11 @@ export default {
   li:before {
     content: "- ";
   }
+
   li {
     cursor: pointer;
   }
+
   li:hover {
     color: $color-dark-faded;
   }

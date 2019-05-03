@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Store from "./store/store";
 import Home from "./views/Home.vue";
 import Shop from "./views/Shop.vue";
 import Product from "./views/Product.vue";
@@ -10,6 +9,13 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
   routes: [
     {
       path: "/",
@@ -22,14 +28,7 @@ export default new Router({
       component: Shop,
       children: [
         {
-          path: ":categoryId",
-          beforeEnter: (to, from, next) => {
-            const id = to.params.categoryId;
-            console.log(id, "enter");
-            Store.dispatch("setDisplayedProducts", id);
-            Store.commit("setActiveMenuCategory", id);
-            next();
-          }
+          path: ":categoryId"
         }
       ]
     },

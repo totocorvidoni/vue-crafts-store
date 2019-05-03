@@ -18,14 +18,14 @@
         v-for="product in productsToDisplay"
         :key="product.id"
         :id="product.id"
-        :images="product.images"
+        :image="product.images[0]"
         :name="product.name"
         :shortDescription="product.short_description"
         :tags="product.tags"
         :price="product.price"
         :priceRegular="product.regular_price"
         :onSale="product.on_sale"
-      ></product-card>
+      />
     </main>
   </div>
 </template>
@@ -56,7 +56,6 @@ export default {
   beforeRouteUpdate(to, from, next) {
     const id = to.params.categoryId;
     this.$store.dispatch("setDisplayedProducts", id);
-    this.$store.commit("setActiveMenuCategory", id);
     next();
   }
 };
@@ -72,6 +71,7 @@ export default {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-auto-rows: 450px;
   grid-gap: 2rem;
   padding: 1em;
 }
