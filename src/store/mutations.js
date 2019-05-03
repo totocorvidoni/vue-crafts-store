@@ -19,5 +19,8 @@ export default {
   },
   stopLoadingProducts(state) {
     state.productsLoading = false;
+  },
+  setRelatedProducts(state, payload) {
+    state.relatedProducts = payload;
   }
 };

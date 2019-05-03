@@ -10,9 +10,10 @@ export default {
     });
   },
   // TODO - Optimize search
-  subCategoriesById: (state) => id => {
+  subCategoriesById: state => id => {
     return state.allCategories.filter(category => {
       return category.parent == id;
     });
   }
 };
+

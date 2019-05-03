@@ -25,5 +25,14 @@ export default {
   async setActiveProduct({ commit }, productId) {
     const response = await API.get(`products/${productId}`);
     commit("setActiveProduct", response.data);
+  },
+
+  setRelatedProducts({ commit }, relatedIds) {
+    const relatedProducts = [];
+    relatedIds.forEach(async id => {
+      const response = await API.get(`products/${id}`);
+      relatedProducts.push(response.data);
+    });
+    commit("setRelatedProducts", relatedProducts);
   }
 };
