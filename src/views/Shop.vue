@@ -8,25 +8,23 @@
         :name="category.name"
       ></menu-category>
     </aside>
-    <main class="store-catalog">
-      <transition name="fade">
-        <div class="spinner-wrapper" v-show="isLoading">
-          <looping-rhombuses-spinner class="spinner" :rhombus-size="70" :animation-duration="2000"/>
-        </div>
-      </transition>
-      <product-card
-        v-for="product in productsToDisplay"
-        :key="product.id"
-        :id="product.id"
-        :image="product.images[0]"
-        :name="product.name"
-        :shortDescription="product.short_description"
-        :tags="product.tags"
-        :price="product.price"
-        :priceRegular="product.regular_price"
-        :onSale="product.on_sale"
-      />
-    </main>
+    <transition name="fade" mode="out-in">
+      <shop-spinner v-if="isLoading" class="spinner"/>
+      <main v-else class="store-catalog">
+        <product-card
+          v-for="product in productsToDisplay"
+          :key="product.id"
+          :id="product.id"
+          :image="product.images[0]"
+          :name="product.name"
+          :shortDescription="product.short_description"
+          :tags="product.tags"
+          :price="product.price"
+          :priceRegular="product.regular_price"
+          :onSale="product.on_sale"
+        />
+      </main>
+    </transition>
   </div>
 </template>
 
@@ -34,15 +32,16 @@
 import { mapGetters } from "vuex";
 import MenuCategory from "@/components/MenuCategory.vue";
 import ProductCard from "@/components/ProductCard.vue";
-import { LoopingRhombusesSpinner } from "epic-spinners";
+import ShopSpinner from "@/components/ShopSpinner.vue";
 
 export default {
   name: "shop",
   components: {
     MenuCategory,
     ProductCard,
-    LoopingRhombusesSpinner
+    ShopSpinner
   },
+
   computed: {
     ...mapGetters(["mainCategories"]),
     productsToDisplay() {
@@ -76,24 +75,13 @@ export default {
   padding: 1em;
 }
 
-.spinner-wrapper {
-  position: absolute;
-  display: grid;
-  background: $color-background;
-  justify-items: center;
-  padding-top: 10rem;
-  height: 100%;
-  width: 100%;
-}
-
-// overwrites the epic-spinners :color directive to use sass variables
-.spinner > * {
-  background-color: $color3 !important;
+.spinner {
+  margin: auto;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: $medium-balanced;
+  transition: $quick-out;
 }
 
 .fade-enter,
