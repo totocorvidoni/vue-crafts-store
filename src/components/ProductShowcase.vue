@@ -97,7 +97,7 @@ export default {
   .image {
     cursor: pointer;
     object-fit: cover;
-    transition: $transition-slow-and-steady;
+    transition: $slow-balanced;
     width: 100%;
     height: 100%;
     &:hover {
@@ -106,7 +106,7 @@ export default {
   }
 
   .thumb {
-    transition: $transition-slow-and-steady;
+    transition: $slow-balanced;
     opacity: 0.7;
     &:hover {
       opacity: 1;

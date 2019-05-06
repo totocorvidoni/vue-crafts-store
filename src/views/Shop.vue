@@ -71,7 +71,7 @@ export default {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  grid-auto-rows: 450px;
+  // grid-auto-rows: 450px;
   grid-gap: 2rem;
   padding: 1em;
 }
@@ -93,7 +93,7 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: $transition-loading;
+  transition: $medium-balanced;
 }
 
 .fade-enter,

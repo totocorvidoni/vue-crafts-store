@@ -15,17 +15,23 @@
         <div class="price">${{ info.price }}</div>
       </div>
     </main>
-    <div class="related">
-      <product-card
-        v-for="product in relatedProducts"
-        :key="product.id"
-        :id="product.id"
-        :name="product.name"
-        :image="product.images[0]"
-        :price="product.price"
-      />
-      <router-link :to="{ name: 'products', params: { id: '96' } }">GO</router-link>
-    </div>
+    <aside class="related" v-cloak>
+      <h3>Nuestras sugerencias</h3>
+      <div class="products">
+        <product-card
+          v-for="product in relatedProducts"
+          :key="product.id"
+          :id="product.id"
+          :name="product.name"
+          :image="product.images[0]"
+          :price="product.price"
+          :priceRegular="product.regular_price"
+          :onSale="product.on_sale"
+
+        />
+      </div>
+    </aside>
+    <router-link :to="{ name: 'products', params: { id: '96' } }">GO</router-link>
   </div>
 </template>
 
@@ -53,13 +59,19 @@ export default {
 
   async beforeRouteEnter(to, from, next) {
     await store.dispatch("setActiveProduct", to.params.id);
-    await store.dispatch("setRelatedProducts", store.state.activeProduct.related_ids);
+    await store.dispatch(
+      "setRelatedProducts",
+      store.state.activeProduct.related_ids
+    );
     next();
   },
 
   async beforeRouteUpdate(to, from, next) {
     await this.$store.dispatch("setActiveProduct", to.params.id);
-    await this.$store.dispatch("setRelatedProducts", this.$store.state.activeProduct.related_ids);
+    await this.$store.dispatch(
+      "setRelatedProducts",
+      this.$store.state.activeProduct.related_ids
+    );
     next();
   }
 };
@@ -67,6 +79,8 @@ export default {
 
 <style lang="scss">
 .full-product {
+  padding: 2rem 5rem;
+
   .divider {
     border-bottom: $border-card;
     color: $color-dark-faded;
@@ -79,7 +93,6 @@ export default {
   .product {
     display: flex;
     justify-content: center;
-    padding: 2rem 5rem;
 
     .showcase {
       padding: 1em;
@@ -135,6 +148,25 @@ export default {
           }
         }
       }
+    }
+  }
+  .related{
+    display: grid;
+    place-content: center;
+    h3 {
+      text-align: center;
+    }
+    .products {
+      font-size: 0.6em;
+      display: grid;
+      grid-gap: 2em;
+      grid-auto-flow: column;
+      grid-auto-columns: 180px;
+      grid-template-rows: 280px;
+      padding: 1em;
+    }
+    [v-cloak] {
+      display: none;
     }
   }
 }

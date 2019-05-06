@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import store from "@/store/store";
 import Home from "./views/Home.vue";
 import Shop from "./views/Shop.vue";
 import Product from "./views/Product.vue";
@@ -28,7 +29,12 @@ export default new Router({
       component: Shop,
       children: [
         {
-          path: ":categoryId"
+          path: ":categoryId",
+          beforeEnter(to, from, next) {
+            store.commit("setActiveMenuCategory", to.params.categoryId);
+            store.dispatch("setDisplayedProducts", to.params.categoryId);
+            next();
+          }
         }
       ]
     },

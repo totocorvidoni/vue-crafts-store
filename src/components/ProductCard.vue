@@ -43,32 +43,33 @@ export default {
 
 <style lang="scss">
 .product-card {
-  display: grid;
-  grid-template-rows: 3fr 2fr;
+  display: flex;
+  flex-flow: column;
   border: $border-card;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   cursor: pointer;
   font-family: $font-body;
-  transition: $transition-slow-and-steady;
+  transition: $slow-balanced;
   overflow: hidden;
-  height: 100%;
 
   .image {
+    max-height: 60%;
     z-index: -10;
   }
 
   .details {
     display: grid;
-    grid-gap: 0.5em;
+    grid-row-gap: 0.5em;
     grid-template-areas:
       "name name name name"
       "tag   tag   tag  price";
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr auto;
+    justify-content: space-between;
     background: $color-light;
-    height: 100%;
     font-size: 0.8em;
+    height: 40%;
     padding: 1em;
 
     .name {
@@ -106,8 +107,9 @@ export default {
     }
 
     .price-wrapper {
-      grid-area: price;
       justify-self: end;
+      grid-area: price;
+      margin-left: 5px;
 
       .discount {
         font-weight: 700;
@@ -123,6 +125,12 @@ export default {
     .image {
       transform: $image-zoom;
       filter: $little-light;
+    }
+  }
+  &:active {
+    .image {
+      transition: $quick-out;
+      filter: $big-light;
     }
   }
 }

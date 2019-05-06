@@ -39,7 +39,7 @@ export default {
 
 .category-wrapper {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  height: 400px;
+  grid-auto-flow: column;
+  align-content: start;
 }
 </style>

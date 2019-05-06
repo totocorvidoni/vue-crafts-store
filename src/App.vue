@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <header>
-      <router-link to="/" class="logo">PUPE LEPÚ</router-link>
+      <router-link to="/" class="logo grower">PUPE LEPÚ</router-link>
       <nav>
-        <router-link to="/tienda" class>Tienda</router-link>
-        <router-link to="/tienda" class>Pedidos</router-link>
-        <router-link to="/tienda" class>Nosotros</router-link>
-        <router-link to="/tienda" class>Contactanos</router-link>
+        <router-link to="/tienda" class="grower">Tienda</router-link>
+        <router-link to="/tienda" class="grower">Pedidos</router-link>
+        <router-link to="/tienda" class="grower">Nosotros</router-link>
+        <router-link to="/tienda" class="grower">Contactanos</router-link>
       </nav>
     </header>
     <router-view/>
@@ -51,17 +51,13 @@ header {
     color: $color-adaptable;
     padding: 10px 15px;
     text-transform: uppercase;
-    transition: $transition-list-item;
-
-    &:hover {
-      transform: scale(1.1);
-    }
   }
 }
 
 .logo {
   color: $color-light;
   white-space: nowrap;
+  font-family: $font-title;
   font-size: 1.3em;
   font-weight: 400;
 }
@@ -73,29 +69,19 @@ nav {
 
 // ==== Used by more than one component ====
 .title {
-  font-family: $font-title;
   text-align: center;
 }
 
-.category {
-  font-family: $font-title;
-  h1 {
-    color: $color-adaptable;
-    text-transform: uppercase;
-  }
-}
-
 .image {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  transition: $transition-slow-and-steady;
+  transition: $slow-balanced;
 }
 
 .price {
   background: $color-good;
   border-radius: 0.5em;
   color: $color-light;
+  font-family: $font-title;
   font-weight: 700;
   padding: 0.25em 0.5em;
 }
@@ -117,6 +103,25 @@ nav {
   }
   &:nth-child(3n) {
     border-color: $color2;
+  }
+}
+
+.grower {
+  transition: $quick-out;
+  &:hover {
+    transform: $grow;
+  }
+}
+
+.grower-childs {
+  * {
+    transition: $quick-out;
+  }
+  &:hover * {
+    transform: $grow;
+  }
+  &:active * {
+    transform: translateY(5%)
   }
 }
 </style>

@@ -6,14 +6,14 @@
       @click="onMainCategoryClick(id)"
     >
       <div class="marker"></div>
-      <div class="category">
+      <div class="menu-category">
         <h3>{{ name }}</h3>
       </div>
     </button>
     <transition name="slide" mode="in-out">
       <ul class="menu-sub-categories" v-show="isActive">
         <li
-          class="category menu-sub-category"
+          class="menu-category"
           v-for="subCategory in subCategoriesById(id)"
           :key="subCategory.id"
           @click="showProducts(subCategory.id)"
@@ -65,18 +65,19 @@ export default {
   background: $color-background;
   border: none;
   color: $color-dark;
-  font-weight: 700;
+  font-family: $font-title;
   font-size: 1.1em;
+  font-weight: 700;
   text-align: start;
   text-transform: uppercase;
   width: 100%;
 
   & > * {
-    transition: $transition-list-item;
+    transition: $quick-out;
     transform: translateX(-20px);
   }
 
-  & .category {
+  .menu-category {
     padding: 0.5em 2em 0.5em 0.5em;
   }
 
@@ -112,6 +113,7 @@ export default {
 .menu-sub-categories {
   padding-left: 2rem;
   list-style-type: none;
+  font-family: $font-title;
   font-size: 1.1em;
   li:before {
     content: "- ";
@@ -128,7 +130,7 @@ export default {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: $transition-slide;
+  transition: $quick-out;
 }
 
 .slide-enter,
