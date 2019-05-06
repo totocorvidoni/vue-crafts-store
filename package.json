@@ -12,6 +12,7 @@
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "epic-spinners": "^1.0.4",
+    "nprogress": "^0.2.0",
     "v-viewer": "^1.4.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
