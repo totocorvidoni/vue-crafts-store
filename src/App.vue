@@ -9,11 +9,9 @@
         <router-link to="/tienda" class="grower">Contactanos</router-link>
       </nav>
     </header>
-    <router-view/>
+      <router-view/>
     <footer>
-      <h1>
-        Footer stuff soon to come
-      </h1>
+      <h1>Footer stuff soon to come</h1>
       <p>Just you wait...</p>
     </footer>
   </div>
@@ -74,6 +72,9 @@ nav {
 }
 
 footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 1em;
   background: $color3;
   text-align: center;

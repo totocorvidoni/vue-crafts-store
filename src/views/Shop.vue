@@ -10,7 +10,7 @@
     </aside>
     <transition name="fade" mode="out-in">
       <shop-spinner v-if="isLoading" class="spinner"/>
-      <main v-else class="store-catalog">
+      <main v-else-if="productsToDisplay.length != 0" class="store-catalog">
         <product-card
           v-for="product in productsToDisplay"
           :key="product.id"
@@ -23,6 +23,11 @@
           :priceRegular="product.regular_price"
           :onSale="product.on_sale"
         />
+      </main>
+      <main v-else class="not-found">
+        <img src="@/assets/crochet.svg" alt>
+        <h1>Nada por aquí</h1>
+        <p>Nuestros tejedores ya están trabajando para poblar esta sección.</p>
       </main>
     </transition>
   </div>
@@ -70,7 +75,6 @@ export default {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  // grid-auto-rows: 450px;
   grid-gap: 2rem;
   padding: 1em;
 }
@@ -87,5 +91,15 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.not-found {
+  color: $color-dark-faded;
+  text-align: center;
+  padding: 2em;
+  img {
+    height: 256px;
+    width: 256px;
+  }
 }
 </style>

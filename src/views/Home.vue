@@ -10,6 +10,7 @@
         :name="category.name"
       >{{ category.name }}</featured-category>
     </div>
+    <h3>Destacados!!</h3>
   </div>
 </template>
 
