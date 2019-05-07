@@ -10,6 +10,12 @@
       </nav>
     </header>
     <router-view/>
+    <footer>
+      <h1>
+        Footer stuff soon to come
+      </h1>
+      <p>Just you wait...</p>
+    </footer>
   </div>
 </template>
 
@@ -67,7 +73,15 @@ nav {
   grid-auto-flow: column;
 }
 
+footer {
+  padding: 1em;
+  background: $color3;
+  text-align: center;
+  margin-top: 2em;
+}
+
 // ==== Used by more than one component ====
+
 .title {
   text-align: center;
 }
@@ -109,19 +123,20 @@ nav {
 .grower {
   transition: $quick-out;
   &:hover {
-    transform: $grow;
+    transform: scale(1.1) translateY(-2%);
+  }
+  &:active {
+    transform: scale(0.9);
   }
 }
 
 .grower-childs {
-  * {
-    transition: $quick-out;
+  transition: $quick-out;
+  &:hover > * {
+    transform: scale(1.1) translateY(-2%);
   }
-  &:hover * {
-    transform: $grow;
-  }
-  &:active * {
-    transform: translateY(5%)
+  &:active > * {
+    transform: scale(0.9);
   }
 }
 </style>

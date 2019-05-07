@@ -33,13 +33,11 @@ export default {
 .brand {
   font-size: 10rem;
   font-weight: 300;
-  padding: 1rem;
   text-transform: uppercase;
 }
 
 .category-wrapper {
-  display: grid;
-  grid-auto-flow: column;
-  align-content: start;
+  display: flex;
+  justify-content: center;
 }
 </style>
