@@ -10,6 +10,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     allCategories: [],
+    featuredProducts: [],
     activeMenuCategory: null,
     activeProduct: {},
     displayedCategory: null,

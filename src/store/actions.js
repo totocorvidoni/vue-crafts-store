@@ -9,9 +9,14 @@ const API = axios.create({
 });
 
 export default {
-  async setFeaturedCategories({ commit }) {
+  async setAllCategories({ commit }) {
     const response = await API.get("products/categories");
     commit("setAllCategories", response.data);
+  },
+
+  async setFeaturedProducts({ commit }) {
+    const response = await API.get("products?featured=true");
+    commit("setFeaturedProducts", response.data);
   },
 
   async setDisplayedProducts({ commit }, categoryId) {

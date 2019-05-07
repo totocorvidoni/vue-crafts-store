@@ -21,7 +21,7 @@
 export default {
   name: "app",
   beforeCreate: function() {
-    this.$store.dispatch("setFeaturedCategories");
+    this.$store.dispatch("setAllCategories");
   }
 };
 </script>
@@ -90,6 +90,10 @@ footer {
 .image {
   object-fit: cover;
   transition: $slow-balanced;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .price {

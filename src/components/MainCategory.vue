@@ -1,12 +1,12 @@
 <template>
-  <div class="featured-category grower-childs" @click="onClick">
+  <div class="main-category grower-childs" @click="onClick">
     <div class="title">{{ name }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "featured-category",
+  name: "main-category",
   props: {
     id: Number,
     name: String,
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-.featured-category {
+.main-category {
   border-bottom: 2px solid $color4;
   border-top: 2px solid $color4;
   cursor: pointer;

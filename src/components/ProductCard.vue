@@ -21,14 +21,14 @@
 export default {
   name: "product-card",
   props: {
-    id: { type: Number },
-    image: { type: Object },
-    name: { type: String },
-    shortDescription: { type: String },
-    tags: { type: Array },
-    price: { type: String },
-    priceRegular: { type: String },
-    onSale: { type: Boolean }
+    id: Number,
+    image: Object,
+    name: String,
+    shortDescription: String,
+    tags: Array,
+    price: String,
+    priceRegular: String,
+    onSale: Boolean
   },
 
   methods: {
@@ -55,7 +55,6 @@ export default {
 
   .image {
     max-height: 60%;
-    z-index: -10;
   }
 
   .details {
@@ -71,6 +70,7 @@ export default {
     font-size: 0.8em;
     height: 40%;
     padding: 1em;
+    z-index: 10;
 
     .name {
       grid-area: name;

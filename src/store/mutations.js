@@ -2,6 +2,9 @@ export default {
   setAllCategories(state, payload) {
     state.allCategories = payload;
   },
+  setFeaturedProducts(state, products) {
+    state.featuredProducts = products;
+  },
   setActiveMenuCategory(state, menuCategoryId) {
     state.activeMenuCategory = menuCategoryId;
   },
