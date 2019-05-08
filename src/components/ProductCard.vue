@@ -134,4 +134,15 @@ export default {
     }
   }
 }
+
+@media all and (max-width: 530px) {
+  .product-card {
+    border: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    &:hover {
+      z-index: 10;
+    }
+  }
+}
 </style>
