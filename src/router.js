@@ -6,6 +6,7 @@ import store from "@/store/store";
 import Home from "./views/Home.vue";
 import Shop from "./views/Shop.vue";
 import Product from "./views/Product.vue";
+import Cart from "./views/Cart.vue";
 
 Vue.use(Router);
 
@@ -44,6 +45,11 @@ const router = new Router({
       path: "/productos/:id",
       name: "products",
       component: Product
+    },
+    {
+      path: "/pedido",
+      name: "cart",
+      component: Cart
     }
     // {
     //   path: "/about",
