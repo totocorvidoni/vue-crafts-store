@@ -22,8 +22,8 @@ export default {
 
 <style lang="scss">
 .main-category {
-  border-bottom: 2px solid $color4;
-  border-top: 2px solid $color4;
+  border-bottom: 2px solid $color1;
+  border-top: 2px solid $color1;
   cursor: pointer;
   color: $color-light;
   font-size: 2rem;
@@ -41,8 +41,7 @@ export default {
   }
 
   &:hover {
-    border-bottom: 2px solid $color2;
-    border-top: 2px solid $color2;
+    
   }
   
   &:active {

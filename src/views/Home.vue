@@ -69,6 +69,10 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 2em;
+    * {
+      
+      color: $color-dark-light;
+    }
   }
 
   .featured-products {
@@ -108,7 +112,7 @@ export default {
         width: 100%;
       }
     }
-    
+
     .product-wrapper {
       .product {
         width: 45%;

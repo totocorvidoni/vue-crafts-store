@@ -80,6 +80,7 @@ export default {
 }
 
 .spinner {
+  padding: 1em;
   margin: auto;
 }
 
