@@ -14,7 +14,7 @@ export default new Vuex.Store({
     activeMenuCategory: null,
     activeProduct: {},
     displayedCategory: null,
-    displayedProducts: null,
+    displayedProducts: [],
     productsLoading: false,
     relatedProducts: null
   },

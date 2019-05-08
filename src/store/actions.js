@@ -21,7 +21,8 @@ export default {
 
   async setDisplayedProducts({ commit }, categoryId) {
     commit("startLoadingProducts");
-    const response = await API.get(`products/?category=${categoryId}`);
+    const path = categoryId ? `products?category=${categoryId}` : "products";
+    const response = await API.get(path);
     const products = response.data;
     commit("setDisplayedProducts", products);
     commit("stopLoadingProducts");

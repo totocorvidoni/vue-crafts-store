@@ -20,8 +20,9 @@
 <script>
 export default {
   name: "app",
-  beforeCreate: function() {
+  beforeCreate() {
     this.$store.dispatch("setAllCategories");
+    this.$store.dispatch("setDisplayedProducts")
   }
 };
 </script>
