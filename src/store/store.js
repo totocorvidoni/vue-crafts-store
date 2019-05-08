@@ -16,7 +16,8 @@ export default new Vuex.Store({
     displayedCategory: null,
     displayedProducts: [],
     productsLoading: false,
-    relatedProducts: null
+    relatedProducts: null,
+    cart: []
   },
   mutations,
   actions,
