@@ -40,5 +40,27 @@ export default {
       relatedProducts.push(response.data);
     });
     commit("setRelatedProducts", relatedProducts);
+  },
+
+  addProduct(store, product) {
+    const index = store.cart.findIndex(item => {
+      return item.id == product.id;
+    });
+    if (index == -1) {
+      store.commit("addToCart", product);
+    } else {
+      store.commit("incrementItemInCart", index);
+    }
+  },
+
+  removeProduct(store, product) {
+    const index = store.cart.findIndex(item => {
+      return item.id == product.id;
+    });
+    if (store.cart[index].amount == 1) {
+      store.commit("removeFromCart", index);
+    } else {
+      store.commit("decrementItemInCart", index);
+    }
   }
 };
