@@ -4,12 +4,17 @@
       <router-link to="/" class="logo grower">PUPE LEPÚ</router-link>
       <nav>
         <router-link to="/tienda" class="grower">Tienda</router-link>
-        <router-link to="/tienda" class="grower">Pedidos</router-link>
         <router-link to="/tienda" class="grower">Nosotros</router-link>
         <router-link to="/tienda" class="grower">Contactanos</router-link>
       </nav>
+      <router-link to="/pedido" class="grower to-cart">
+        <img src="@/assets/shopping-bag.svg">
+        <div class="cart-counter">
+          <p>{{ itemsInCart }}</p>
+        </div>
+      </router-link>
     </header>
-      <router-view/>
+    <router-view/>
     <footer>
       <h1>Footer stuff soon to come</h1>
       <p>Just you wait...</p>
@@ -18,11 +23,17 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "app",
   beforeCreate() {
     this.$store.dispatch("setAllCategories");
-    this.$store.dispatch("setDisplayedProducts")
+    this.$store.dispatch("setDisplayedProducts");
+  },
+
+  computed: {
+    ...mapGetters(["itemsInCart"])
   }
 };
 </script>
@@ -44,17 +55,24 @@ export default {
 }
 
 header {
-  display: flex;
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  justify-content: start;
+  align-content: center;
   align-items: center;
   background-color: $color3;
-  z-index: 10;
   font-family: $font-title;
   font-weight: 700;
+  padding: 1rem 2rem;
+  z-index: 1100;
 
   a {
     text-decoration: none;
     color: $color-adaptable;
-    padding: 10px 15px;
     text-transform: uppercase;
   }
 }
@@ -69,7 +87,34 @@ header {
 
 nav {
   display: grid;
+  grid-gap: 1rem;
+  justify-content: start;
   grid-auto-flow: column;
+}
+
+.to-cart {
+  align-self:start;
+  position: relative;
+  height: 1.5em;
+  width: 1.5em;
+
+  .cart-counter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 1rem;
+    width: 1rem;
+    background: $color2;
+    border: 4px solid $color3;
+    color: $color-dark-faded;
+    border-radius: 50%;
+    padding: 0.9rem;
+    line-height: 0;
+    left: -17px;
+    bottom: -17px;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
 }
 
 footer {
@@ -132,7 +177,7 @@ footer {
     transform: scale(1.1) translateY(-2%);
   }
   &:active {
-    transform: scale(0.9);
+    transform: $press;
   }
 }
 
@@ -142,7 +187,7 @@ footer {
     transform: scale(1.1) translateY(-2%);
   }
   &:active > * {
-    transform: scale(0.9);
+    transform: $press;
   }
 }
 </style>

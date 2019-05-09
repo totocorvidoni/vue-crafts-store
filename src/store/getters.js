@@ -14,6 +14,8 @@ export default {
     return state.allCategories.filter(category => {
       return category.parent == id;
     });
+  },
+  itemsInCart: state => {
+    return state.cart.length;
   }
 };
-
