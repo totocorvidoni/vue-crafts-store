@@ -43,7 +43,7 @@ export default {
   },
 
   addProduct(store, product) {
-    const index = store.cart.findIndex(item => {
+    const index = store.state.cart.findIndex(item => {
       return item.id == product.id;
     });
     if (index == -1) {
@@ -53,11 +53,11 @@ export default {
     }
   },
 
-  removeProduct(store, product) {
-    const index = store.cart.findIndex(item => {
-      return item.id == product.id;
+  removeProduct(store, productId) {
+    const index = store.state.cart.findIndex(item => {
+      return item.id == productId;
     });
-    if (store.cart[index].amount == 1) {
+    if (store.state.cart[index].amount == 1) {
       store.commit("removeFromCart", index);
     } else {
       store.commit("decrementItemInCart", index);

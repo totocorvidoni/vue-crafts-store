@@ -1,15 +1,15 @@
 <template>
   <div>
     <h1>Mi pedido</h1>
-    <div v-for="item in items" :key="item.id">
-      <cart-item
-        :id="item.id"
-        :image="item.image[0]"
-        :name="item.name"
-        :price="item.price"
-        :amount="item.amount"
-      />
-    </div>
+    <cart-item
+      v-for="item in items"
+      :key="item.id"
+      :id="item.id"
+      :name="item.name"
+      :price="item.price"
+      :amount="item.amount"
+      :image="item.image"
+    />
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     items() {
-      return this.$store.cart;
+      return this.$store.state.cart;
     }
   }
 };
