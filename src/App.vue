@@ -49,7 +49,7 @@ export default {
 }
 
 #app {
-  font-family: $font-body;
+  font-family: $font-regular;
   color: $color-dark;
   font-size: 16pt;
 }
@@ -65,7 +65,7 @@ header {
   align-content: center;
   align-items: center;
   background-color: $color3;
-  font-family: $font-title;
+  font-family: $font-condensed;
   font-weight: 700;
   padding: 1rem 2rem;
   z-index: 100;
@@ -80,7 +80,7 @@ header {
 .logo {
   color: $color-light;
   white-space: nowrap;
-  font-family: $font-title;
+  font-family: $font-condensed;
   font-size: 1.3em;
   font-weight: 400;
 }
@@ -146,7 +146,7 @@ footer {
   background: $color-good;
   border-radius: 0.5em;
   color: $color-light;
-  font-family: $font-title;
+  font-family: $font-condensed;
   font-weight: 700;
   padding: 0.25em 0.5em;
 }

@@ -49,7 +49,7 @@ export default {
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   cursor: pointer;
-  font-family: $font-body;
+  font-family: $font-regular;
   transition: $slow-balanced;
   overflow: hidden;
 
@@ -81,7 +81,7 @@ export default {
     .title {
       grid-area: title;
       color: $color-dark;
-      font-family: $font-body;
+      font-family: $font-regular;
     }
 
     .description {

@@ -65,7 +65,7 @@ export default {
   background: $color-background;
   border: none;
   color: $color-dark;
-  font-family: $font-title;
+  font-family: $font-condensed;
   font-size: 1.1em;
   font-weight: 700;
   text-align: start;
@@ -113,7 +113,7 @@ export default {
 .menu-sub-categories {
   padding-left: 2rem;
   list-style-type: none;
-  font-family: $font-title;
+  font-family: $font-condensed;
   font-size: 1.1em;
   li:before {
     content: "- ";

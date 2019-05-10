@@ -95,7 +95,7 @@ export default {
       margin: 0.5em;
 
       .title {
-        font-family: $font-title;
+        font-family: $font-condensed;
         color: $color1;
         font-weight: 400;
         font-size: 1.8em;

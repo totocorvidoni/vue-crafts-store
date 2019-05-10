@@ -28,7 +28,7 @@ export default {
   color: $color-light;
   font-size: 2rem;
   font-weight: 700;
-  font-family: $font-title;
+  font-family: $font-condensed;
   text-transform: uppercase;
   transition: $quick-out;
 

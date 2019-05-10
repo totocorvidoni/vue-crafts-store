@@ -150,7 +150,7 @@ export default {
     border-top-right-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
     color: $color-light;
-    font-family: $font-title;
+    font-family: $font-condensed;
     margin-left: 0.5em;
     padding: 0.5em;
     text-align: center;
