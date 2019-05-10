@@ -1,6 +1,6 @@
 <template>
   <div class="card-item">
-    <img :src="image.shop_catalog" :alt="image.alt" class="picture">
+    <img :src="image.shop_thumbnail" :alt="image.alt" class="picture">
     <div class="info-wrapper">
       <h2 class="title">{{ name }}</h2>
       <div class="price-card">Precio por unidad: ${{ price }}</div>
@@ -57,31 +57,34 @@ export default {
   grid-template-areas:
     "picture info amount more total"
     "picture info amount less total";
-  grid-template-columns: 1fr 3fr auto auto;
-  grid-auto-rows: 1fr;
+  grid-template-columns: auto 1fr auto auto;
   place-items: center;
   border: $border-card;
   border-radius: 0.5em;
   font-weight: 700;
 
   .picture {
+    grid-area: picture;
+    justify-self: start;
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
-    grid-area: picture;
-    height: 100%;
-    width: 100%;
     object-fit: cover;
+    height: auto;
+    width: 100px;
+
   }
 
   .info-wrapper {
     grid-area: info;
+    // justify-self: start;
     display: grid;
     line-height: 1.5em;
+    padding: 0 1em;
   }
 
   .title {
     align-self: end;
-    color: $color-dark-light;
+    color: $color-dark;
   }
 
   .price-card {
@@ -104,13 +107,13 @@ export default {
   }
 
   .more {
-    align-self: end;
     grid-area: more;
+    align-self: end;
   }
 
   .less {
-    align-self: start;
     grid-area: less;
+    align-self: start;
   }
 
   .more,
@@ -120,12 +123,13 @@ export default {
     border-radius: 0.25em;
     color: $color-light;
     font-weight: 700;
-    font-size: 1.2em;
+    font-size: 1.4em;
     transition: $quick-out;
-    height: 1.3em;
-    width: 1.3em;
+    height: 1.2em;
+    width: 1.2em;
+    line-height: 1em;
     &:hover {
-      border: 2px solid $color4-strong;
+      transform: scale(1.1);
       cursor: pointer;
     }
     &:active {
