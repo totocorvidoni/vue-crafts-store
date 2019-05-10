@@ -9,7 +9,7 @@
       </nav>
       <router-link to="/pedido" class="grower to-cart">
         <img src="@/assets/shopping-bag.svg">
-        <div class="cart-counter">
+        <div class="cart-counter" v-if="$store.state.cart.length">
           <p>{{ itemsInCart }}</p>
         </div>
       </router-link>
@@ -68,7 +68,7 @@ header {
   font-family: $font-title;
   font-weight: 700;
   padding: 1rem 2rem;
-  z-index: 1100;
+  z-index: 100;
 
   a {
     text-decoration: none;
@@ -104,9 +104,9 @@ nav {
     justify-content: center;
     height: 1rem;
     width: 1rem;
-    background: $color2;
-    border: 4px solid $color3;
-    color: $color-dark-faded;
+    background: $color-dark-light;
+    border: 4px solid $color-light;
+    color: $color-light;
     border-radius: 50%;
     padding: 0.9rem;
     line-height: 0;
