@@ -12,10 +12,16 @@
             <li v-for="item in attribute.options">{{ item }}</li>
           </ul>
         </div>
-        <div class="price">${{ info.price }}</div>
+
+        <div class="call-to-action">
+          <div class="price">${{ info.price }}</div>
+          <div class="button add-to-cart">
+            <img src="@/assets/add-to-bag.svg" alt>
+          </div>
+        </div>
       </div>
     </main>
-    <aside class="related" v-cloak>
+    <aside class="related">
       <h3>Nuestras sugerencias</h3>
       <div class="products">
         <product-card
@@ -27,7 +33,6 @@
           :price="product.price"
           :priceRegular="product.regular_price"
           :onSale="product.on_sale"
-
         />
       </div>
     </aside>
@@ -118,10 +123,25 @@ export default {
         font-weight: 400;
       }
 
+      .call-to-action {
+        display: flex;
+        height: 100px;
+      }
+
       .price {
-        display: inline-block;
-        font-size: 1.3em;
-        margin-top: 1em;
+        font-size: 1.2em;
+      }
+
+      .add-to-cart {
+        background: $color1-strong;
+        border-radius: 0.5em;
+        color: $color-light;
+        padding: 1rem;
+        height: 100%;
+
+        img {
+          height: 100%;
+        }
       }
 
       .details {
@@ -150,7 +170,8 @@ export default {
       }
     }
   }
-  .related{
+
+  .related {
     display: grid;
     place-content: center;
     h3 {
@@ -164,9 +185,6 @@ export default {
       grid-auto-columns: 180px;
       grid-template-rows: 280px;
       padding: 1em;
-    }
-    [v-cloak] {
-      display: none;
     }
   }
 }

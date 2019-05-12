@@ -95,8 +95,8 @@ nav {
 .to-cart {
   align-self:start;
   position: relative;
-  height: 1.5em;
-  width: 1.5em;
+  height: 1.75em;
+  width: 1.75em;
 
   .cart-counter {
     position: absolute;
@@ -108,10 +108,10 @@ nav {
     border: 4px solid $color-light;
     color: $color-light;
     border-radius: 50%;
-    padding: 0.9rem;
+    padding: 0.8rem;
     line-height: 0;
-    left: -17px;
-    bottom: -17px;
+    left: -50%;
+    bottom: -25%;
     font-size: 1.2rem;
     font-weight: 700;
   }
@@ -140,6 +140,31 @@ footer {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.button {
+  border-radius: 0.25em;
+  font-weight: 700;
+  transition: $quick-out;
+  &[disabled="disabled"] {
+    opacity: 0.5;
+    &:hover {
+      transform: none;
+      filter: none;
+      cursor: not-allowed;
+    }
+  }
+  &:hover {
+    filter: contrast(200%);
+    cursor: pointer;
+  }
+  &:active {
+    transform: $press;
+  }
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }
 
 .price {

@@ -1,3 +1,10 @@
+function findIndexById(collection, itemId) {
+  const index = collection.findIndex(item => {
+    return item.id == itemId;
+  });
+  return index;
+}
+
 export default {
   setAllCategories(state, payload) {
     state.allCategories = payload;
@@ -40,15 +47,18 @@ export default {
     state.cart.push(product);
   },
 
-  removeFromCart(state, index) {
+  removeFromCart(state, id) {
+    const index = findIndexById(state.cart, id);
     state.cart.splice(index, 1);
   },
 
-  incrementItemInCart(state, index) {
+  incrementItemInCart(state, id) {
+    const index = findIndexById(state.cart, id);
     state.cart[index].amount += 1;
   },
 
-  decrementItemInCart(state, index) {
+  decrementItemInCart(state, id) {
+    const index = findIndexById(state.cart, id);
     state.cart[index].amount -= 1;
   }
 };

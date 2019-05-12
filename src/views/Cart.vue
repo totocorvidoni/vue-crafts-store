@@ -10,10 +10,13 @@
         :price="item.price"
         :amount="item.amount"
         :image="item.image"
-        class="item"
       />
     </div>
-    <div class="details"></div>
+    <div class="details">
+      <h2>Resumen</h2>
+      <p>Total: ${{ priceSum }}</p>
+      <div>comentarios</div>
+    </div>
   </div>
 </template>
 
@@ -28,6 +31,12 @@ export default {
   computed: {
     items() {
       return this.$store.state.cart;
+    },
+    priceSum() {
+      const items = this.$store.state.cart.map(item => {
+        return parseInt(item.price) * item.amount;
+      });
+      return items.reduce((sum, currentItem) => sum + currentItem, 0);
     }
   }
 };
@@ -50,11 +59,10 @@ export default {
   .items-wrapper {
     grid-column: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, 575px);
     grid-column-gap: 3rem;
     grid-row-gap: 1.5rem;
     padding: 0 2em;
-    width: 100%;
     justify-content: center;
   }
 
@@ -62,6 +70,8 @@ export default {
     grid-column: 2;
     grid-row: 1 / -1;
     background: $color4;
+    font-family: $font-condensed;
+    font-size: 1.5em;
   }
 }
 </style>
