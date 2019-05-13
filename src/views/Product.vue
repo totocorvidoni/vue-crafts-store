@@ -14,7 +14,7 @@
         </div>
 
         <div class="call-to-action">
-          <div class="price">${{ info.price }}</div>
+          <price-tag :price="info.price" :priceRegular="info.regular_price" />
           <div class="button add-to-cart">
             <img src="@/assets/add-to-bag.svg" alt>
           </div>
@@ -44,12 +44,15 @@
 import store from "@/store/store"; // to access the store before component is created.
 import Showcase from "@/components/ProductShowcase.vue";
 import ProductCard from "@/components/ProductCard.vue";
+import PriceTag from "@/components/base/PriceTag.vue"
 
 export default {
+
   name: "full-product",
   components: {
     Showcase,
-    ProductCard
+    ProductCard,
+    PriceTag
   },
 
   computed: {

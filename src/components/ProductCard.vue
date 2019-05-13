@@ -10,14 +10,15 @@
         <span v-for="tag in tags" :key="tag.id" class="tag">{{ tag.name }}</span>
       </div>
       <div class="price-wrapper">
-        <span v-if="onSale" class="discount">${{ priceRegular }}</span>
-        <span class="price">${{ price }}</span>
+        <price-tag :price="price" :priceRegular="priceRegular" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import PriceTag from "@/components/base/PriceTag.vue"
+
 export default {
   name: "product-card",
   props: {
@@ -29,6 +30,10 @@ export default {
     price: String,
     priceRegular: String,
     onSale: Boolean
+  },
+
+  components: {
+    PriceTag
   },
 
   methods: {
@@ -110,13 +115,6 @@ export default {
       justify-self: end;
       grid-area: price;
       margin-left: 5px;
-
-      .discount {
-        font-weight: 700;
-        margin-right: 5px;
-        color: $color-dark-faded;
-        text-decoration: line-through $color-bad;
-      }
     }
   }
 

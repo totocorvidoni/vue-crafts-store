@@ -167,15 +167,6 @@ footer {
   }
 }
 
-.price {
-  background: $color-good;
-  border-radius: 0.5em;
-  color: $color-light;
-  font-family: $font-condensed;
-  font-weight: 700;
-  padding: 0.25em 0.5em;
-}
-
 .color-step {
   background: $color1;
   &:nth-child(3n + 1) {

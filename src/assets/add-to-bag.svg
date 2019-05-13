@@ -28,7 +28,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,13 +63,13 @@
      inkscape:connector-curvature="0" />
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:301.6210022px;line-height:1.25;font-family:Oxygen-Sans;-inkscape-font-specification:Oxygen-Sans;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.57094264;"
-     x="80.168091"
-     y="169.42856"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:250.99609375px;line-height:1.25;font-family:Oxygen-Sans;-inkscape-font-specification:Oxygen-Sans;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.30727124;"
+     x="67.116753"
+     y="141.07861"
      id="text938"><tspan
        sodipodi:role="line"
        id="tspan936"
-       x="80.168091"
-       y="169.42856"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:301.6210022px;font-family:'Tlwg Typo';-inkscape-font-specification:'Tlwg Typo Bold';text-align:center;text-anchor:middle;stroke-width:1.57094264;fill:#ffffff;">+</tspan></text>
+       x="67.116745"
+       y="141.07861"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:250.99609375px;font-family:'Tlwg Typo';-inkscape-font-specification:'Tlwg Typo Bold';text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:1.30727124;">+</tspan></text>
 </svg>
