@@ -73,8 +73,7 @@ export default {
   .price {
     background: $color-good;
     color: $color-light;
-    border-radius: 0.5em;
-      padding: 0.10em 0.3em;
+    padding: 0.10em 0.2em;
   }
 }
 </style>

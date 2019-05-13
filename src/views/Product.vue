@@ -13,10 +13,11 @@
           </ul>
         </div>
         <div class="call-to-action">
-          <price-tag :price="info.price" :priceRegular="info.regular_price" />
-          <div class="button add-to-cart">
+          <price-tag :price="info.price" :priceRegular="info.regular_price"/>
+          <button class="button add-to-cart" @click="onAddToCartClick" :disabled="productInCart">
+            <pop-up>This is what is going to say</pop-up>
             <img src="@/assets/add-to-bag.svg" alt>
-          </div>
+          </button>
         </div>
       </div>
     </main>
@@ -43,15 +44,22 @@
 import store from "@/store/store"; // to access the store before component is created.
 import Showcase from "@/components/ProductShowcase.vue";
 import ProductCard from "@/components/ProductCard.vue";
-import PriceTag from "@/components/base/PriceTag.vue"
+import PriceTag from "@/components/base/PriceTag.vue";
+import PopUp from "@/components/base/PopUp.vue";
 
 export default {
-
   name: "full-product",
   components: {
     Showcase,
     ProductCard,
-    PriceTag
+    PriceTag,
+    PopUp
+  },
+
+  methods: {
+    onAddToCartClick() {
+      return this.$store.commit("addToCart", this.info);
+    }
   },
 
   computed: {
@@ -61,6 +69,12 @@ export default {
 
     relatedProducts() {
       return this.$store.state.relatedProducts;
+    },
+
+    productInCart() {
+      return this.$store.state.cart.some(item => {
+        return item.id == this.info.id;
+      });
     }
   },
 
@@ -126,25 +140,31 @@ export default {
       }
 
       .call-to-action {
-        display: grid;
-        grid-auto-flow: column;
-        grid-gap: 10px;
-        justify-content: start;
+        position: relative;
+        display: inline-flex;
+        justify-content: flex-start;
+        align-content: center;
         font-size: 1.2em;
         margin-top: 1em;
+        height: 50px;
       }
 
       .add-to-cart {
         display: grid;
         align-content: center;
         background: $color1-strong;
+        border: none;
         border-radius: 0.5em;
         color: $color-light;
         padding: 0.25em;
+        width: 100%;
+        height: 100%;
+        margin-left: 10px;
 
         img {
+          width: auto;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
         }
       }
 

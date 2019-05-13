@@ -9,7 +9,7 @@
         :name="item.name"
         :price="item.price"
         :amount="item.amount"
-        :image="item.image"
+        :image="item.images[0]"
       />
     </div>
     <div class="details">

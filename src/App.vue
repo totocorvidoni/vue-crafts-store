@@ -110,7 +110,7 @@ nav {
     border-radius: 50%;
     padding: 0.8rem;
     line-height: 0;
-    left: -50%;
+    left: -33%;
     bottom: -25%;
     font-size: 1.2rem;
     font-weight: 700;
