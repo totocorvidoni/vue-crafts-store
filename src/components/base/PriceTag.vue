@@ -1,7 +1,11 @@
 <template>
   <div class="price-tag">
-    <p class="discount" v-if="priceRegular != price">{{ formatPrice(priceRegular) }}</p>
-    <p class="price">{{ formatPrice(price) }}</p>
+    <div class="discount" v-if="priceRegular != price">
+      <p>{{ formatPrice(priceRegular) }}</p>
+    </div>
+    <div class="price">
+      <p class="price">{{ formatPrice(price) }}</p>
+    </div>
   </div>
 </template>
 
@@ -48,28 +52,29 @@ export default {
 
 <style lang="scss">
 .price-tag {
-  position: relative;
   display: grid;
-  align-content: center;
-  background: $color-good;
-  color: $color-light;
-  border-radius: 0.5em;
+  grid-auto-flow: column;
+  align-items: center;
+
   font-family: $font-condensed;
   font-weight: 700;
-  padding: 0.25em 0.5em;
+
 
   .discount {
-    position: absolute;
-    top: -1.1em;
-    left: 0;
-    right: 0;
     color: $color-dark-light;
     line-height: 1em;
     font-weight: 700;
-    margin: auto;
+    font-size: 0.8em;
     text-decoration: line-through $color-bad;
     text-align: center;
-    z-index: -2;
+    margin-right: 0.25em;
+  }
+
+  .price {
+    background: $color-good;
+    color: $color-light;
+    border-radius: 0.5em;
+      padding: 0.10em 0.3em;
   }
 }
 </style>

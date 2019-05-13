@@ -12,7 +12,6 @@
             <li v-for="item in attribute.options">{{ item }}</li>
           </ul>
         </div>
-
         <div class="call-to-action">
           <price-tag :price="info.price" :priceRegular="info.regular_price" />
           <div class="button add-to-cart">
@@ -127,23 +126,25 @@ export default {
       }
 
       .call-to-action {
-        display: flex;
-        height: 100px;
-      }
-
-      .price {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 10px;
+        justify-content: start;
         font-size: 1.2em;
+        margin-top: 1em;
       }
 
       .add-to-cart {
+        display: grid;
+        align-content: center;
         background: $color1-strong;
         border-radius: 0.5em;
         color: $color-light;
-        padding: 1rem;
-        height: 100%;
+        padding: 0.25em;
 
         img {
           height: 100%;
+          object-fit: cover;
         }
       }
 

@@ -13,27 +13,25 @@
    data-icon="shopping-bag"
    class="svg-inline--fa fa-shopping-bag fa-w-14"
    role="img"
-   viewBox="0 0 492 402"
+   viewBox="0 0 448 512"
    version="1.1"
-   id="svg928"
+   id="svg5245"
    sodipodi:docname="add-to-bag.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   width="492"
-   height="402">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <metadata
-     id="metadata934">
+     id="metadata5251">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs932" />
+     id="defs5249" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -45,31 +43,23 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
-     id="namedview930"
+     id="namedview5247"
      showgrid="false"
-     inkscape:zoom="0.765625"
-     inkscape:cx="178.6817"
-     inkscape:cy="259.29659"
+     inkscape:zoom="0.53999756"
+     inkscape:cx="498.78465"
+     inkscape:cy="330.66821"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg928"
-     showguides="true"
-     inkscape:guide-bbox="true" />
-  <path
-     d="M 418.77551,127.22449 V 102.2449 c 0,-55.09561 -44.82354,-99.91837 -99.91837,-99.91837 -55.09561,0 -99.91836,44.82276 -99.91836,99.91837 v 24.97959 H 144 V 339.55102 C 144,374.04081 171.95919,402 206.44898,402 h 224.81633 c 34.48979,0 62.44898,-27.95919 62.44898,-62.44898 V 127.22449 Z M 268.89796,102.2449 c 0,-27.54781 22.41138,-49.95919 49.95918,-49.95919 27.54781,0 49.95919,22.41138 49.95919,49.95919 v 24.97959 h -99.91837 z m 124.89796,93.67347 c -10.34702,0 -18.7347,-8.38768 -18.7347,-18.7347 0,-10.34701 8.38768,-18.73469 18.7347,-18.73469 10.34701,0 18.73469,8.38768 18.73469,18.73469 0,10.34702 -8.38768,18.7347 -18.73469,18.7347 z m -149.87755,0 c -10.34702,0 -18.7347,-8.38768 -18.7347,-18.7347 0,-10.34701 8.38768,-18.73469 18.7347,-18.73469 10.34701,0 18.73469,8.38768 18.73469,18.73469 0,10.34702 -8.38768,18.7347 -18.73469,18.7347 z"
-     id="path926"
-     style="fill:#ffffff;stroke-width:0.78061223"
-     inkscape:connector-curvature="0" />
-  <text
-     xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:250.99609375px;line-height:1.25;font-family:Oxygen-Sans;-inkscape-font-specification:Oxygen-Sans;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.30727124;"
-     x="67.116753"
-     y="141.07861"
-     id="text938"><tspan
-       sodipodi:role="line"
-       id="tspan936"
-       x="67.116745"
-       y="141.07861"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:250.99609375px;font-family:'Tlwg Typo';-inkscape-font-specification:'Tlwg Typo Bold';text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:1.30727124;">+</tspan></text>
+     inkscape:current-layer="svg5245" />
+  <g
+     aria-label="+"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:575.20098877px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:14.38002491;fill-rule:evenodd"
+     id="text5274"
+     transform="translate(11.022459,-45.75391)">
+    <path
+       id="path5276"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL';fill:#ffffff;stroke-width:9.49983406;fill-rule:evenodd"
+       d="m 192.38262,293.43503 v 68.09491 H 124.2877 v 40.26213 h 68.09492 v 68.28071 h 39.89181 v -68.28071 h 69.39295 v -40.26213 h -69.39295 v -68.09491 z m 148.59492,-87.68112 v -32 c 0,-70.58 -57.421,-128 -128,-128 -70.58,0 -127.999999,57.42 -127.999999,128 v 32 h -96 v 272 c 0,44.183 35.817,80 80,80 H 356.97754 c 44.183,0 80,-35.817 80,-80 v -272 z m -192,-32 c 0,-35.29 28.71,-64 64,-64 35.29,0 64,28.71 64,64 v 32 h -128 z m 160,120 c -13.255,0 -24,-10.745 -24,-24 0,-13.255 10.745,-24 24,-24 13.255,0 24,10.745 24,24 0,13.255 -10.745,24 -24,24 z m -192,0 c -13.255,0 -23.999999,-10.745 -23.999999,-24 0,-13.255 10.744999,-24 23.999999,-24 13.255,0 24,10.745 24,24 0,13.255 -10.745,24 -24,24 z" />
+  </g>
 </svg>
