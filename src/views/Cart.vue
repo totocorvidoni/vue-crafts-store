@@ -68,7 +68,8 @@ export default {
   grid-gap: 1rem;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 4em 1fr;
-  place-content: center;
+  justify-content: center;
+  align-items: start;
 
   .title {
     align-self: center;

@@ -169,8 +169,8 @@ export default {
       }
 
       .action-icon {
-        display: grid;
-        place-content: center;
+        // display: grid;
+        // place-content: center;
         border: none;
         border-radius: 0.5em;
         color: $color-light;
