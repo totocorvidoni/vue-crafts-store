@@ -7,8 +7,14 @@ import Home from "./views/Home.vue";
 import Shop from "./views/Shop.vue";
 import Product from "./views/Product.vue";
 import Cart from "./views/Cart.vue";
+import About from "./views/About.vue";
+import Contact from "./views/Contact.vue";
 
 Vue.use(Router);
+
+NProgress.configure({
+  showSpinner: false
+});
 
 const router = new Router({
   mode: "history",
@@ -50,6 +56,16 @@ const router = new Router({
       path: "/pedido",
       name: "cart",
       component: Cart
+    },
+    {
+      path: "/nosotros",
+      name: "about",
+      component: About
+    },
+    {
+      path: "/contacto",
+      name: "contact",
+      component: Contact
     }
     // {
     //   path: "/about",
