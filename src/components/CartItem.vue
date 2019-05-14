@@ -87,17 +87,18 @@ export default {
     border-bottom: $border-card;
     display: flex;
     align-content: center;
+    padding: 0.25em 0.5em;
     width: 100%;
   }
 
   .item {
     display: grid;
-    grid-column-gap: 5px;
+    grid-column-gap: 10px;
     grid-row-gap: 5px;
     grid-template-areas:
       "info amount more"
       "info amount less";
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: 1fr auto auto;
     place-items: center;
     justify-items: space-between;
     font-weight: 700;
@@ -109,11 +110,13 @@ export default {
       display: grid;
       line-height: 1.5em;
       padding: 0 1em;
+      text-align: center;
     }
 
     .title {
       align-self: end;
       color: $color-dark;
+      line-height: 1.2em;
     }
 
     .price-card {
@@ -121,6 +124,7 @@ export default {
       color: $color-dark-light;
       font-weight: 400;
       font-size: 0.8em;
+      line-height: 1.2em;
     }
 
     .amount {

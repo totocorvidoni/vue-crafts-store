@@ -59,7 +59,7 @@ export default {
   .items-wrapper {
     grid-column: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 575px);
+    grid-template-columns: repeat(auto-fit, 1fr);
     grid-column-gap: 3rem;
     grid-row-gap: 1.5rem;
     padding: 0 2em;

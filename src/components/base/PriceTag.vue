@@ -55,10 +55,8 @@ export default {
   display: grid;
   grid-auto-flow: column;
   align-items: center;
-
   font-family: $font-condensed;
   font-weight: 700;
-
 
   .discount {
     color: $color-dark-light;
