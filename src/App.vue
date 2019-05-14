@@ -4,8 +4,8 @@
       <router-link to="/" class="logo grower">PUPE LEPÚ</router-link>
       <nav>
         <router-link to="/tienda" class="grower">Tienda</router-link>
-        <router-link to="/tienda" class="grower">Nosotros</router-link>
-        <router-link to="/tienda" class="grower">Contactanos</router-link>
+        <router-link to="/nosotros" class="grower">Nosotros</router-link>
+        <router-link to="/contacto" class="grower">Contactanos</router-link>
       </nav>
       <router-link to="/pedido" class="grower to-cart">
         <img src="@/assets/shopping-bag.svg">
@@ -127,17 +127,13 @@ nav {
 }
 
 footer {
-  margin-top: 1em;
+  margin-top: 1rem;
   padding: 1em;
   background: $color3;
   text-align: center;
 }
 
 // ==== Used by more than one component ====
-
-.title {
-  text-align: center;
-}
 
 .image {
   object-fit: cover;
