@@ -1,5 +1,6 @@
 <template>
   <div class="cart-item">
+    <button @click="$store.commit("incrementItemInCart", id)">
     <img :src="image.shop_thumbnail" :alt="image.alt" class="picture">
     <div class="info-border">
       <transition name="fade" mode="out-in">
@@ -52,13 +53,13 @@ export default {
 
   methods: {
     more() {
-      this.$store.commit("incrementItemInCart", this.id);
+      this.$store.dispatch("incrementItemInCart", this.id);
     },
     less() {
-      this.$store.commit("decrementItemInCart", this.id);
+      this.$store.dispatch("decrementItemInCart", this.id);
     },
     remove() {
-      this.$store.commit("removeFromCart", this.id);
+      this.$store.dispatch("removeFromCart", this.id);
     }
   },
 

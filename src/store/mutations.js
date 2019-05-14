@@ -1,10 +1,3 @@
-function findIndexById(collection, itemId) {
-  const index = collection.findIndex(item => {
-    return item.id == itemId;
-  });
-  return index;
-}
-
 export default {
   setAllCategories(state, payload) {
     state.allCategories = payload;
@@ -43,22 +36,18 @@ export default {
   },
 
   addToCart(state, product) {
-    product.amount = 1;
     state.cart.push(product);
   },
 
-  removeFromCart(state, id) {
-    const index = findIndexById(state.cart, id);
+  removeFromCart(state, index) {
     state.cart.splice(index, 1);
   },
 
-  incrementItemInCart(state, id) {
-    const index = findIndexById(state.cart, id);
+  incrementItemInCart(state, index) {
     state.cart[index].amount += 1;
   },
 
-  decrementItemInCart(state, id) {
-    const index = findIndexById(state.cart, id);
+  decrementItemInCart(state, index) {
     state.cart[index].amount -= 1;
   }
 };

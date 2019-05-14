@@ -67,11 +67,11 @@ export default {
 
   methods: {
     onAddToCartClick() {
-      return this.$store.commit("addToCart", this.info);
+      return this.$store.dispatch("addToCart", this.info);
     },
 
     onRemoveFromCartClick() {
-      return this.$store.commit("removeFromCart", this.info.id);
+      return this.$store.dispatch("removeFromCart", this.info.id);
     }
   },
 

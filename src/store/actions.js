@@ -8,6 +8,13 @@ const API = axios.create({
   }
 });
 
+function findIndexById(collection, itemId) {
+  const index = collection.findIndex(item => {
+    return item.id == itemId;
+  });
+  return index;
+}
+
 export default {
   async setAllCategories({ commit }) {
     const response = await API.get("products/categories");
@@ -42,25 +49,23 @@ export default {
     commit("setRelatedProducts", relatedProducts);
   },
 
-  addProduct(store, product) {
-    const index = store.state.cart.findIndex(item => {
-      return item.id == product.id;
-    });
-    if (index == -1) {
-      store.commit("addToCart", product);
-    } else {
-      store.commit("incrementItemInCart", index);
-    }
+  addToCart(store, product) {
+    product.amount = 1;
+    store.commit("addToCart", product);
   },
 
-  removeProduct(store, productId) {
-    const index = store.state.cart.findIndex(item => {
-      return item.id == productId;
-    });
-    if (store.state.cart[index].amount == 1) {
-      store.commit("removeFromCart", index);
-    } else {
-      store.commit("decrementItemInCart", index);
-    }
+  removeFromCart(store, productId) {
+    const index = findIndexById(store.state.cart, productId);
+    store.commit("removeFromCart", index);
+  },
+
+  incrementItemInCart(store, productId) {
+    const index = findIndexById(store.state.cart, productId);
+    store.commit("incrementItemInCart", index);
+  },
+
+  decrementItemInCart(store, productId) {
+    const index = findIndexById(store.state.cart, productId);
+    store.commit("decrementItemInCart", index);
   }
 };
