@@ -26,7 +26,7 @@
       <p class="number">${{ total }}</p>
       <transition name="fade">
         <div class="close-wrapper button" @click="deletePrompt = true" v-show="!deletePrompt">
-          <img src="@/assets/cancel.svg" alt class="close">
+          <img src="@/assets/delete.svg" alt class="close">
         </div>
       </transition>
     </div>

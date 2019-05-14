@@ -14,9 +14,21 @@
         </div>
         <div class="call-to-action">
           <price-tag :price="info.price" :priceRegular="info.regular_price"/>
-          <button class="button add-to-cart" @click="onAddToCartClick" :disabled="productInCart">
-            <pop-up>This is what is going to say</pop-up>
-            <img src="@/assets/add-to-bag.svg" alt>
+          <button
+            class="button action-icon add"
+            v-if="!productInCart"
+            v-tooltip="{ content: 'Agregar al pedido' }"
+            @click="onAddToCartClick"
+          >
+            <img src="@/assets/add.svg">
+          </button>
+          <button
+            class="button action-icon remove"
+            v-else
+            v-tooltip="{ content: 'Eliminar del pedido' }"
+            @click="onRemoveFromCartClick"
+          >
+            <img src="@/assets/delete.svg">
           </button>
         </div>
       </div>
@@ -36,7 +48,6 @@
         />
       </div>
     </aside>
-    <router-link :to="{ name: 'products', params: { id: '96' } }">GO</router-link>
   </div>
 </template>
 
@@ -45,20 +56,22 @@ import store from "@/store/store"; // to access the store before component is cr
 import Showcase from "@/components/ProductShowcase.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import PriceTag from "@/components/base/PriceTag.vue";
-import PopUp from "@/components/base/PopUp.vue";
 
 export default {
   name: "full-product",
   components: {
     Showcase,
     ProductCard,
-    PriceTag,
-    PopUp
+    PriceTag
   },
 
   methods: {
     onAddToCartClick() {
       return this.$store.commit("addToCart", this.info);
+    },
+
+    onRemoveFromCartClick() {
+      return this.$store.commit("removeFromCart", this.info.id);
     }
   },
 
@@ -149,14 +162,21 @@ export default {
         height: 50px;
       }
 
-      .add-to-cart {
+      .add {
+        background: $color-good;
+      }
+
+      .remove {
+        background: $color-bad;
+      }
+
+      .action-icon {
         display: grid;
-        align-content: center;
-        background: $color1-strong;
+        place-content: center;
         border: none;
         border-radius: 0.5em;
         color: $color-light;
-        padding: 0.25em;
+        padding: 0.75em;
         width: 100%;
         height: 100%;
         margin-left: 10px;

@@ -97,6 +97,11 @@ nav {
   position: relative;
   height: 1.75em;
   width: 1.75em;
+  
+  img {
+    width: 100%;
+    height: 100%;
+  }
 
   .cart-counter {
     position: absolute;
@@ -155,7 +160,7 @@ footer {
     }
   }
   &:hover {
-    filter: contrast(200%);
+    filter: contrast(150%);
     cursor: pointer;
   }
   &:active {
