@@ -6,7 +6,7 @@
         <div v-if="!deletePrompt" key="item" class="item">
           <div class="info-wrapper">
             <h2 class="title">{{ name }}</h2>
-            <div class="price-card">Precio por unidad: ${{ price }}</div>
+            <div class="price-card">Precio por unidad: {{ formatPrice(price) }}</div>
           </div>
           <div class="amount">{{ amount }}</div>
           <button class="more button" @click="more">+</button>
@@ -23,7 +23,7 @@
     </div>
     <div class="total">
       <p class="text">Total</p>
-      <p class="number">${{ total }}</p>
+      <p class="number">{{ formatPrice(total) }}</p>
       <transition name="fade">
         <div class="close-wrapper button" @click="deletePrompt = true" v-show="!deletePrompt">
           <img src="@/assets/delete.svg" alt class="close">
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import priceFormatter from "@/components/mixins/priceFormatter"
+
 export default {
   name: "cart-item",
   props: {
@@ -43,6 +45,7 @@ export default {
     price: String,
     amount: Number
   },
+  mixins: [priceFormatter],
 
   data() {
     return {
@@ -64,7 +67,7 @@ export default {
 
   computed: {
     total() {
-      return parseInt(this.price, 10) * this.amount;
+      return parseFloat(this.price) * this.amount;
     }
   }
 };
