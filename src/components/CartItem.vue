@@ -1,6 +1,5 @@
 <template>
   <div class="cart-item">
-    <button @click="$store.commit("incrementItemInCart", id)">
     <img :src="image.shop_thumbnail" :alt="image.alt" class="picture">
     <div class="info-border">
       <transition name="fade" mode="out-in">

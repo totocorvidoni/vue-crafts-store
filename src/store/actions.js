@@ -1,4 +1,5 @@
 import axios from "axios";
+import Vue from "vue";
 
 const API = axios.create({
   baseURL: process.env.VUE_APP_WOO_URL,
@@ -50,7 +51,7 @@ export default {
   },
 
   addToCart(store, product) {
-    product.amount = 1;
+    Vue.set(product, "amount", 1);
     store.commit("addToCart", product);
   },
 
