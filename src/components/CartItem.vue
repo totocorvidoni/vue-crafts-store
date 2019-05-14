@@ -1,6 +1,6 @@
 <template>
   <div class="cart-item">
-    <img :src="image.shop_thumbnail" :alt="image.alt" class="picture">
+    <router-link :to="{ name: 'products', params: { id: id}}" tag="img" :src="image.shop_thumbnail" :alt="image.alt" class="picture" />
     <div class="info-border">
       <transition name="fade" mode="out-in">
         <div v-if="!deletePrompt" key="item" class="item">
@@ -80,6 +80,14 @@ export default {
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     object-fit: cover;
+    transition: $quick-out;
+    &:hover {
+      cursor: pointer;
+      filter: $little-light
+    }
+    &:active{
+      filter: $big-light;
+    }
   }
 
   .info-border {
