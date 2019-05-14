@@ -17,5 +17,9 @@ export default {
   },
   itemsInCart: state => {
     return state.cart.length;
+  },
+
+  productInCart: state => id => {
+    return state.cart.some(item => item.id == id);
   }
 };

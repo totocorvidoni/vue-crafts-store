@@ -85,9 +85,7 @@ export default {
     },
 
     productInCart() {
-      return this.$store.state.cart.some(item => {
-        return item.id == this.info.id;
-      });
+      return this.$store.getters.productInCart(this.info.id)
     }
   },
 
