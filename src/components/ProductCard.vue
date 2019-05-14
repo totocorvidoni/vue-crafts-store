@@ -1,5 +1,6 @@
 <template>
   <div class="product-card" @click="onCardClick">
+    <div class="on-cart" v-if="productInCart">En el pedido</div>
     <img :src="image.shop_catalog" :alt="image.alt" class="image">
     <div class="details">
       <div class="name">
@@ -42,12 +43,17 @@ export default {
     }
   },
 
-  computed: {}
+  computed: {
+    productInCart() {
+      return this.$store.getters.productInCart(this.id)
+    }
+  }
 };
 </script>
 
 <style lang="scss">
 .product-card {
+  position: relative;
   display: flex;
   flex-flow: column;
   border: $border-card;
@@ -57,6 +63,20 @@ export default {
   font-family: $font-regular;
   transition: $slow-balanced;
   overflow: hidden;
+
+  .on-cart {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background: $color-good;
+    color: $color-light;
+    font-size: 10pt;
+    font-weight: 700;
+    padding: 5px;
+    border-bottom-left-radius: .5em;
+    border-top-left-radius: .5em;
+    z-index: 50;
+  }
 
   .image {
     max-height: 60%;
