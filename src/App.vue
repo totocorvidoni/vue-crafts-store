@@ -49,9 +49,12 @@ export default {
 }
 
 #app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   font-family: $font-regular;
   color: $color-dark;
   font-size: 16pt;
+  height: 100vh;
 }
 
 header {
@@ -68,6 +71,7 @@ header {
   font-family: $font-condensed;
   font-weight: 700;
   padding: 1rem 2rem;
+  height: 5rem;
   z-index: 100;
 
   a {
@@ -123,13 +127,10 @@ nav {
 }
 
 footer {
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-top: 1em;
   padding: 1em;
   background: $color3;
   text-align: center;
-  margin-top: 2em;
 }
 
 // ==== Used by more than one component ====

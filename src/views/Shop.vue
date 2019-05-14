@@ -69,6 +69,7 @@ export default {
 #store {
   display: grid;
   grid-template-columns: auto 1fr;
+  align-content: flex-start;
 }
 
 .store-catalog {
@@ -81,7 +82,8 @@ export default {
 
 .spinner {
   padding: 1em;
-  margin: auto;
+  align-self: center;
+  justify-self: center;
 }
 
 .fade-enter-active,
@@ -98,6 +100,9 @@ export default {
   color: $color-dark-faded;
   text-align: center;
   padding: 2em;
+  align-self: center;
+  justify-self: center;
+  
   img {
     height: 256px;
     width: 256px;
