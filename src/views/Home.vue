@@ -61,6 +61,7 @@ export default {
   .brand {
     font-size: 10rem;
     font-weight: 300;
+    text-align: center;
     text-transform: uppercase;
   }
 
@@ -80,6 +81,7 @@ export default {
     margin: 1em;
 
     .title {
+      text-align: center;
       color: $color1;
       font-size: 2em;
     }

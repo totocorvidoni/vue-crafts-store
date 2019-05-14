@@ -107,6 +107,7 @@ export default {
       grid-area: title;
       color: $color-dark;
       font-family: $font-regular;
+      text-align: center;
     }
 
     .description {
