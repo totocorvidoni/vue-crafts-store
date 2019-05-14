@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import priceFormatter from "@/components/mixins/priceFormatter"
+import priceFormatter from "@/mixins/priceFormatter"
 
 export default {
   name: "cart-item",

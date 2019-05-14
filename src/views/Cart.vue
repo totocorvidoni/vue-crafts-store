@@ -14,7 +14,7 @@
     </div>
     <div class="details">
       <h2>Resumen</h2>
-      <p>Total: ${{ priceSum }}</p>
+      <p>Total: {{ formatPrice(priceSum) }}</p>
       <div>comentarios</div>
     </div>
   </div>
@@ -22,19 +22,22 @@
 
 <script>
 import CartItem from "@/components/CartItem.vue";
+import priceFormatter from "@/mixins/priceFormatter"
 
 export default {
   name: "cart",
   components: {
     CartItem
   },
+  mixins: [priceFormatter],
+
   computed: {
     items() {
       return this.$store.state.cart;
     },
     priceSum() {
       const items = this.$store.state.cart.map(item => {
-        return parseInt(item.price) * item.amount;
+        return parseFloat(item.price) * item.amount;
       });
       return items.reduce((sum, currentItem) => sum + currentItem, 0);
     }
