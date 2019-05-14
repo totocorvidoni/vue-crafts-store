@@ -160,7 +160,7 @@ footer {
     }
   }
   &:hover {
-    filter: contrast(150%);
+    filter: contrast(130%);
     cursor: pointer;
   }
   &:active {

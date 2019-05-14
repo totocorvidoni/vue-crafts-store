@@ -1,6 +1,6 @@
 <template>
   <div class="cart-item">
-    <router-link :to="{ name: 'products', params: { id: id}}" tag="img" :src="image.shop_thumbnail" :alt="image.alt" class="picture" />
+    <router-link :to="{ name: 'products', params: { id: id }}" tag="img" :src="image.shop_thumbnail" :alt="image.alt" class="picture" />
     <div class="info-border">
       <transition name="fade" mode="out-in">
         <div v-if="!deletePrompt" key="item" class="item">
@@ -76,7 +76,6 @@ export default {
 <style lang="scss">
 .cart-item {
   display: inline-flex;
-  line-height: 1.2em;
 
   .picture {
     justify-self: start;
@@ -84,6 +83,8 @@ export default {
     border-bottom-left-radius: 0.5em;
     object-fit: cover;
     transition: $quick-out;
+    height: 150px;
+    width: 150px;
     &:hover {
       cursor: pointer;
       filter: $little-light
@@ -127,7 +128,7 @@ export default {
     .title {
       align-self: end;
       color: $color-dark;
-      line-height: 1.2em;
+      line-height: 1.4em;
     }
 
     .price-card {
@@ -135,7 +136,7 @@ export default {
       color: $color-dark-light;
       font-weight: 400;
       font-size: 0.8em;
-      line-height: 1.2em;
+      line-height: 1.3em;
     }
 
     .amount {
@@ -174,7 +175,6 @@ export default {
 
   .total {
     position: relative;
-    grid-area: total;
     align-self: stretch;
     display: flex;
     flex-flow: column;
@@ -184,7 +184,6 @@ export default {
     border-bottom-right-radius: 0.5em;
     color: $color-light;
     font-family: $font-condensed;
-    padding: 0.5em;
     text-align: center;
     text-transform: uppercase;
     min-width: 5em;
@@ -203,7 +202,6 @@ export default {
     border-radius: 0 0.5em 0 0.25em;
     background: $color-bad;
     height: 1.2em;
-    // width: 5em;
     padding: 4px;
     transition: $quick-out;
     .close {

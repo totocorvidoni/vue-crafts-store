@@ -13,16 +13,33 @@
       />
     </div>
     <div class="details">
-      <h2>Resumen</h2>
-      <p>Total: {{ formatPrice(priceSum) }}</p>
-      <div>comentarios</div>
+      <div class="title">
+        <h2>Resumen</h2>
+      </div>
+      <div class="content">
+        <div class="separator">
+          <span>Sub Total:</span>
+          <span>{{ formatPrice(priceSum) }}</span>
+        </div>
+        <div class="separator">
+          <span>Descuentos:</span>
+          <span>- $0.00</span>
+        </div>
+        <div class="separator">
+          <span>
+            <strong>Total:</strong>
+          </span>
+          <span><strong>{{ formatPrice(priceSum) }}</strong></span>
+        </div>
+        <button class="button confirm">COMPRAR</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import CartItem from "@/components/CartItem.vue";
-import priceFormatter from "@/mixins/priceFormatter"
+import priceFormatter from "@/mixins/priceFormatter";
 
 export default {
   name: "cart",
@@ -72,9 +89,43 @@ export default {
   .details {
     grid-column: 2;
     grid-row: 1 / -1;
-    background: $color4;
     font-family: $font-condensed;
-    font-size: 1.5em;
+    margin-top: 1em;
+    min-width: 250px;
+
+    .title {
+      background: $color4;
+      color: $color-adaptable;
+      text-transform: uppercase;
+      text-align: end;
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    .content {
+      border: $border-card;
+      border-top: none;
+      border-bottom-left-radius: 0.5em;
+      color: $color-dark-light;
+      padding: 1rem;
+    }
+  }
+
+  .separator {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .confirm {
+    display: block;
+    background: $color-good;
+    border: none;
+    color: $color-light;
+    padding: .2em .4em;
+    margin-top: 1em;
+    margin-left: auto;
+    font-size: 1em;
+    font-family: $font-condensed;
   }
 }
 </style>
