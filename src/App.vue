@@ -153,7 +153,7 @@ footer {
     &:hover {
       transform: none;
       filter: none;
-      cursor: not-allowed;
+      cursor: no-drop;
     }
   }
   &:hover {
@@ -167,6 +167,13 @@ footer {
   &:focus {
     outline: none;
   }
+}
+
+.spinner {
+  padding: 1em;
+  align-self: center;
+  justify-self: center;
+  margin: 0 auto;
 }
 
 .color-step {
