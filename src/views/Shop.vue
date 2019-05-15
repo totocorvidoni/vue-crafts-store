@@ -12,7 +12,7 @@
       <shop-spinner v-if="isLoading" class="spinner"/>
       <div class="catalog-wrapper" v-else-if="productsToDisplay.length != 0">
         <paginate-links for="products" :limit="6" :show-step-links="true"/>
-        <paginate tag="main" class="catalog" name="products" :list="productsToDisplay" :per="1">
+        <paginate tag="main" class="catalog" name="products" :list="productsToDisplay" :per="10">
             <product-card
               v-for="product in paginated('products')"
               :key="product.id"

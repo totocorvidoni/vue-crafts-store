@@ -1,7 +1,7 @@
 <template>
   <div class="product-card" @click="onCardClick">
     <div class="on-cart" v-if="productInCart">En el pedido</div>
-    <img :src="image.shop_catalog" :alt="image.alt" class="image">
+    <img :src="coverImage.shop_catalog" :alt="coverImage.alt" class="image">
     <div class="details">
       <div class="name">
         <h2 class="title">{{ name }}</h2>
@@ -46,6 +46,17 @@ export default {
   computed: {
     productInCart() {
       return this.$store.getters.productInCart(this.id)
+    },
+
+    coverImage() {
+      if (this.image) {
+        return this.image
+      } else {
+        return {
+          shop_catalog: require('@/assets/crochet.svg'),
+          alt: 'A yarn as a placeholder image.'
+        }
+      }
     }
   }
 };
@@ -56,6 +67,7 @@ export default {
   position: relative;
   display: flex;
   flex-flow: column;
+  // align-items: center;
   border: $border-card;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -79,7 +91,10 @@ export default {
   }
 
   .image {
-    max-height: 60%;
+    display: block;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
   }
 
   .details {
