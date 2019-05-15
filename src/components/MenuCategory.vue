@@ -40,7 +40,7 @@ export default {
 
     showProducts(id) {
       if (this.$store.state.displayedCategory !== id) {
-        this.$router.push({ path: `/tienda/1/${id}` });
+        this.$router.push({ name: 'shop', params: { categoryId: id} });
       }
     },
 
@@ -78,7 +78,7 @@ export default {
   }
 
   .menu-category {
-    padding: 0.5em 2em 0.5em 0.5em;
+    padding: 0.5em;
   }
 
   &:hover {

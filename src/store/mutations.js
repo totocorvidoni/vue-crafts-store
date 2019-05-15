@@ -49,9 +49,5 @@ export default {
 
   decrementItemInCart(state, index) {
     state.cart[index].amount--;
-  },
-
-  a(state) {
-    state.cart[1].name = "cambio!";
   }
 };
