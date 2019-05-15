@@ -10,9 +10,7 @@
       <div class="tags">
         <span v-for="tag in tags" :key="tag.id" class="tag">{{ tag.name }}</span>
       </div>
-      <div class="price-wrapper">
         <price-tag :price="price" :priceRegular="priceRegular" />
-      </div>
     </div>
   </div>
 </template>
@@ -67,7 +65,6 @@ export default {
   position: relative;
   display: flex;
   flex-flow: column;
-  // align-items: center;
   border: $border-card;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -148,6 +145,7 @@ export default {
     }
 
     .price-wrapper {
+      min-width: 100px;
       justify-self: end;
       grid-area: price;
       margin-left: 5px;

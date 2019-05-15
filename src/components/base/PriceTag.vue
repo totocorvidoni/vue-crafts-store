@@ -29,6 +29,7 @@ export default {
   align-items: center;
   font-family: $font-condensed;
   font-weight: 700;
+  font-size: 12pt;
 
   .discount {
     color: $color-dark-light;

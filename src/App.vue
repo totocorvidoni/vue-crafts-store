@@ -63,7 +63,7 @@ header {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-auto-flow: column;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   justify-content: start;
   align-content: center;
   align-items: center;
@@ -90,6 +90,7 @@ header {
 }
 
 nav {
+  justify-self: end;
   display: grid;
   grid-gap: 1rem;
   justify-content: start;

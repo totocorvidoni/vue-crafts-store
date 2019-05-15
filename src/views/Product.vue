@@ -225,7 +225,6 @@ export default {
       grid-gap: 2em;
       grid-auto-flow: column;
       grid-auto-columns: 180px;
-      grid-template-rows: 280px;
       padding: 1em;
     }
   }
