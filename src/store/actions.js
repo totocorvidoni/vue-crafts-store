@@ -27,12 +27,20 @@ export default {
     commit("setFeaturedProducts", response.data);
   },
 
-  async setDisplayedProducts({ commit }, categoryId) {
+  async setDisplayedProducts({ commit }, params) {
     commit("startLoadingProducts");
-    const path = categoryId ? `products?category=${categoryId}` : "products";
-    const response = await API.get(path);
-    const products = response.data;
-    commit("setDisplayedProducts", products);
+    try {
+      const [page, category] = [params.page, params.categoryId];
+      let path = `products?&page=${page}`;
+      if (category) {
+        path = `${path}&category=${category}`;
+      }
+      const response = await API.get(path);
+      const products = response.data;
+      commit("setDisplayedProducts", products);
+    } catch (error) {
+      console.log(error);
+    }
     commit("stopLoadingProducts");
   },
 

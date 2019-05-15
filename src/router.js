@@ -33,19 +33,9 @@ const router = new Router({
       component: Home
     },
     {
-      path: "/tienda",
+      path: "/tienda/:page/:categoryId?",
       name: "shop",
-      component: Shop,
-      children: [
-        {
-          path: ":categoryId",
-          beforeEnter(to, from, next) {
-            store.commit("setActiveMenuCategory", to.params.categoryId);
-            store.dispatch("setDisplayedProducts", to.params.categoryId);
-            next();
-          }
-        }
-      ]
+      component: Shop
     },
     {
       path: "/productos/:id",

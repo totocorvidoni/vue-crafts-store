@@ -38,6 +38,7 @@ import { mapGetters } from "vuex";
 import MenuCategory from "@/components/MenuCategory.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import ShopSpinner from "@/components/ShopSpinner.vue";
+import store from "@/store/store";
 
 export default {
   name: "shop",
@@ -57,9 +58,14 @@ export default {
     }
   },
 
+  beforeRouteEnter(to, from, next) {
+    store.commit("setActiveMenuCategory", to.params.categoryId);
+    store.dispatch("setDisplayedProducts", to.params);
+    next();
+  },
+
   beforeRouteUpdate(to, from, next) {
-    const id = to.params.categoryId;
-    this.$store.dispatch("setDisplayedProducts", id);
+    this.$store.dispatch("setDisplayedProducts", to.params);
     next();
   }
 };
@@ -102,7 +108,7 @@ export default {
   padding: 2em;
   align-self: center;
   justify-self: center;
-  
+
   img {
     height: 256px;
     width: 256px;

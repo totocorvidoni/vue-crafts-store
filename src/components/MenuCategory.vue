@@ -40,7 +40,7 @@ export default {
 
     showProducts(id) {
       if (this.$store.state.displayedCategory !== id) {
-        this.$router.push({ path: `/tienda/${id}` });
+        this.$router.push({ path: `/tienda/1/${id}` });
       }
     },
 
