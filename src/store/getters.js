@@ -21,5 +21,9 @@ export default {
 
   productInCart: state => id => {
     return state.cart.some(item => item.id == id);
+  },
+
+  isLoading: state => {
+    return state.productsLoading;
   }
 };
