@@ -22,6 +22,15 @@ export default {
     commit("setAllCategories", response.data);
   },
 
+  setActiveMenuCategory({ commit, state }, id) {
+    const category = state.allCategories.find(category => category.id == id);
+    commit("setActiveMenuCategory", category);
+  },
+
+  removeActiveMenuCategory({ commit }) {
+    commit("removeActiveMenuCategory");
+  },
+
   async setFeaturedProducts({ commit }) {
     const response = await API.get("products?featured=true");
     commit("setFeaturedProducts", response.data);
@@ -32,7 +41,7 @@ export default {
     try {
       const path = params.categoryId
         ? `products?category=${params.categoryId}`
-        : "products";
+        : "products?";
       const response = await API.get(path);
       const products = response.data;
       commit("setDisplayedProducts", products);

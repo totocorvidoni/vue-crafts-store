@@ -27,6 +27,7 @@ export default {
   display: grid;
   grid-auto-flow: column;
   align-items: center;
+  justify-content: end;
   font-family: $font-condensed;
   font-weight: 700;
   font-size: 12pt;

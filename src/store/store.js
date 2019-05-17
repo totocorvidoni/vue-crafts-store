@@ -13,7 +13,6 @@ export default new Vuex.Store({
     featuredProducts: [],
     activeMenuCategory: null,
     activeProduct: {},
-    displayedCategory: null,
     displayedProducts: [],
     productsLoading: false,
     relatedProducts: null,

@@ -4,13 +4,11 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store/store";
 import VTooltip from "v-tooltip";
-import VuePaginate from "vue-paginate";
 
 import "@/scss/popper.scss";
 
 Vue.config.productionTip = false;
 Vue.use(VTooltip);
-Vue.use(VuePaginate);
 Vue.prototype.axios = axios.create({
   baseURL: process.env.VUE_APP_WOO_URL,
   auth: {

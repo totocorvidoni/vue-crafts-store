@@ -34,13 +34,18 @@ export default {
   },
   methods: {
     toggleCategory(id) {
-      const payload = id == this.$store.state.activeMenuCategory ? null : id;
-      this.$store.commit("setActiveMenuCategory", payload);
+      if (this.$store.state.activeMenuCategory) {
+        this.$store.state.activeMenuCategory.id == id
+          ? this.$store.dispatch("removeActiveMenuCategory")
+          : this.$store.dispatch("setActiveMenuCategory", id);
+      } else {
+        this.$store.dispatch("setActiveMenuCategory", id);
+      }
     },
 
     showProducts(id) {
       if (this.$store.state.displayedCategory !== id) {
-        this.$router.push({ name: 'shop', params: { categoryId: id} });
+        this.$router.push({ name: "shop", params: { categoryId: id } });
       }
     },
 
@@ -52,7 +57,9 @@ export default {
   computed: {
     ...mapGetters(["subCategoriesById"]),
     isActive() {
-      return this.id == this.$store.state.activeMenuCategory;
+      if (this.$store.state.activeMenuCategory) {
+        return this.id == this.$store.state.activeMenuCategory.id;
+      }
     }
   }
 };
