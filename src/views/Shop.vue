@@ -11,19 +11,21 @@
     <transition name="fade" mode="out-in">
       <shop-spinner v-if="isLoading" class="spinner"/>
       <div class="catalog-wrapper" v-else-if="productsToDisplay.length != 0">
-        <page-navigator />
-        <product-card
-          v-for="product in productsToDisplay"
-          :key="product.id"
-          :id="product.id"
-          :image="product.images[0]"
-          :name="product.name"
-          :shortDescription="product.short_description"
-          :tags="product.tags"
-          :price="product.price"
-          :priceRegular="product.regular_price"
-          :onSale="product.on_sale"
-        />
+        <page-navigator/>
+        <div class="catalog">
+          <product-card
+            v-for="product in productsToDisplay"
+            :key="product.id"
+            :id="product.id"
+            :image="product.images[0]"
+            :name="product.name"
+            :shortDescription="product.short_description"
+            :tags="product.tags"
+            :price="product.price"
+            :priceRegular="product.regular_price"
+            :onSale="product.on_sale"
+          />
+        </div>
       </div>
       <main v-else class="not-found">
         <img src="@/assets/crochet.svg" alt>
@@ -39,7 +41,7 @@ import { mapGetters } from "vuex";
 import MenuCategory from "@/components/MenuCategory.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import ShopSpinner from "@/components/ShopSpinner.vue";
-import PageNavigator from "@/components/PageNavigator.vue"
+import PageNavigator from "@/components/PageNavigator.vue";
 import store from "@/store/store";
 
 export default {
@@ -59,12 +61,17 @@ export default {
   },
 
   beforeRouteEnter(to, from, next) {
-    store.dispatch("setActiveMenuCategory", to.params.categoryId);
+    // if (to.params.cateogryId != store.activeCategory.id) {
+    store.dispatch("setActiveCategory", to.params.categoryId);
+    // }
     store.dispatch("setDisplayedProducts", to.params);
     next();
   },
 
   beforeRouteUpdate(to, from, next) {
+    // if (to.params.cateogryId != this.$store.activeCategory.id) {
+    this.$store.dispatch("setActiveCategory", to.params.categoryId);
+    // }
     this.$store.dispatch("setDisplayedProducts", to.params);
     next();
   }
@@ -80,7 +87,7 @@ export default {
 
 .catalog-wrapper {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr;
   justify-items: center;
 }
 

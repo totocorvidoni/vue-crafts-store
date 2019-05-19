@@ -2,7 +2,7 @@
   <div class="menu-section">
     <button
       class="menu-main-category"
-      :class="{ 'menu-active': isActive }"
+      :class="{ 'menu-Expanded': isExpanded }"
       @click="onMainCategoryClick(id)"
     >
       <div class="marker"></div>
@@ -10,8 +10,8 @@
         <h3>{{ name }}</h3>
       </div>
     </button>
-    <transition name="slide" mode="in-out">
-      <ul class="menu-sub-categories" v-show="isActive">
+    <transition name="expand" mode="in-out">
+      <ul class="menu-sub-categories" v-show="isExpanded">
         <li
           class="menu-category"
           v-for="subCategory in subCategoriesById(id)"
@@ -34,18 +34,22 @@ export default {
   },
   methods: {
     toggleCategory(id) {
-      if (this.$store.state.activeMenuCategory) {
-        this.$store.state.activeMenuCategory.id == id
-          ? this.$store.dispatch("removeActiveMenuCategory")
-          : this.$store.dispatch("setActiveMenuCategory", id);
+      if (
+        this.$store.state.expandedCategory &&
+        this.$store.state.expandedCategory == id
+      ) {
+        this.$store.dispatch("removeExpandedCategory");
       } else {
-        this.$store.dispatch("setActiveMenuCategory", id);
+        this.$store.dispatch("setExpandedCategory", id);
       }
     },
 
     showProducts(id) {
       if (this.$store.state.displayedCategory !== id) {
-        this.$router.push({ name: "shop", params: { categoryId: id } });
+        this.$router.push({
+          name: "shop",
+          params: { page: 1, categoryId: id }
+        });
       }
     },
 
@@ -56,9 +60,9 @@ export default {
   },
   computed: {
     ...mapGetters(["subCategoriesById"]),
-    isActive() {
-      if (this.$store.state.activeMenuCategory) {
-        return this.id == this.$store.state.activeMenuCategory.id;
+    isExpanded() {
+      if (this.$store.state.expandedCategory) {
+        return this.id == this.$store.state.expandedCategory;
       }
     }
   }
@@ -113,7 +117,7 @@ export default {
   border-left: 20px solid $color-dark;
 }
 
-.menu-active > * {
+.menu-Expanded > * {
   transform: translateX(0);
 }
 
@@ -135,8 +139,8 @@ export default {
   }
 }
 
-.slide-enter-active,
-.slide-leave-active {
+.slide-enter-expand,
+.slide-leave-expand {
   transition: $quick-out;
 }
 

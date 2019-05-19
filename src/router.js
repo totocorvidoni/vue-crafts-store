@@ -33,7 +33,7 @@ const router = new Router({
       component: Home
     },
     {
-      path: "/tienda/:categoryId?",
+      path: "/tienda/:page/:categoryId?",
       name: "shop",
       component: Shop
     },

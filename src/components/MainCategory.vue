@@ -14,7 +14,10 @@ export default {
   },
   methods: {
     onClick() {
-      this.$router.push({ path: `/tienda/${this.id}` });
+      this.$router.push({
+        name: "shop",
+        params: { page: 1, page: 1, categoryId: this.id }
+      });
     }
   }
 };
@@ -41,9 +44,8 @@ export default {
   }
 
   &:hover {
-    
   }
-  
+
   &:active {
     .title {
       color: $color-dark-light;

@@ -8,11 +8,11 @@ describe('setAllCategories', () => {
   });
 });
 
-describe('setActiveMenuCategory', () => {
-  it('sets the state for activeMenuCategory', () => {
-    const state = { activeMenuCategory: null };
-    mutations.setActiveMenuCategory(state, 30);
-    expect(state.activeMenuCategory).toEqual(30);
+describe('setActiveCategory', () => {
+  it('sets the state for activeCategory', () => {
+    const state = { activeCategory: null };
+    mutations.setActiveCategory(state, 30);
+    expect(state.activeCategory).toEqual(30);
   });
 });
 

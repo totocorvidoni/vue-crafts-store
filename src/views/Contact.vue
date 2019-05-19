@@ -26,5 +26,6 @@ export default {
   .contact-form {
     display: grid;
     width: 500px;
+    margin: 0 auto;
   }
 </style>

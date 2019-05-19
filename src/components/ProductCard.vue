@@ -105,13 +105,13 @@ export default {
     justify-content: space-between;
     background: $color-light;
     font-size: 0.8em;
-    height: 40%;
+    height: 100%;
     padding: 1em;
     z-index: 10;
 
     .name {
       grid-area: name;
-      align-self: center;
+      align-self: start;
       margin-bottom: 0.5em;
     }
 

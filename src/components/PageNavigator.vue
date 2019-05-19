@@ -1,7 +1,7 @@
 <template>
   <vue-paginate
     v-model="page"
-    :page-count="9"
+    :page-count="pages"
     :page-range="3"
     :margin-pages="1"
     :prev-text="'«'"
@@ -11,6 +11,7 @@
     :prev-link-class="'prev-link'"
     :next-link-class="'next-link'"
     :no-li-surround="true"
+    :click-handler="navigate"
   ></vue-paginate>
 </template>
 
@@ -24,8 +25,26 @@ export default {
   },
   data() {
     return {
-      page: 1
+      page: this.$route.params.page,
+      itemsPerPage: 10
     };
+  },
+
+  methods: {
+    navigate(page) {
+      this.$router.push({
+        name: "shop",
+        params: { page: page, categoryId: this.$store.state.activeCategory.id }
+      });
+    }
+  },
+
+  computed: {
+    pages() {
+      return Math.ceil(
+        this.$store.state.activeCategory.count / this.itemsPerPage
+      );
+    }
   }
 };
 </script>

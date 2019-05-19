@@ -7,12 +7,20 @@ export default {
     state.featuredProducts = products;
   },
 
-  setActiveMenuCategory(state, category) {
-    state.activeMenuCategory = category;
+  setActiveCategory(state, category) {
+    state.activeCategory = category;
   },
 
-  removeActiveMenuCategory(state) {
-    state.activeMenuCategory = null;
+  removeActiveCategory(state) {
+    state.activeCategory = null;
+  },
+
+  setExpandedCategory(state, id) {
+    state.expandedCategory = id;
+  },
+
+  removeExpandedCategory(state) {
+    state.expandedCategory = null;
   },
 
   setActiveProduct(state, productInfo) {

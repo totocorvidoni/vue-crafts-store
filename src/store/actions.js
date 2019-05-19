@@ -22,13 +22,21 @@ export default {
     commit("setAllCategories", response.data);
   },
 
-  setActiveMenuCategory({ commit, state }, id) {
+  setActiveCategory({ commit, state }, id) {
     const category = state.allCategories.find(category => category.id == id);
-    commit("setActiveMenuCategory", category);
+    commit("setActiveCategory", category);
   },
 
-  removeActiveMenuCategory({ commit }) {
-    commit("removeActiveMenuCategory");
+  removeActiveCategory({ commit }) {
+    commit("removeActiveCategory");
+  },
+
+  setExpandedCategory({ commit }, id) {
+    commit("setExpandedCategory", id);
+  },
+
+  removeExpandedCategory({ commit }) {
+    commit("removeExpandedCategory");
   },
 
   async setFeaturedProducts({ commit }) {
@@ -40,8 +48,8 @@ export default {
     commit("startLoadingProducts");
     try {
       const path = params.categoryId
-        ? `products?category=${params.categoryId}`
-        : "products?";
+        ? `products?category=${params.categoryId}&page=${params.page}`
+        : `products?page=${params.page}`;
       const response = await API.get(path);
       const products = response.data;
       commit("setDisplayedProducts", products);
