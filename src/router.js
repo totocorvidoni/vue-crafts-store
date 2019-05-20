@@ -38,6 +38,10 @@ const router = new Router({
       component: Shop
     },
     {
+      path: "/tienda",
+      redirect: { name: "shop", params: { page: 1 } }
+    },
+    {
       path: "/productos/:id",
       name: "products",
       component: Product

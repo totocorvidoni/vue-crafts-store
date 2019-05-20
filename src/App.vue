@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <header>
-      <router-link to="/" class="logo grower">PUPE LEPÚ</router-link>
+      <router-link :to="{name: 'home'}" class="logo grower">PUPE LEPÚ</router-link>
       <nav>
-        <router-link to="/tienda" class="grower">Tienda</router-link>
-        <router-link to="/nosotros" class="grower">Nosotros</router-link>
-        <router-link to="/contacto" class="grower">Contactanos</router-link>
+        <router-link :to="{ name: 'shop', params: {page: 1}}" class="grower">Tienda</router-link>
+        <router-link :to="{ name: 'about'}" class="grower">Nosotros</router-link>
+        <router-link :to="{ name: 'contact'}" class="grower">Contactanos</router-link>
       </nav>
       <router-link to="/pedido" class="grower to-cart">
         <img src="@/assets/shopping-bag.svg">
