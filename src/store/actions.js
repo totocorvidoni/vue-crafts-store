@@ -65,12 +65,18 @@ export default {
   },
 
   setRelatedProducts({ commit }, relatedIds) {
-    const relatedProducts = [];
-    relatedIds.forEach(async id => {
-      const response = await API.get(`products/${id}`);
-      relatedProducts.push(response.data);
-    });
-    commit("setRelatedProducts", relatedProducts);
+    commit("startLoadingProducts");
+    try {
+      const relatedProducts = [];
+      relatedIds.forEach(async id => {
+        const response = await API.get(`products/${id}`);
+        relatedProducts.push(response.data);
+        commit("stopLoadingProducts");
+      });
+      commit("setRelatedProducts", relatedProducts);
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   addToCart(store, product) {

@@ -35,7 +35,7 @@
     </main>
     <aside class="related">
       <h3>Nuestras sugerencias</h3>
-      <div class="products">
+      <div class="products" v-if="!isLoading">
         <product-card
           v-for="product in relatedProducts"
           :key="product.id"
@@ -44,25 +44,29 @@
           :image="product.images[0]"
           :price="product.price"
           :priceRegular="product.regular_price"
-          :onSale="product.on_sale"
+          :onSale="product.on_sale"          
         />
       </div>
+      <little-spinner class="spinner" v-else/>
     </aside>
   </div>
 </template>
 
 <script>
 import store from "@/store/store"; // to access the store before component is created.
+import { mapGetters } from "vuex";
 import ProductShowcase from "@/components/ProductShowcase.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import PriceTag from "@/components/base/PriceTag.vue";
+import LittleSpinner from "@/components/LittleSpinner.vue";
 
 export default {
   name: "full-product",
   components: {
     ProductShowcase,
     ProductCard,
-    PriceTag
+    PriceTag,
+    LittleSpinner
   },
 
   methods: {
@@ -76,6 +80,7 @@ export default {
   },
 
   computed: {
+    ...mapGetters(["isLoading"]),
     info() {
       return this.$store.state.activeProduct;
     },

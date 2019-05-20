@@ -48,13 +48,17 @@ export default {
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+}
+
 #app {
   display: grid;
   grid-template-rows: auto 1fr auto;
   font-family: $font-regular;
   color: $color-dark;
   font-size: 16pt;
-  // overflow-x: hidden;
+  height: 100%;
 }
 
 header {
