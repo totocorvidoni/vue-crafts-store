@@ -1,19 +1,18 @@
 <template>
   <div class="full-product">
     <main class="product">
-      <showcase :images="info.images"/>
+      <product-showcase :images="info.images"/>
       <div class="information">
         <h1 class="name">{{ info.name }}</h1>
         <p class="description" v-html="info.description"></p>
-        <div class="divider">detalles.</div>
         <div class="details">
+          <div class="divider">detalles.</div>
           <ul v-for="attribute in info.attributes" :key="attribute.id" class="attribute">
             <span class="name">{{ attribute.name }}:</span>
             <li v-for="item in attribute.options">{{ item }}</li>
           </ul>
         </div>
         <div class="call-to-action">
-          <price-tag :price="info.price" :priceRegular="info.regular_price"/>
           <button
             class="button action-icon add"
             v-if="!productInCart"
@@ -30,6 +29,7 @@
           >
             <img src="@/assets/delete.svg">
           </button>
+          <price-tag :price="info.price" :priceRegular="info.regular_price"/>
         </div>
       </div>
     </main>
@@ -53,14 +53,14 @@
 
 <script>
 import store from "@/store/store"; // to access the store before component is created.
-import Showcase from "@/components/ProductShowcase.vue";
+import ProductShowcase from "@/components/ProductShowcase.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import PriceTag from "@/components/base/PriceTag.vue";
 
 export default {
   name: "full-product",
   components: {
-    Showcase,
+    ProductShowcase,
     ProductCard,
     PriceTag
   },
@@ -85,7 +85,7 @@ export default {
     },
 
     productInCart() {
-      return this.$store.getters.productInCart(this.info.id)
+      return this.$store.getters.productInCart(this.info.id);
     }
   },
 
@@ -111,30 +111,22 @@ export default {
 
 <style lang="scss">
 .full-product {
-  padding: 2rem 5rem;
-
-  .divider {
-    border-bottom: $border-card;
-    color: $color-dark-faded;
-    font-size: 0.8em;
-    font-style: italic;
-    margin: 1em 0;
-    text-align: end;
-  }
+  padding: 0 4rem;
 
   .product {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: "showcase information";
 
     .showcase {
+      grid-area: showcase;
       padding: 1em;
-      min-width: 350px;
     }
 
     .information {
+      grid-area: information;
       text-align: justify;
       padding: 1em;
-      margin-left: 1em;
       color: $color-dark-light;
 
       li {
@@ -150,45 +142,16 @@ export default {
         font-weight: 400;
       }
 
-      .call-to-action {
-        position: relative;
-        display: inline-flex;
-        justify-content: flex-start;
-        align-content: center;
-        font-size: 1.2em;
-        margin-top: 1em;
-        height: 50px;
-      }
-
-      .add {
-        background: $color-good;
-      }
-
-      .remove {
-        background: $color-bad;
-      }
-
-      .action-icon {
-        // display: grid;
-        // place-content: center;
-        border: none;
-        border-radius: 0.5em;
-        color: $color-light;
-        padding: 0.75em;
-        width: 100%;
-        height: 100%;
-        margin-left: 10px;
-
-        img {
-          width: auto;
-          height: 100%;
-          object-fit: contain;
-        }
+      .name {
+        text-align: center;
       }
 
       .details {
-        padding: 0 1em;
+        padding: 2em;
         font-size: 0.8em;
+        border-bottom: $border-card;
+        border-bottom-left-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
       }
 
       .attribute {
@@ -213,19 +176,101 @@ export default {
     }
   }
 
+  .call-to-action {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    margin-top: 1em;
+  }
+
+  .price-tag {
+    font-size: 1.2em;
+  }
+
+  .add {
+    background: $color-good;
+  }
+
+  .remove {
+    background: $color-bad;
+  }
+
+  .action-icon {
+    display: block;
+    border: none;
+    border-radius: 0.5em;
+    color: $color-light;
+    padding: 0.75em;
+    height: 50px;
+    width: 75px;
+    margin: auto 10px;
+
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .divider {
+    border-bottom: $border-card;
+    color: $color-dark-faded;
+    font-size: 0.8em;
+    font-style: italic;
+    margin-bottom: 1em;
+    text-align: end;
+  }
+
   .related {
-    display: grid;
-    place-content: center;
     h3 {
       text-align: center;
     }
     .products {
       font-size: 0.6em;
       display: grid;
-      grid-gap: 2em;
-      grid-auto-flow: column;
-      grid-auto-columns: 180px;
+      justify-content: center;
+      grid-gap: 1.5em;
+      grid-template-columns: repeat(auto-fit, 180px);
       padding: 1em;
+    }
+  }
+}
+
+@media all and (max-width: $wide) {
+  .full-product {
+    padding: 0;
+  }
+}
+
+@media all and (max-width: $narrow) {
+  .full-product {
+    .product {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "showcase"
+        "information";
+
+      .showcase {
+        padding: 0;
+      }
+    }
+
+    .call-to-action {
+      justify-content: flex-end;
+    }
+  }
+}
+
+@media all and (max-width: $smallest) {
+  .full-product {
+    .related {
+      .products {
+        font-size: 0.8em;
+        grid-gap: 0;
+        grid-template-columns: 1fr;
+        // padding: 0;
+      }
     }
   }
 }

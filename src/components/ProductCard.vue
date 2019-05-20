@@ -111,7 +111,7 @@ export default {
 
     .name {
       grid-area: name;
-      align-self: start;
+      align-self: center;
       margin-bottom: 0.5em;
     }
 
@@ -167,7 +167,7 @@ export default {
   }
 }
 
-@media all and (max-width: 530px) {
+@media all and (max-width: $smallest) {
   .product-card {
     border: none;
     border-bottom-left-radius: 0;

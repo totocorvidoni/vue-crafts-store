@@ -106,7 +106,7 @@ export default {
   }
 }
 
-@media all and (max-width: 760px) {
+@media all and (max-width: $narrow) {
   .home {
     .category-wrapper {
       margin-bottom: 1em;
@@ -123,7 +123,7 @@ export default {
   }
 }
 
-@media all and (max-width: 530px) {
+@media all and (max-width: $smallest) {
   .home {
     .featured-products {
       padding: 0;

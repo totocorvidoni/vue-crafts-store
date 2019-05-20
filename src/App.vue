@@ -54,7 +54,7 @@ export default {
   font-family: $font-regular;
   color: $color-dark;
   font-size: 16pt;
-  height: 100vh;
+  // overflow-x: hidden;
 }
 
 header {
@@ -98,11 +98,11 @@ nav {
 }
 
 .to-cart {
-  align-self:start;
+  align-self: start;
   position: relative;
   height: 1.75em;
   width: 1.75em;
-  
+
   img {
     width: 100%;
     height: 100%;
