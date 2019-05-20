@@ -1,6 +1,14 @@
 <template>
   <div class="cart-item">
-    <router-link :to="{ name: 'products', params: { id: id }}" tag="img" :src="image.shop_thumbnail" :alt="image.alt" class="picture" />
+    <div class="picture-wrapper">
+      <router-link
+        :to="{ name: 'products', params: { id: id }}"
+        tag="img"
+        :src="image.shop_catalog"
+        :alt="image.alt"
+        class="picture"
+      />
+    </div>
     <div class="info-border">
       <transition name="fade" mode="out-in">
         <div v-if="!deletePrompt" key="item" class="item">
@@ -14,7 +22,8 @@
         </div>
         <div class="prompt" v-else key="delete">
           <p>
-            Eliminar a <strong>{{ name }}</strong> del pedido?
+            Eliminar a
+            <strong>{{ name }}</strong> del pedido?
           </p>
           <button class="no button" @click="deletePrompt = false">Cancelar</button>
           <button class="yes button" @click="remove">Eliminar</button>
@@ -34,7 +43,7 @@
 </template>
 
 <script>
-import priceFormatter from "@/mixins/priceFormatter"
+import priceFormatter from "@/mixins/priceFormatter";
 
 export default {
   name: "cart-item",
@@ -75,7 +84,13 @@ export default {
 
 <style lang="scss">
 .cart-item {
-  display: inline-flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 150px 1fr auto;
+
+  .picture-wrapper {
+    height: 100%;
+  }
 
   .picture {
     justify-self: start;
@@ -83,13 +98,13 @@ export default {
     border-bottom-left-radius: 0.5em;
     object-fit: cover;
     transition: $quick-out;
-    height: 150px;
-    width: 150px;
+    height: 100%;
+    width: 100%;
     &:hover {
       cursor: pointer;
-      filter: $little-light
+      filter: $little-light;
     }
-    &:active{
+    &:active {
       filter: $big-light;
     }
   }
