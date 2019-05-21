@@ -51,7 +51,7 @@ export default {
         return this.image
       } else {
         return {
-          shop_catalog: require('@/assets/crochet.svg'),
+          shop_catalog: require('@/assets/crochet.png'),
           alt: 'A yarn as a placeholder image.'
         }
       }
