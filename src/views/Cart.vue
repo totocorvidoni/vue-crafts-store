@@ -1,6 +1,6 @@
 <template>
   <div class="cart">
-    <div class="section-title title">
+    <div class="section-title">
       <h1>Lo que voy a llevar</h1>
     </div>
     <div class="items-wrapper">
@@ -25,35 +25,67 @@
         </div>
         <div class="separator">
           <span>Descuentos:</span>
-          <span>- $0.00</span>
+          <span>- {{ formatPrice(discount) }}</span>
         </div>
         <div class="separator">
           <span>
             <strong>Total:</strong>
           </span>
           <span>
-            <strong>{{ formatPrice(priceSum) }}</strong>
+            <strong>{{ formatPrice(total) }}</strong>
           </span>
         </div>
-        <p class="note">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi optio, blanditiis voluptate temporibus tempore praesentium pariatur nostrum quos minima esse,
-        </p>
+        <p
+          class="note"
+        >Acá pensaba poner algo asi como que una vez recibamos tu pedido nos vamos a estar contactando para definir los detalles, personalizacion, metodo de pago, forma de envio etc.</p>
         <button class="button confirm">COMPRAR</button>
       </div>
+      <add-coupon @addDiscount="onAddDiscount"/>
     </div>
   </div>
 </template>
 
 <script>
 import CartItem from "@/components/CartItem.vue";
+import AddCoupon from "@/components/AddCoupon.vue";
 import priceFormatter from "@/mixins/priceFormatter";
 
 export default {
   name: "cart",
   components: {
-    CartItem
+    CartItem,
+    AddCoupon
   },
+
+  data() {
+    return {
+      discount: 0
+    };
+  },
+
   mixins: [priceFormatter],
+
+  methods: {
+    onAddDiscount(coupon) {
+      const discount = this.processCoupon(coupon);
+    },
+    processCoupon(coupon) {
+      const expiryDate = Date.parse(coupon.date_expires);
+      if (Date.now() > expiryDate) {
+        console.log("cupon expired");
+      } else {
+        switch (coupon.discount_type) {
+          case "fixed_cart":
+            this.discount += coupon.amount;
+            break;
+          case "fixed_product":
+            break;
+          case "percent":
+            break;
+        }
+      }
+    }
+  },
 
   computed: {
     items() {
@@ -64,6 +96,10 @@ export default {
         return parseFloat(item.price) * item.amount;
       });
       return items.reduce((sum, currentItem) => sum + currentItem, 0);
+    },
+
+    total() {
+      return this.priceSum - this.discount;
     }
   }
 };
@@ -92,7 +128,7 @@ export default {
     padding: 1em;
     color: $color1;
     & > h1 {
-    // text-transform: uppercase;
+      // text-transform: uppercase;
       font-weight: 400;
       font-size: 1.5em;
     }
@@ -131,6 +167,11 @@ export default {
       border-bottom-right-radius: 0.5em;
       color: $color-dark-light;
       padding: 1rem;
+    }
+
+    .coupon {
+      margin-top: 1em;
+      justify-self: center;
     }
   }
 
