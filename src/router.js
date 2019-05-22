@@ -2,13 +2,13 @@ import Vue from "vue";
 import Router from "vue-router";
 import NProgress from "nprogress";
 import "@/scss/nprogress.scss";
-import store from "@/store/store";
 import Home from "./views/Home.vue";
 import Shop from "./views/Shop.vue";
 import Product from "./views/Product.vue";
 import Cart from "./views/Cart.vue";
 import About from "./views/About.vue";
 import Contact from "./views/Contact.vue";
+import NotFound from "./views/NotFound.vue";
 
 Vue.use(Router);
 
@@ -60,6 +60,11 @@ const router = new Router({
       path: "/contacto",
       name: "contact",
       component: Contact
+    },
+    {
+      path: "*",
+      name: "not found",
+      component: NotFound
     }
     // {
     //   path: "/about",
