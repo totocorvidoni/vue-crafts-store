@@ -129,5 +129,7 @@ export default {
     height: 256px;
     width: 256px;
   }
+
+  // TODO - Add media query for really narrow screens.
 }
 </style>
