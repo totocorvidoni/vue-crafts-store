@@ -67,14 +67,14 @@ export default {
   }
 
   .category-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 2em;
-    * {
-      
-      color: $color-dark-light;
-    }
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 0.5rem 1rem;
+    justify-items: center;
+    border-top: 2px solid $color1;
+    border-bottom: 2px solid $color1;
+    margin: 0 auto;
+    width: 90%;
   }
 
   .featured-products {
@@ -108,7 +108,7 @@ export default {
 
   .see-more {
     float: right;
-    font-size: .8em;
+    font-size: 0.8em;
     font-weight: 700;
     text-transform: uppercase;
 
@@ -121,10 +121,10 @@ export default {
 @media all and (max-width: $narrow) {
   .home {
     .category-wrapper {
-      margin-bottom: 1em;
-      * {
-        width: 100%;
-      }
+      grid-auto-flow: row;
+      margin: 0 auto;
+      border: none;
+      padding: 0;
     }
 
     .product-wrapper {

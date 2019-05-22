@@ -31,7 +31,7 @@ export default {
         if (response.data.length == 0) {
           this.notFound = true;
         } else {
-          this.$emit('addDiscount', response.data[0])
+          this.$emit("addDiscount", response.data[0]);
         }
       } catch (error) {
         console.log(error);
@@ -67,6 +67,14 @@ export default {
 
   .bad {
     color: $color-bad;
+  }
+}
+
+@media screen and (max-width: $narrow) {
+  .coupon {
+    label {
+      margin-right: 1em;
+    }
   }
 }
 </style>

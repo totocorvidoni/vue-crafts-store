@@ -76,12 +76,11 @@ export default {
   }
 
   .page-link {
-    background: $color4;
+    background: $color4-light;
     color: $color4-strong;
 
     &.active {
-      background: $color4-strong;
-      color: $color-light;
+      background: $color4;
       font-weight: 700;
 
       &:hover {
@@ -92,7 +91,7 @@ export default {
 
   .prev-link,
   .next-link {
-    background: $color-dark;
+    background: $color4-strong;
     color: $color-light;
 
     &.disabled {

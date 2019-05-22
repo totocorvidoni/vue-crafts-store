@@ -187,7 +187,7 @@ footer {
   }
 
   &:active {
-    color: $color2-strong
+    color: $color2-strong;
   }
 }
 

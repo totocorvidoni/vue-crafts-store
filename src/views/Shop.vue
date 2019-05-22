@@ -26,6 +26,7 @@
             :onSale="product.on_sale"
           />
         </div>
+        <page-navigator/>
       </div>
       <main v-else class="not-found">
         <img src="@/assets/crochet.svg" alt>

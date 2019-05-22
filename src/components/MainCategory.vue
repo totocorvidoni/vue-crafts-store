@@ -1,7 +1,8 @@
 <template>
-  <div class="main-category grower-childs" @click="onClick">
-    <div class="title">{{ name }}</div>
-  </div>
+  <router-link
+    :to="{name: 'shop', params: {page: 1, categoryId: id}}"
+    class="main-category grower"
+  >{{ name }}</router-link>
 </template>
 
 <script>
@@ -9,47 +10,36 @@ export default {
   name: "main-category",
   props: {
     id: Number,
-    name: String,
-    image: Object
-  },
-  methods: {
-    onClick() {
-      this.$router.push({
-        name: "shop",
-        params: { page: 1, page: 1, categoryId: this.id }
-      });
-    }
+    name: String
   }
 };
 </script>
 
 <style lang="scss">
 .main-category {
-  border-bottom: 2px solid $color1;
-  border-top: 2px solid $color1;
+  display: block;
+  color: $color-dark-light;
   cursor: pointer;
-  color: $color-light;
   font-size: 2rem;
   font-weight: 700;
-  font-family: $font-condensed;
+  text-align: center;
   text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
   transition: $quick-out;
 
-  .title {
-    color: $color-dark;
-    font-size: 1em;
-    padding: 0 1rem;
-    text-align: center;
-    transition: $quick-out;
-  }
-
   &:hover {
+    filter: $little-light;
   }
+}
 
-  &:active {
-    .title {
-      color: $color-dark-light;
-    }
+@media all and (max-width: $narrow) {
+  .main-category {
+    // border-top: 1px solid $color1;
+    // border-bottom: 1px solid $color1;
+    background: $color1;
+    color: $color-adaptable;
+    width: 100%;
   }
 }
 </style>

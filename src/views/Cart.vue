@@ -109,8 +109,9 @@ export default {
 .cart {
   display: grid;
   grid-column-gap: 3rem;
+  grid-row-gap: 1em;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 4em 1fr;
+  grid-template-rows: auto 1fr;
   justify-content: center;
   align-items: start;
   padding: 1em 2em;
@@ -121,14 +122,11 @@ export default {
     display: grid;
     align-content: center;
     justify-content: start;
-    // background: $color4;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
-    // font-family: $font-condensed;
-    padding: 1em;
+    padding: 0 1em;
     color: $color1;
     & > h1 {
-      // text-transform: uppercase;
       font-weight: 400;
       font-size: 1.5em;
     }
@@ -199,6 +197,26 @@ export default {
     margin-left: auto;
     font-size: 1em;
     font-family: $font-condensed;
+  }
+}
+
+@media all and (max-width: $narrow) {
+  .cart {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    .section-title {
+      grid-row: 1;
+    }
+
+    .items-wrapper {
+      grid-row: 2;
+    }
+
+    .totals {
+      grid-column: 1;
+      grid-row: 3;
+    }
   }
 }
 </style>
