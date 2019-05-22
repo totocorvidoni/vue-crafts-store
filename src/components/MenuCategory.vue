@@ -73,7 +73,7 @@ export default {
 .menu-main-category {
   cursor: pointer;
   display: flex;
-  background: $color-background;
+  background: $color3-light;
   border: none;
   color: $color-dark;
   font-family: $font-condensed;
@@ -95,11 +95,7 @@ export default {
   &:hover {
     & > * {
       transform: translateX(0);
-      color: $color-dark-faded;
-    }
-
-    & .marker {
-      border-left-color: $color-dark-faded;
+      filter: $little-light
     }
   }
 
@@ -114,7 +110,7 @@ export default {
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-left: 20px solid $color-dark;
+  border-left: 20px solid $color1-strong;
 }
 
 .menu-Expanded > * {
@@ -135,7 +131,7 @@ export default {
   }
 
   li:hover {
-    color: $color-dark-faded;
+    filter: $little-light;
   }
 }
 

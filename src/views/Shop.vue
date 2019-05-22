@@ -85,6 +85,11 @@ export default {
   height: 100%;
 }
 
+.store-categories {
+  background: $color3-light;
+  margin-bottom: -1em;
+}
+
 .catalog-wrapper {
   display: grid;
   grid-template-rows: auto 1fr;
