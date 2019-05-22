@@ -6,10 +6,10 @@
           class="image"
           v-for="image in scope.images"
           :key="image.id"
-          :src="image.shop_catalog"
+          :src="image.shop_single"
           :alt="image.alt"
           :data-id="image.id"
-          v-if="image.id == activeImage"
+          v-show="image.id == activeImage"
         >
       </template>
     </viewer>
@@ -24,6 +24,7 @@
         :alt="image.alt"
         :data-id="image.id"
       >
+      <div class="more">⇣</div>
     </div>
   </div>
 </template>
@@ -47,7 +48,6 @@ export default {
       // v-viewer options
       options: {
         // TODO - Get from backend bigger images from a consistent size.
-        url: image => image.src.replace("-300x300", ""),
         title: false
       }
     };
@@ -125,10 +125,21 @@ export default {
   .active {
     opacity: 1;
   }
+
+  .more {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    color: $color-dark-light;
+    font-size: 2em;
+    user-select: none;
+  }
 }
 
 @media all and (max-width: $narrow) {
   .showcase {
+    height: calc(100vh - 5rem); // 5rem == height of header.
     .viewer {
       border-radius: 0;
     }
@@ -144,6 +155,10 @@ export default {
           margin-right: 0;
         }
       }
+    }
+
+    .more {
+      display: block;
     }
   }
 }
