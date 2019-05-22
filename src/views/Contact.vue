@@ -23,14 +23,19 @@
         <label for="comment">Comentarios</label>
         <textarea name="comment" type="text"></textarea>
       </div>
-      <input type="submit" value="Enviar" class="button">
+      <input type="submit" value="Enviar" class="button" @click.prevent="onContactSubmit">
     </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: "contact-us"
+  name: "contact-us",
+  methods: {
+    onContactSubmit() {
+      // Add post request once back-end implementacion is done.
+    }
+  }
 };
 </script>
 
