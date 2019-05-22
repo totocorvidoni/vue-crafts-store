@@ -174,6 +174,23 @@ footer {
   }
 }
 
+.link {
+  text-decoration: none;
+  color: $color4;
+
+  &:visited {
+    color: $color3;
+  }
+
+  &:hover {
+    color: $color2;
+  }
+
+  &:active {
+    color: $color2-strong
+  }
+}
+
 .spinner {
   padding: 1em;
   align-self: center;

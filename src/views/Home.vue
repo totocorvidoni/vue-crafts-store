@@ -27,6 +27,7 @@
           class="product"
         />
       </div>
+      <router-link :to="{name: 'shop', params: {page: 1}}" class="link see-more">Ver más</router-link>
     </div>
   </div>
 </template>
@@ -102,6 +103,17 @@ export default {
         font-weight: 400;
         font-size: 1.8em;
       }
+    }
+  }
+
+  .see-more {
+    float: right;
+    font-size: .8em;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:after {
+      clear: both;
     }
   }
 }
