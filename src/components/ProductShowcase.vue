@@ -46,6 +46,7 @@ export default {
       activeImage: null,
       // v-viewer options
       options: {
+        // TODO - Get from backend bigger images from a consistent size.
         url: image => image.src.replace("-300x300", ""),
         title: false
       }

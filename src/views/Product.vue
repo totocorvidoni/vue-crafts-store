@@ -44,7 +44,7 @@
           :image="product.images[0]"
           :price="product.price"
           :priceRegular="product.regular_price"
-          :onSale="product.on_sale"          
+          :onSale="product.on_sale"
         />
       </div>
       <little-spinner class="spinner" v-else/>
@@ -120,7 +120,8 @@ export default {
 
   .product {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-gap: 2em;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: "showcase information";
 
     .showcase {
