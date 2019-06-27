@@ -1,9 +1,9 @@
 <template>
   <div class="cart">
     <div class="section-title">
-      <h1>Lo que voy a llevar</h1>
+      <h1>Lo que voy a pedir</h1>
     </div>
-    <div class="items-wrapper">
+    <div v-if="itemsInCart" class="items-wrapper">
       <cart-item
         v-for="item in items"
         :key="item.id"
@@ -13,6 +13,12 @@
         :amount="item.amount"
         :image="item.images[0]"
       />
+    </div>
+    <div v-else class="no-items">
+      <h2 class="big">¿Nada?</h2>
+      <p>No hay articulos en el pedido</p>
+      <p>Para conocer que podemos ofrecerte te invitamos a visitar</p>
+      <router-link :to="{ name: 'shop', params: {page: 1}}" class="link">Nuestra Tienda</router-link>
     </div>
     <div class="totals">
       <div class="title">
@@ -38,7 +44,7 @@
         <p
           class="note"
         >Acá pensaba poner algo asi como que una vez recibamos tu pedido nos vamos a estar contactando para definir los detalles, personalizacion, metodo de pago, forma de envio etc.</p>
-        <button class="button confirm">COMPRAR</button>
+        <button class="button confirm">ENVIAR PEDIDO</button>
       </div>
       <add-coupon @addDiscount="onAddDiscount"/>
     </div>
@@ -46,6 +52,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import CartItem from "@/components/CartItem.vue";
 import AddCoupon from "@/components/AddCoupon.vue";
 import priceFormatter from "@/mixins/priceFormatter";
@@ -69,6 +76,7 @@ export default {
     onAddDiscount(coupon) {
       const discount = this.processCoupon(coupon);
     },
+
     processCoupon(coupon) {
       const expiryDate = Date.parse(coupon.date_expires);
       if (Date.now() > expiryDate) {
@@ -88,9 +96,12 @@ export default {
   },
 
   computed: {
+    ...mapGetters(["itemsInCart"]),
+
     items() {
       return this.$store.state.cart;
     },
+
     priceSum() {
       const items = this.$store.state.cart.map(item => {
         return parseFloat(item.price) * item.amount;
@@ -141,10 +152,28 @@ export default {
     justify-content: center;
   }
 
+  .no-items {
+    background: $color4-light;
+    color: $color-adaptable;
+    padding: 1em;
+    text-align: center;
+
+    .big {
+      margin: 1rem;
+      font-size: 2.5em;
+    }
+
+    .link {
+      color: $color3;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
   .totals {
     grid-column: 2;
     grid-row: 1 / -1;
-    font-family: $font-condensed;
+    font-family: $font-title;
     min-width: 250px;
 
     .title {
@@ -196,7 +225,7 @@ export default {
     margin-top: 1em;
     margin-left: auto;
     font-size: 1em;
-    font-family: $font-condensed;
+    font-family: $font-title;
   }
 }
 
