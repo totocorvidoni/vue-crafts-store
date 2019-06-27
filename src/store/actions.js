@@ -40,7 +40,7 @@ export default {
   },
 
   async setFeaturedProducts({ commit }) {
-    const response = await API.get("products?featured=true");
+    const response = await API.get("products?featured=true&per_page=4");
     commit("setFeaturedProducts", response.data);
   },
 
