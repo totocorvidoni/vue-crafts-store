@@ -84,7 +84,7 @@ export default {
       border: 1px solid $color4-strong;
       border-radius: 0.5em;
       color: $color-dark-light;
-      font-family: $font-condensed;
+      font-family: $font-title;
       font-size: 1.2em;
       padding: 5px 15px;
       transition: $quick-out;

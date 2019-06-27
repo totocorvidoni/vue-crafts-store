@@ -150,6 +150,7 @@ export default {
 
       .name {
         text-align: center;
+        font-family: $font-title;
       }
 
       .details {
@@ -231,6 +232,7 @@ export default {
   .related {
     h3 {
       text-align: center;
+      margin: 1em 0;
     }
     .products {
       font-size: 0.6em;
@@ -240,6 +242,10 @@ export default {
       grid-template-columns: repeat(auto-fit, 180px);
       padding: 1em;
     }
+  }
+
+  .spinner {
+    padding: 0 1em;
   }
 }
 

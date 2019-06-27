@@ -198,7 +198,7 @@ export default {
     border-top-right-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
     color: $color-light;
-    font-family: $font-condensed;
+    font-family: $font-title;
     text-align: center;
     text-transform: uppercase;
     min-width: 5em;
