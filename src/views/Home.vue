@@ -1,14 +1,8 @@
 <template>
   <div class="home">
-    <h1 class="title brand">PUPE LEPÚ</h1>
-    <div class="category-wrapper">
-      <main-category
-        v-for="category in mainCategories"
-        :key="category.id"
-        :id="category.id"
-        :image="category.image"
-        :name="category.name"
-      >{{ category.name }}</main-category>
+    <div class="hero">
+      <h1>PUPE</h1>
+      <h1>LEPÚ</h1>
     </div>
     <div class="featured-products">
       <h2 class="uppercase title">Destacados</h2>
@@ -27,29 +21,23 @@
           class="product"
         />
       </div>
-      <router-link :to="{name: 'shop', params: {page: 1}}" class="link see-more">Ver más</router-link>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import MainCategory from "@/components/MainCategory.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
 export default {
   name: "home",
-  components: {
-    MainCategory,
-    ProductCard
-  },
+  components: { ProductCard },
 
   beforeCreate() {
     this.$store.dispatch("setFeaturedProducts");
   },
 
   computed: {
-    ...mapGetters(["mainCategories"]),
     featuredProducts() {
       return this.$store.state.featuredProducts;
     }
@@ -59,22 +47,17 @@ export default {
 
 <style lang="scss">
 .home {
-  .brand {
-    font-size: 10rem;
-    font-weight: 300;
+  .hero {
+    background: no-repeat top/cover url("../images/forest-no-hill.svg");
+    box-shadow: inset 0 -10px 10px -5px $color-background;
+    font-size: 5rem;
     text-align: center;
     text-transform: uppercase;
-  }
+    padding: 1em;
 
-  .category-wrapper {
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: 0.5rem 1rem;
-    justify-items: center;
-    border-top: 2px solid $color1;
-    border-bottom: 2px solid $color1;
-    margin: 0 auto;
-    width: 90%;
+    & > * {
+      font-family: $font-brand;
+    }
   }
 
   .featured-products {
@@ -85,6 +68,7 @@ export default {
       text-align: center;
       color: $color1;
       font-size: 2em;
+      margin: 1em 0;
     }
 
     .product-wrapper {
@@ -98,22 +82,11 @@ export default {
       margin: 0.5em;
 
       .title {
-        font-family: $font-condensed;
+        font-family: $font-title;
         color: $color1;
         font-weight: 400;
         font-size: 1.8em;
       }
-    }
-  }
-
-  .see-more {
-    float: right;
-    font-size: 0.8em;
-    font-weight: 700;
-    text-transform: uppercase;
-
-    &:after {
-      clear: both;
     }
   }
 }

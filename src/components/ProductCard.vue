@@ -1,5 +1,5 @@
 <template>
-  <div class="product-card" @click="onCardClick">
+  <router-link :to="{name: 'products', params: { id: id }}" class="product-card">
     <div class="on-cart" v-if="productInCart">En el pedido</div>
     <img :src="coverImage.shop_catalog" :alt="coverImage.alt" class="image">
     <div class="details">
@@ -10,13 +10,13 @@
       <div class="tags">
         <span v-for="tag in tags" :key="tag.id" class="tag">{{ tag.name }}</span>
       </div>
-        <price-tag :price="price" :priceRegular="priceRegular" />
+      <price-tag :price="price" :priceRegular="priceRegular"/>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
-import PriceTag from "@/components/base/PriceTag.vue"
+import PriceTag from "@/components/base/PriceTag.vue";
 
 export default {
   name: "product-card",
@@ -35,25 +35,19 @@ export default {
     PriceTag
   },
 
-  methods: {
-    onCardClick() {
-      this.$router.push({ name: "products", params: { id: this.id } });
-    }
-  },
-
   computed: {
     productInCart() {
-      return this.$store.getters.productInCart(this.id)
+      return this.$store.getters.productInCart(this.id);
     },
 
     coverImage() {
       if (this.image) {
-        return this.image
+        return this.image;
       } else {
         return {
-          shop_catalog: require('@/assets/crochet.png'),
-          alt: 'A yarn as a placeholder image.'
-        }
+          shop_catalog: require("@/assets/crochet.png"),
+          alt: "A yarn as a placeholder image."
+        };
       }
     }
   }
@@ -71,6 +65,7 @@ export default {
   cursor: pointer;
   font-family: $font-regular;
   transition: $slow-balanced;
+  text-decoration: none;
   overflow: hidden;
 
   .on-cart {
@@ -82,8 +77,8 @@ export default {
     font-size: 10pt;
     font-weight: 700;
     padding: 5px;
-    border-bottom-left-radius: .5em;
-    border-top-left-radius: .5em;
+    border-bottom-left-radius: 0.5em;
+    border-top-left-radius: 0.5em;
     z-index: 50;
   }
 
@@ -95,6 +90,7 @@ export default {
   }
 
   .details {
+    flex-grow: 2;
     display: grid;
     grid-row-gap: 0.5em;
     grid-template-areas:
@@ -104,8 +100,6 @@ export default {
     grid-template-rows: 1fr auto;
     justify-content: space-between;
     background: $color-light;
-    font-size: 0.8em;
-    height: 100%;
     padding: 1em;
     z-index: 10;
 
@@ -118,7 +112,8 @@ export default {
     .title {
       grid-area: title;
       color: $color-dark;
-      font-family: $font-regular;
+      font-family: $font-title;
+      margin-bottom: 0.5em;
       text-align: center;
     }
 

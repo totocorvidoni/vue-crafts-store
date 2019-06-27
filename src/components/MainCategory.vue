@@ -17,29 +17,19 @@ export default {
 
 <style lang="scss">
 .main-category {
-  display: block;
-  color: $color-dark-light;
-  cursor: pointer;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
+  color: $color-light;
+  font-weight: 400;
   white-space: nowrap;
-  transition: $quick-out;
+  margin: auto 0;
 
   &:hover {
     filter: $little-light;
   }
 }
 
-@media all and (max-width: $narrow) {
+@media all and (max-width: 1050px) {
   .main-category {
-    // border-top: 1px solid $color1;
-    // border-bottom: 1px solid $color1;
-    background: $color1;
-    color: $color-adaptable;
-    width: 100%;
+    display: none;
   }
 }
 </style>

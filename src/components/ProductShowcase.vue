@@ -57,6 +57,7 @@ export default {
     inited(viewer) {
       this.$viewer = viewer;
     },
+
     onThumbClick(e) {
       const id = parseInt(e.target.dataset.id, 10);
       this.activeImage = id;

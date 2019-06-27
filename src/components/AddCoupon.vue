@@ -50,6 +50,10 @@ export default {
   border: $border-card;
   border-radius: 0.5em;
 
+  label {
+    margin: 0 1em;
+  }
+
   input[type="text"] {
     border: 1px solid $color4;
     border-radius: 0.25em;
@@ -73,7 +77,7 @@ export default {
 @media screen and (max-width: $narrow) {
   .coupon {
     label {
-      margin-right: 1em;
+      margin: 0 1em 0 0;
     }
   }
 }
