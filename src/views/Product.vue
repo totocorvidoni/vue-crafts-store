@@ -34,7 +34,7 @@
       </div>
     </main>
     <aside class="related">
-      <h3>Nuestras sugerencias</h3>
+      <h2>Nuestras sugerencias</h2>
       <div class="products" v-if="!isLoading">
         <product-card
           v-for="product in relatedProducts"
@@ -123,6 +123,7 @@ export default {
     grid-gap: 2em;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "showcase information";
+    min-height: 95vh;
 
     .showcase {
       grid-area: showcase;
@@ -139,18 +140,10 @@ export default {
         list-style-type: none;
       }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
-        color: $color1-strong;
-        font-weight: 400;
-      }
-
-      .name {
-        text-align: center;
+      & > .name {
         font-family: $font-title;
+        color: $color1;
+        margin-bottom: 0.25em;
       }
 
       .details {
@@ -165,7 +158,7 @@ export default {
         display: flex;
 
         .name {
-          color: $color1-strong;
+          color: $color1;
         }
 
         li {
@@ -230,10 +223,15 @@ export default {
   }
 
   .related {
-    h3 {
+    margin: 1em 0;
+
+    & > h2 {
+      color: $color1;
       text-align: center;
-      margin: 1em 0;
+      // margin: 1em 0;
+      text-transform: uppercase;
     }
+
     .products {
       font-size: 0.6em;
       display: grid;

@@ -85,7 +85,7 @@ export default {
 
   & > * {
     transition: $quick-out;
-    transform: translateX(-20px);
+    transform: translateX(-10px);
   }
 
   .menu-category {
@@ -108,9 +108,9 @@ export default {
   margin: auto 0;
   width: 0;
   height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid $color1-strong;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid $color1;
 }
 
 .menu-Expanded > * {
@@ -118,6 +118,7 @@ export default {
 }
 
 .menu-sub-categories {
+  color: $color-adaptable;
   padding-left: 2rem;
   list-style-type: none;
   font-family: $font-title;
@@ -143,6 +144,6 @@ export default {
 .slide-enter,
 .slide-leave-to {
   opacity: 0;
-  transform: translateX(-25px);
+  transform: translateX(-10px);
 }
 </style>

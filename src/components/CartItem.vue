@@ -157,7 +157,7 @@ export default {
     .amount {
       grid-area: amount;
       justify-self: end;
-      background: $color1-strong;
+      background: $color1;
       border-radius: 0.25em;
       color: $color-light;
       font-size: 1.5em;
@@ -178,7 +178,7 @@ export default {
 
     .more,
     .less {
-      background: $color1-strong;
+      background: $color1;
       border: 2px solid transparent;
       color: $color-light;
       font-size: 1.4em;
@@ -194,7 +194,7 @@ export default {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    background: $color1-strong;
+    background: $color1;
     border-top-right-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
     color: $color-light;

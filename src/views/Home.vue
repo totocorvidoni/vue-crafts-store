@@ -50,6 +50,7 @@ export default {
   .hero {
     background: no-repeat top/cover url("../images/forest-no-hill.svg");
     box-shadow: inset 0 -10px 10px -5px $color-background;
+    color: $color-brand;
     font-size: 5rem;
     text-align: center;
     text-transform: uppercase;
@@ -64,11 +65,12 @@ export default {
     padding: 1em;
     margin: 1em;
 
-    .title {
+    & > .title {
       text-align: center;
       color: $color1;
       font-size: 2em;
-      margin: 1em 0;
+      margin: 0.5em;
+      letter-spacing: 0.25em;
     }
 
     .product-wrapper {
@@ -84,8 +86,8 @@ export default {
       .title {
         font-family: $font-title;
         color: $color1;
-        font-weight: 400;
-        font-size: 1.8em;
+        // font-weight: 400;
+        // font-size: 1.8em;
       }
     }
   }

@@ -30,7 +30,7 @@ export default {
   components: { MainCategory },
 
   computed: {
-    ...mapGetters(["mainCategories"])
+    ...mapGetters(["mainCategories", "itemsInCart"])
   }
 };
 </script>
@@ -42,7 +42,7 @@ header {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-auto-flow: column;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   justify-content: start;
   align-content: center;
   align-items: center;
@@ -95,11 +95,10 @@ header {
       border: 4px solid $color-light;
       color: $color-light;
       border-radius: 50%;
-      padding: 0.8rem;
+      padding: 0.6rem;
       line-height: 0;
-      left: -33%;
-      bottom: -25%;
-      font-size: 1.2rem;
+      left: -15%;
+      bottom: -10%;
       font-weight: 700;
     }
   }

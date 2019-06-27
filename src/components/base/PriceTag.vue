@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import priceFormatter from '@/mixins/priceFormatter'
+import priceFormatter from "@/mixins/priceFormatter";
 
 export default {
   name: "price-tag",
@@ -44,8 +44,9 @@ export default {
 
   .price {
     background: $color-good;
+    border-radius: 0.25em;
     color: $color-light;
-    padding: 0.10em 0.2em;
+    padding: 0.1em 0.2em;
   }
 }
 </style>
