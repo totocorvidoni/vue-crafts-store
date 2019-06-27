@@ -54,7 +54,8 @@ body,
 footer {
   margin-top: 1rem;
   padding: 1em;
-  background: $color3;
+  background: $color-dark-light;
+  color: $color3;
   text-align: center;
 }
 
