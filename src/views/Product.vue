@@ -1,7 +1,7 @@
 <template>
   <div class="full-product">
     <main class="product">
-      <product-showcase :images="info.images"/>
+      <product-showcase :images="info.images" />
       <div class="information">
         <h1 class="name">{{ info.name }}</h1>
         <p class="description" v-html="info.description"></p>
@@ -12,24 +12,16 @@
             <li v-for="item in attribute.options">{{ item }}</li>
           </ul>
         </div>
+        <price-tag :price="info.price" :priceRegular="info.regular_price" />
         <div class="call-to-action">
-          <button
-            class="button action-icon add"
-            v-if="!productInCart"
-            v-tooltip="{ content: 'Agregar al pedido' }"
-            @click="onAddToCartClick"
-          >
-            <img src="@/assets/add.svg">
+          <button class="button action add" v-if="!productInCart" @click="onAddToCartClick">
+            <img src="@/assets/add.svg" />
+            <span class="text">Agregar al pedido</span>
           </button>
-          <button
-            class="button action-icon remove"
-            v-else
-            v-tooltip="{ content: 'Eliminar del pedido' }"
-            @click="onRemoveFromCartClick"
-          >
-            <img src="@/assets/delete.svg">
+          <button class="button action remove" v-else @click="onRemoveFromCartClick">
+            <img src="@/assets/delete.svg" />
+            <span class="text">Eliminar del pedido</span>
           </button>
-          <price-tag :price="info.price" :priceRegular="info.regular_price"/>
         </div>
       </div>
     </main>
@@ -47,7 +39,7 @@
           :onSale="product.on_sale"
         />
       </div>
-      <little-spinner class="spinner" v-else/>
+      <little-spinner class="spinner" v-else />
     </aside>
   </div>
 </template>
@@ -128,11 +120,11 @@ export default {
     .showcase {
       grid-area: showcase;
       padding: 1em;
+      max-height: 95vh;
     }
 
     .information {
       grid-area: information;
-      text-align: justify;
       padding: 1em;
       color: $color-dark-light;
 
@@ -147,11 +139,12 @@ export default {
       }
 
       .details {
-        padding: 2em;
-        font-size: 0.8em;
         border-bottom: $border-card;
         border-bottom-left-radius: 0.5em;
         border-bottom-right-radius: 0.5em;
+        margin: 1em 5em;
+        font-size: 0.8em;
+        padding: 1em 0;
       }
 
       .attribute {
@@ -176,16 +169,33 @@ export default {
     }
   }
 
-  .call-to-action {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
-    margin-top: 1em;
+  .price-tag {
+    font-size: 1.5em;
+    justify-content: center;
+    margin: 1rem;
   }
 
-  .price-tag {
-    font-size: 1.2em;
+  .call-to-action {
+    margin: 1rem;
+  }
+
+  .action {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: none;
+    border-radius: 0.5em;
+    color: $color-light;
+    font-size: 1.1em;
+    margin: 0 auto;
+    padding: 1em;
+
+    img {
+      width: auto;
+      height: 1em;
+      object-fit: contain;
+      margin-right: 0.5em;
+    }
   }
 
   .add {
@@ -194,23 +204,6 @@ export default {
 
   .remove {
     background: $color-bad;
-  }
-
-  .action-icon {
-    display: block;
-    border: none;
-    border-radius: 0.5em;
-    color: $color-light;
-    padding: 0.75em;
-    height: 50px;
-    width: 75px;
-    margin: auto 10px;
-
-    img {
-      width: auto;
-      height: 100%;
-      object-fit: contain;
-    }
   }
 
   .divider {
