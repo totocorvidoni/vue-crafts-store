@@ -7,8 +7,8 @@
       </div>
       <form v-else>
         <label for="code">¿Tenés un cupón de descuento?</label>
-        <input type="text" name="code" v-model="code">
-        <input type="submit" value="Agregar" class="button" @click.prevent="onCouponSubmit">
+        <input id="code" type="text" name="code" v-model="code" />
+        <input type="submit" value="Agregar" class="button" @click.prevent="onCouponSubmit" />
       </form>
     </transition>
   </div>
@@ -51,7 +51,7 @@ export default {
   border-radius: 0.5em;
 
   label {
-    margin: 0 1em;
+    margin: 1em;
   }
 
   input[type="text"] {
