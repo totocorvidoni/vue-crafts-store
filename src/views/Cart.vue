@@ -18,7 +18,7 @@
       <h2 class="big">¿Nada?</h2>
       <p>No hay articulos en el pedido</p>
       <p>Para conocer que podemos ofrecerte te invitamos a visitar</p>
-      <router-link :to="{ name: 'shop', params: {page: 1}}" class="link">Nuestra Tienda</router-link>
+      <router-link :to="{ name: 'shop', params: { page: 1 }}" class="link">Nuestra Tienda</router-link>
     </div>
     <div class="totals">
       <div class="title">
@@ -46,7 +46,7 @@
         >Acá pensaba poner algo asi como que una vez recibamos tu pedido nos vamos a estar contactando para definir los detalles, personalizacion, metodo de pago, forma de envio etc.</p>
         <button class="button confirm">ENVIAR PEDIDO</button>
       </div>
-      <add-coupon @addDiscount="onAddDiscount"/>
+      <add-coupon @addDiscount="onAddDiscount" />
     </div>
   </div>
 </template>
