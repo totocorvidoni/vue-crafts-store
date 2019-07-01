@@ -10,7 +10,7 @@
           :alt="image.alt"
           :data-id="image.id"
           v-show="image.id == activeImage"
-        >
+        />
       </template>
     </viewer>
     <div class="thumbs">
@@ -23,7 +23,7 @@
         :src="image.shop_thumbnail"
         :alt="image.alt"
         :data-id="image.id"
-      >
+      />
       <div class="more">⇣</div>
     </div>
   </div>
@@ -82,6 +82,7 @@ export default {
   flex-flow: column;
   max-height: 100%;
   width: 100%;
+  height: 100%;
 
   .viewer {
     border-radius: 0.5em;
