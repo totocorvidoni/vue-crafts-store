@@ -9,15 +9,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    categories: [],
-    featuredProducts: [],
     activeCategory: null,
-    expandedCategory: null,
     activeProduct: {},
+    cart: [],
+    categories: [],
     displayedProducts: [],
+    featuredProducts: [],
     productsLoading: false,
-    relatedProducts: null,
-    cart: []
+    relatedProducts: null
   },
   mutations,
   actions,
