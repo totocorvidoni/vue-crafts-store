@@ -50,6 +50,12 @@ export default {
 </script>
 
 <style lang="scss">
+// Simulates inside top and bottom non intrusive borders.
+@mixin shadow-border($border-color) {
+  box-shadow: inset 0 -2px 0 0 rgba($color: $border-color, $alpha: 1),
+    inset 0 2px 0 0 rgba($color: $border-color, $alpha: 1);
+}
+
 .pagination {
   display: flex;
   color: $color-dark;
@@ -86,11 +92,11 @@ export default {
   }
 
   .page-link {
-    box-shadow: inset 0 -2px 0 0 rgba($color: $color4, $alpha: 1);
+    @include shadow-border($color4);
     color: $color4;
 
     &.active {
-      box-shadow: inset 0 -2px 0 0 rgba($color: $color4-strong, $alpha: 1);
+      @include shadow-border($color4-strong);
       color: $color4-strong;
       font-weight: 700;
 
@@ -107,11 +113,11 @@ export default {
 
   .prev-link,
   .next-link {
-    box-shadow: inset 0 -2px 0 0 rgba($color: $color4-strong, $alpha: 1);
+    @include shadow-border($color4-strong);
     color: $color4-strong;
 
     &.disabled {
-      box-shadow: inset 0 -2px 0 0 rgba($color: $color3-light, $alpha: 1);
+      @include shadow-border($color3-light);
       color: $color3-light;
 
       &:hover {

@@ -7,7 +7,7 @@
         :id="category.id"
         :name="category.name"
       ></menu-category>
-      <page-navigator />
+      <page-navigator class="top-pager" />
     </aside>
     <transition name="fade" mode="out-in">
       <shop-spinner v-if="isLoading" class="spinner" />
@@ -33,6 +33,7 @@
         <p>Nuestros tejedores ya están trabajando para poblar esta sección.</p>
       </main>
     </transition>
+    <page-navigator class="bottom-pager" />
   </div>
 </template>
 
@@ -84,15 +85,18 @@ export default {
 
 <style lang="scss">
 #store {
+  position: relative;
   display: flex;
   flex-flow: column;
+  background: no-repeat bottom/cover url("../assets/brown-forest-no-hill.svg");
 
   .store-nav {
     display: flex;
     position: sticky;
-    top: -200px;
+    top: 2.5rem;
     justify-content: flex-start;
     background: $color3-light;
+    z-index: 50;
   }
 
   .catalog-wrapper {
@@ -134,6 +138,30 @@ export default {
     }
 
     // TODO - Add media query for really narrow screens.
+  }
+
+  .bottom-pager {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $semi-wide) {
+  #store {
+    .top-pager {
+      display: none;
+    }
+
+    .bottom-pager {
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      bottom: 0;
+      // background: $color-background;
+      border-radius: 0.25em;
+      padding: 0.5em 0;
+      z-index: 50;
+      width: 100%;
+    }
   }
 }
 </style>

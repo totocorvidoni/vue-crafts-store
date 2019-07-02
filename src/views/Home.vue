@@ -48,7 +48,7 @@ export default {
 <style lang="scss">
 .home {
   .hero {
-    background: no-repeat top/cover url("../images/forest-no-hill.svg");
+    background: no-repeat top/cover url("../assets/forest-no-hill.svg");
     box-shadow: inset 0 -10px 10px -5px $color-background;
     color: $color-brand;
     font-size: 5rem;

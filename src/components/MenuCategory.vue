@@ -45,9 +45,10 @@ export default {
   font-family: $font-title;
   font-size: 0.9em;
   font-weight: 700;
+  margin: 0 0.25em;
+  padding: 0.5em;
   text-align: start;
   text-transform: uppercase;
-  padding: 0.5em 2.5em 0.5em 0.5em;
 
   &:hover,
   &:focus {

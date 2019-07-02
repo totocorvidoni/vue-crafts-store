@@ -45,7 +45,7 @@ body,
 
 #app {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 2.5rem 1fr auto;
   font-family: $font-regular;
   color: $color-dark;
   font-size: 14pt;
