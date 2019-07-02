@@ -1,5 +1,6 @@
 // Colors ---
 $color1: hsl(10, 90%, 80%);
+$color1-light: hsl(10, 60%, 90%);
 
 $color2: hsl(63, 97%, 87%);
 $color2-strong: hsl(58, 100%, 81%);
@@ -53,6 +54,8 @@ $shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 // Filter ---
 $little-light: brightness(110%);
 $big-light: brightness(130%);
+
+$little-shadow: brightness(90%);
 
 // viewport widths ---
 $wide: 1200px;
