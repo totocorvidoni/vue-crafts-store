@@ -85,54 +85,54 @@ export default {
 
 <style lang="scss">
 #store {
-  height: 100%;
-}
-
-.store-categories {
   display: flex;
-  justify-content: flex-start;
-  background: $color3-light;
-}
+  flex-flow: column;
 
-.catalog-wrapper {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  justify-items: center;
-}
-
-.catalog {
-  position: relative;
-  justify-self: start;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  grid-gap: 2rem;
-  align-content: start;
-  padding: 1em;
-  width: 100%;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: $quick-out;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.not-found {
-  color: $color-dark-faded;
-  text-align: center;
-  padding: 2em;
-  align-self: center;
-  justify-self: center;
-
-  img {
-    height: 256px;
-    width: 256px;
+  .store-categories {
+    display: flex;
+    justify-content: flex-start;
+    background: $color3-light;
   }
 
-  // TODO - Add media query for really narrow screens.
+  .catalog-wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+  }
+
+  .catalog {
+    position: relative;
+    justify-self: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-gap: 2rem;
+    align-content: start;
+    padding: 1em;
+    width: 100%;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: $quick-out;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .not-found {
+    color: $color-dark-faded;
+    text-align: center;
+    padding: 2em;
+    margin: auto 0;
+
+    img {
+      height: 300px;
+      width: 300px;
+    }
+
+    // TODO - Add media query for really narrow screens.
+  }
 }
 </style>

@@ -33,6 +33,7 @@ export default {
   display: block;
   font-size: 0;
   color: #fff;
+  margin: auto 0;
 }
 .la-ball-grid-beat.la-dark {
   color: $color3;
