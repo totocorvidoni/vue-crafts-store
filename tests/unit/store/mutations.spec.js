@@ -1,10 +1,10 @@
 import mutations from '@/store/mutations';
 
-describe('setAllCategories', () => {
-  it('sets the state for allCategories', () => {
-    const state = { mainCategories: [] };
-    mutations.setAllCategories(state, ['Mock Category']);
-    expect(state.allCategories).toEqual(['Mock Category']);
+describe('setCategories', () => {
+  it('sets the state for categories', () => {
+    const state = { categories: [] };
+    mutations.setCategories(state, ['Mock Category']);
+    expect(state.Categories).toEqual(['Mock Category']);
   });
 });
 

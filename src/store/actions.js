@@ -17,26 +17,18 @@ function findIndexById(collection, itemId) {
 }
 
 export default {
-  async setAllCategories({ commit }) {
+  async setCategories({ commit }) {
     const response = await API.get("products/categories");
-    commit("setAllCategories", response.data);
+    commit("setCategories", response.data);
   },
 
   setActiveCategory({ commit, state }, id) {
-    const category = state.allCategories.find(category => category.id == id);
+    const category = state.categories.find(category => category.id == id);
     commit("setActiveCategory", category);
   },
 
   removeActiveCategory({ commit }) {
     commit("removeActiveCategory");
-  },
-
-  setExpandedCategory({ commit }, id) {
-    commit("setExpandedCategory", id);
-  },
-
-  removeExpandedCategory({ commit }) {
-    commit("removeExpandedCategory");
   },
 
   async setFeaturedProducts({ commit }) {

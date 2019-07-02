@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    allCategories: [],
+    categories: [],
     featuredProducts: [],
     activeCategory: null,
     expandedCategory: null,

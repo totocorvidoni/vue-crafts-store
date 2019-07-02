@@ -1,6 +1,6 @@
 export default {
-  setAllCategories(state, payload) {
-    state.allCategories = payload;
+  setCategories(state, payload) {
+    state.categories = payload;
   },
 
   setFeaturedProducts(state, products) {
@@ -13,14 +13,6 @@ export default {
 
   removeActiveCategory(state) {
     state.activeCategory = null;
-  },
-
-  setExpandedCategory(state, id) {
-    state.expandedCategory = id;
-  },
-
-  removeExpandedCategory(state) {
-    state.expandedCategory = null;
   },
 
   setActiveProduct(state, productInfo) {

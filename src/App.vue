@@ -18,7 +18,7 @@ export default {
   components: { HeaderComp },
 
   beforeCreate() {
-    this.$store.dispatch("setAllCategories");
+    this.$store.dispatch("setCategories");
     this.$store.dispatch("setDisplayedProducts");
   },
 

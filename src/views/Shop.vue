@@ -2,16 +2,16 @@
   <div id="store">
     <aside class="store-categories">
       <menu-category
-        v-for="category in mainCategories"
+        v-for="category in categories"
         :key="category.id"
         :id="category.id"
         :name="category.name"
       ></menu-category>
     </aside>
     <transition name="fade" mode="out-in">
-      <shop-spinner v-if="isLoading" class="spinner"/>
+      <shop-spinner v-if="isLoading" class="spinner" />
       <div class="catalog-wrapper" v-else-if="productsToDisplay.length != 0">
-        <page-navigator/>
+        <page-navigator />
         <div class="catalog">
           <product-card
             v-for="product in productsToDisplay"
@@ -26,10 +26,10 @@
             :onSale="product.on_sale"
           />
         </div>
-        <page-navigator/>
+        <page-navigator />
       </div>
       <main v-else class="not-found">
-        <img src="@/assets/crochet.svg" alt>
+        <img src="@/assets/crochet.svg" alt />
         <h1>Nada por aquí</h1>
         <p>Nuestros tejedores ya están trabajando para poblar esta sección.</p>
       </main>
@@ -55,7 +55,11 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["mainCategories", "isLoading"]),
+    ...mapGetters(["isLoading"]),
+    categories() {
+      return this.$store.state.categories;
+    },
+
     productsToDisplay() {
       return this.$store.state.displayedProducts;
     }
@@ -81,14 +85,12 @@ export default {
 
 <style lang="scss">
 #store {
-  display: grid;
-  grid-template-columns: auto 1fr;
   height: 100%;
 }
 
 .store-categories {
+  display: flex;
   background: $color3-light;
-  margin-bottom: -1em;
 }
 
 .catalog-wrapper {

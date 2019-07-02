@@ -4,7 +4,7 @@
     <nav>
       <router-link :to="{ name: 'shop', params: {page: 1}}" class="grower">Tienda</router-link>
       <main-category
-        v-for="category in mainCategories"
+        v-for="category in categories"
         :key="category.id"
         :id="category.id"
         :name="category.name"
@@ -30,7 +30,10 @@ export default {
   components: { MainCategory },
 
   computed: {
-    ...mapGetters(["mainCategories", "itemsInCart"])
+    ...mapGetters(["itemsInCart"]),
+    categories() {
+      return this.$store.state.categories;
+    }
   }
 };
 </script>

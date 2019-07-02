@@ -1,25 +1,10 @@
 <template>
   <div class="menu-section">
-    <button
-      class="menu-main-category"
-      :class="{ 'menu-Expanded': isExpanded }"
-      @click="onMainCategoryClick(id)"
-    >
-      <div class="marker"></div>
+    <button class="menu-main-category" @click="onMainCategoryClick(id)">
       <div class="menu-category">
         <h3>{{ name }}</h3>
       </div>
     </button>
-    <transition name="expand" mode="in-out">
-      <ul class="menu-sub-categories" v-show="isExpanded">
-        <li
-          class="menu-category"
-          v-for="subCategory in subCategoriesById(id)"
-          :key="subCategory.id"
-          @click="showProducts(subCategory.id)"
-        >{{ subCategory.name }}</li>
-      </ul>
-    </transition>
   </div>
 </template>
 
@@ -33,36 +18,12 @@ export default {
     id: Number
   },
   methods: {
-    toggleCategory(id) {
-      if (
-        this.$store.state.expandedCategory &&
-        this.$store.state.expandedCategory == id
-      ) {
-        this.$store.dispatch("removeExpandedCategory");
-      } else {
-        this.$store.dispatch("setExpandedCategory", id);
-      }
-    },
-
-    showProducts(id) {
+    onMainCategoryClick(id) {
       if (this.$store.state.displayedCategory !== id) {
         this.$router.push({
           name: "shop",
           params: { page: 1, categoryId: id }
         });
-      }
-    },
-
-    onMainCategoryClick(id) {
-      this.toggleCategory(id);
-      this.showProducts(id);
-    }
-  },
-  computed: {
-    ...mapGetters(["subCategoriesById"]),
-    isExpanded() {
-      if (this.$store.state.expandedCategory) {
-        return this.id == this.$store.state.expandedCategory;
       }
     }
   }
@@ -85,7 +46,6 @@ export default {
 
   & > * {
     transition: $quick-out;
-    transform: translateX(-10px);
   }
 
   .menu-category {
@@ -94,7 +54,6 @@ export default {
 
   &:hover {
     & > * {
-      transform: translateX(0);
       filter: $little-light;
     }
   }
@@ -102,48 +61,5 @@ export default {
   &:focus {
     outline: none;
   }
-}
-
-.marker {
-  margin: auto 0;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid $color1;
-}
-
-.menu-Expanded > * {
-  transform: translateX(0);
-}
-
-.menu-sub-categories {
-  color: $color-adaptable;
-  padding-left: 2rem;
-  list-style-type: none;
-  font-family: $font-title;
-  font-size: 1.1em;
-  li:before {
-    content: "- ";
-  }
-
-  li {
-    cursor: pointer;
-  }
-
-  li:hover {
-    filter: $little-light;
-  }
-}
-
-.slide-enter-expand,
-.slide-leave-expand {
-  transition: $quick-out;
-}
-
-.slide-enter,
-.slide-leave-to {
-  opacity: 0;
-  transform: translateX(-10px);
 }
 </style>
