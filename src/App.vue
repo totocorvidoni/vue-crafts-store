@@ -52,7 +52,6 @@ body,
 }
 
 footer {
-  margin-top: 1rem;
   padding: 1em;
   background: $color3;
   color: $color-light;
