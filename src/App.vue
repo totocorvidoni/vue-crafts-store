@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-comp/>
-    <router-view/>
+    <header-comp />
+    <router-view />
     <footer>
       <h1>Footer stuff soon to come</h1>
       <p>Just you wait...</p>
@@ -54,8 +54,8 @@ body,
 footer {
   margin-top: 1rem;
   padding: 1em;
-  background: $color-dark-light;
-  color: $color3;
+  background: $color3;
+  color: $color-light;
   text-align: center;
 }
 
@@ -107,10 +107,6 @@ h6 {
 .link {
   text-decoration: none;
   transition: $quick-out;
-
-  &:visited {
-    color: inherit;
-  }
 
   &:hover {
     filter: brightness(1.05);
@@ -166,5 +162,9 @@ h6 {
   &:active > * {
     transform: $press;
   }
+}
+
+.hidden {
+  display: none;
 }
 </style>

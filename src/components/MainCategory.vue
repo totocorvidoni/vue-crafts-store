@@ -1,7 +1,8 @@
 <template>
   <router-link
-    :to="{name: 'shop', params: {page: 1, categoryId: id}}"
-    class="main-category grower"
+    :to="{name: 'shop', params: { page: 1, categoryId: id }}"
+    class="main-category"
+    :class="{ hidden: inShop }"
   >{{ name }}</router-link>
 </template>
 
@@ -11,6 +12,12 @@ export default {
   props: {
     id: Number,
     name: String
+  },
+
+  computed: {
+    inShop() {
+      return this.$route.name == "shop";
+    }
   }
 };
 </script>
@@ -21,9 +28,10 @@ export default {
   font-weight: 400;
   white-space: nowrap;
   margin: auto 0;
+  transition: $quick-out;
 
   &:hover {
-    filter: $little-light;
+    box-shadow: 0 3px 0 0 rgba($color: $color3-strong, $alpha: 0.9);
   }
 }
 

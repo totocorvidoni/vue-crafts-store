@@ -113,7 +113,7 @@ export default {
   .product {
     display: grid;
     grid-gap: 2em;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;
     grid-template-areas: "showcase information";
     min-height: 95vh;
 

@@ -1,19 +1,19 @@
 <template>
   <header>
-    <router-link :to="{name: 'home'}" class="logo grower">PUPE LEPÚ</router-link>
+    <router-link :to="{name: 'home'}" class="logo link">PUPE LEPÚ</router-link>
     <nav>
-      <router-link :to="{ name: 'shop', params: {page: 1}}" class="grower">Tienda</router-link>
+      <router-link :to="{ name: 'shop', params: {page: 1}}" class="page-link link">Tienda</router-link>
       <main-category
         v-for="category in categories"
         :key="category.id"
         :id="category.id"
         :name="category.name"
       >{{ category.name }}</main-category>
-      <router-link :to="{ name: 'about'}" class="grower">Nosotros</router-link>
-      <router-link :to="{ name: 'contact'}" class="grower">Contactanos</router-link>
+      <router-link :to="{ name: 'about'}" class="page-link link">Nosotros</router-link>
+      <router-link :to="{ name: 'contact'}" class="page-link link">Contactanos</router-link>
     </nav>
-    <router-link :to="{ name: 'cart' }" class="grower to-cart">
-      <img src="@/assets/shopping-bag.svg">
+    <router-link :to="{ name: 'cart' }" class="to-cart link">
+      <img src="@/assets/shopping-bag.svg" />
       <div class="cart-counter" v-if="$store.state.cart.length">
         <p>{{ itemsInCart }}</p>
       </div>
@@ -67,6 +67,11 @@ header {
     font-family: $font-brand;
     font-size: 1.3em;
     font-weight: 400;
+    transition: $quick-out;
+
+    &:hover {
+      color: $color-adaptable;
+    }
   }
 
   nav {
@@ -75,6 +80,14 @@ header {
     grid-gap: 1rem;
     justify-content: start;
     grid-auto-flow: column;
+  }
+
+  .page-link {
+    transition: $quick-out;
+
+    &:hover {
+      box-shadow: 0 3px 0 0 rgba($color: $color-dark, $alpha: 0.9);
+    }
   }
 
   .to-cart {
@@ -94,7 +107,7 @@ header {
       justify-content: center;
       height: 1rem;
       width: 1rem;
-      background: $color-dark-light;
+      background: $color4-strong;
       border: 4px solid $color-light;
       color: $color-light;
       border-radius: 50%;

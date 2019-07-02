@@ -1,7 +1,7 @@
 <template>
   <router-link :to="{name: 'products', params: { id: id }}" class="product-card">
     <div class="on-cart" v-if="productInCart">En el pedido</div>
-    <img :src="coverImage.shop_catalog" :alt="coverImage.alt" class="image">
+    <img :src="coverImage.shop_catalog" :alt="coverImage.alt" class="image" />
     <div class="details">
       <div class="name">
         <h2 class="title">{{ name }}</h2>
@@ -10,7 +10,7 @@
       <div class="tags">
         <span v-for="tag in tags" :key="tag.id" class="tag">{{ tag.name }}</span>
       </div>
-      <price-tag :price="price" :priceRegular="priceRegular"/>
+      <price-tag :price="price" :priceRegular="priceRegular" />
     </div>
   </router-link>
 </template>
@@ -111,7 +111,7 @@ export default {
 
     .title {
       grid-area: title;
-      color: $color-dark;
+      color: $color1;
       font-family: $font-title;
       margin-bottom: 0.5em;
       text-align: center;
