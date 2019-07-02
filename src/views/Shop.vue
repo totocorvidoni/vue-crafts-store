@@ -1,17 +1,17 @@
 <template>
   <div id="store">
-    <aside class="store-categories">
+    <aside class="store-nav">
       <menu-category
         v-for="category in categories"
         :key="category.id"
         :id="category.id"
         :name="category.name"
       ></menu-category>
+      <page-navigator />
     </aside>
     <transition name="fade" mode="out-in">
       <shop-spinner v-if="isLoading" class="spinner" />
       <div class="catalog-wrapper" v-else-if="productsToDisplay.length != 0">
-        <page-navigator />
         <div class="catalog">
           <product-card
             v-for="product in productsToDisplay"
@@ -26,7 +26,6 @@
             :onSale="product.on_sale"
           />
         </div>
-        <page-navigator />
       </div>
       <main v-else class="not-found">
         <img src="@/assets/crochet.svg" alt />
@@ -88,8 +87,10 @@ export default {
   display: flex;
   flex-flow: column;
 
-  .store-categories {
+  .store-nav {
     display: flex;
+    position: sticky;
+    top: -200px;
     justify-content: flex-start;
     background: $color3-light;
   }

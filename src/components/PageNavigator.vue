@@ -1,7 +1,7 @@
 <template>
   <vue-paginate
     v-model="page"
-    :page-count="pages"
+    :page-count="10"
     :page-range="3"
     :margin-pages="1"
     :prev-text="'«'"
@@ -52,14 +52,16 @@ export default {
 <style lang="scss">
 .pagination {
   display: flex;
-  color: $color4-strong;
+  color: $color-dark;
+  background: $color-background;
   list-style-type: none;
-  margin-top: 1em;
+  margin-left: auto;
 
   .page-link,
   .prev-link,
   .next-link {
-    display: block;
+    display: grid;
+    place-items: center;
     text-align: center;
     transition: $quick-out;
     user-select: none;
@@ -69,46 +71,58 @@ export default {
       cursor: pointer;
     }
 
-    &:active,
+    &:hover,
+    &:focus {
+      filter: $little-light;
+    }
+
+    &:active {
+      filter: $little-shadow;
+    }
+
     &:focus {
       outline: none;
     }
   }
 
   .page-link {
-    background: $color4-light;
-    color: $color4-strong;
+    box-shadow: inset 0 -2px 0 0 rgba($color: $color4, $alpha: 1);
+    color: $color4;
 
     &.active {
-      background: $color4;
+      box-shadow: inset 0 -2px 0 0 rgba($color: $color4-strong, $alpha: 1);
+      color: $color4-strong;
       font-weight: 700;
 
       &:hover {
         cursor: default;
+      }
+
+      &:hover,
+      &:active {
+        filter: none;
       }
     }
   }
 
   .prev-link,
   .next-link {
-    background: $color4-strong;
-    color: $color-light;
+    box-shadow: inset 0 -2px 0 0 rgba($color: $color4-strong, $alpha: 1);
+    color: $color4-strong;
 
     &.disabled {
-      background: $color-dark-light;
+      box-shadow: inset 0 -2px 0 0 rgba($color: $color3-light, $alpha: 1);
+      color: $color3-light;
+
       &:hover {
+        filter: none;
         cursor: no-drop;
       }
-    }
-  }
 
-  .prev-link {
-    border-top-left-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-  }
-  .next-link {
-    border-top-right-radius: 0.5em;
-    border-bottom-right-radius: 0.5em;
+      &:active {
+        filter: none;
+      }
+    }
   }
 }
 </style>
