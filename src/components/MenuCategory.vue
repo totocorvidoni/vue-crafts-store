@@ -1,11 +1,9 @@
 <template>
-  <div class="menu-section">
-    <button class="menu-main-category" @click="onMainCategoryClick(id)">
-      <div class="menu-category">
-        <h3>{{ name }}</h3>
-      </div>
-    </button>
-  </div>
+  <button
+    class="menu-category link"
+    :class="{ active: isActive }"
+    @click="onCategoryClick(id)"
+  >{{ name }}</button>
 </template>
 
 <script>
@@ -18,48 +16,50 @@ export default {
     id: Number
   },
   methods: {
-    onMainCategoryClick(id) {
-      if (this.$store.state.displayedCategory !== id) {
+    onCategoryClick(id) {
+      if (this.$store.state.activeCategory.id !== id) {
         this.$router.push({
           name: "shop",
           params: { page: 1, categoryId: id }
         });
       }
     }
+  },
+
+  computed: {
+    isActive() {
+      return this.$store.state.activeCategory.id == this.id;
+    }
   }
 };
 </script>
 
 <style lang="scss">
-.menu-main-category {
-  cursor: pointer;
-  display: flex;
+.menu-category {
   background: $color3-light;
   border: none;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
   color: $color-adaptable;
+  cursor: pointer;
   font-family: $font-title;
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: 700;
   text-align: start;
   text-transform: uppercase;
-  width: 100%;
+  padding: 0.5em 2.5em 0.5em 0.5em;
 
-  & > * {
-    transition: $quick-out;
-  }
-
-  .menu-category {
-    padding: 0.5em;
-  }
-
-  &:hover {
-    & > * {
-      filter: $little-light;
-    }
+  &:hover,
+  &:focus {
+    filter: $little-light;
   }
 
   &:focus {
     outline: none;
+  }
+
+  &.active {
+    background: $color-background;
   }
 }
 </style>

@@ -90,6 +90,7 @@ export default {
 
 .store-categories {
   display: flex;
+  justify-content: flex-start;
   background: $color3-light;
 }
 
