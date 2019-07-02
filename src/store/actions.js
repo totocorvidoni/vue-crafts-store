@@ -19,7 +19,10 @@ function findIndexById(collection, itemId) {
 export default {
   async setCategories({ commit }) {
     const response = await API.get("products/categories");
-    commit("setCategories", response.data);
+    const categories = response.data.sort((a, b) => {
+      return a.menu_order - b.menu_order;
+    });
+    commit("setCategories", categories);
   },
 
   setActiveCategory({ commit, state }, id) {
