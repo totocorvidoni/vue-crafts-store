@@ -14,6 +14,6 @@ export default {
   },
 
   isLoading: state => {
-    return state.productsLoading;
+    return state.loadingProducts;
   }
 };

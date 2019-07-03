@@ -14,8 +14,10 @@ export default new Vuex.Store({
     cart: [],
     categories: [],
     displayedProducts: [],
+    displayedProductsAmount: null,
     featuredProducts: [],
-    productsLoading: false,
+    loadingProducts: true,
+    loadingCategories: true,
     relatedProducts: null
   },
   mutations,

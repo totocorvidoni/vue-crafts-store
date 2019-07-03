@@ -23,12 +23,24 @@ export default {
     state.displayedProducts = payload;
   },
 
+  setDisplayedProductsAmount(state, payload) {
+    state.displayedProductsAmount = payload;
+  },
+
+  startLoadingCategories(state) {
+    state.loadingCategories = true;
+  },
+
+  stopLoadingCategories(state) {
+    state.loadingCategories = false;
+  },
+
   startLoadingProducts(state) {
-    state.productsLoading = true;
+    state.loadingProducts = true;
   },
 
   stopLoadingProducts(state) {
-    state.productsLoading = false;
+    state.loadingProducts = false;
   },
 
   setRelatedProducts(state, payload) {
