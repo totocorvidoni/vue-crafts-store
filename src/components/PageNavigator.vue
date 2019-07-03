@@ -1,7 +1,7 @@
 <template>
   <vue-paginate
     v-model="page"
-    :page-count="10"
+    :page-count="totalPages"
     :page-range="3"
     :margin-pages="1"
     :prev-text="'«'"
@@ -25,7 +25,6 @@ export default {
   },
   data() {
     return {
-      page: this.$route.params.page,
       itemsPerPage: 10
     };
   },
@@ -34,16 +33,22 @@ export default {
     navigate(page) {
       this.$router.push({
         name: "shop",
-        params: { page: page, categoryId: this.$store.state.activeCategory.id }
+        params: { page: page, categoryId: this.$store.state.activeCategory }
       });
     }
   },
 
   computed: {
-    pages() {
-      return Math.ceil(
-        this.$store.state.activeCategory.count / this.itemsPerPage
-      );
+    page() {
+      return parseInt(this.$route.params.page);
+    },
+
+    totalProducts() {
+      return this.$store.state.displayedProductsAmount;
+    },
+
+    totalPages() {
+      return Math.ceil(this.totalProducts / this.itemsPerPage);
     }
   }
 };

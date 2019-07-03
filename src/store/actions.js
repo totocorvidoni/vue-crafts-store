@@ -46,8 +46,11 @@ export default {
         ? `products?category=${params.categoryId}&page=${params.page}`
         : `products?page=${params.page}`;
       const response = await API.get(path);
-      const products = response.data;
-      commit("setDisplayedProducts", products);
+      commit("setDisplayedProducts", response.data);
+      commit(
+        "setDisplayedProductsAmount",
+        parseInt(response.headers["x-wp-total"])
+      );
     } catch (error) {
       console.log(error);
     }
