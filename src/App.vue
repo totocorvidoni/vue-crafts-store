@@ -19,7 +19,6 @@ export default {
 
   beforeCreate() {
     this.$store.dispatch("setCategories");
-    this.$store.dispatch("setDisplayedProducts");
   },
 
   computed: {
