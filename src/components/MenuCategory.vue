@@ -1,9 +1,9 @@
 <template>
-  <button
+  <router-link
+    :to="{name: 'shop', params: { page: '1', categoryId: id }}"
     class="menu-category link"
     :class="{ active: isActive }"
-    @click="onCategoryClick(id)"
-  >{{ name }}</button>
+  >{{ name }}</router-link>
 </template>
 
 <script>
@@ -15,20 +15,13 @@ export default {
     name: String,
     id: Number
   },
-  methods: {
-    onCategoryClick(id) {
-      if (this.$store.state.activeCategory.id !== id) {
-        this.$router.push({
-          name: "shop",
-          params: { page: 1, categoryId: id }
-        });
-      }
-    }
-  },
 
   computed: {
     isActive() {
-      return this.$store.state.activeCategory.id == this.id;
+      return (
+        this.$store.state.activeCategory &&
+        this.$store.state.activeCategory.id == this.id
+      );
     }
   }
 };
