@@ -112,16 +112,6 @@ export default {
     width: 100%;
   }
 
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: $quick-out;
-  }
-
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-  }
-
   .not-found {
     color: $color-dark-faded;
     text-align: center;

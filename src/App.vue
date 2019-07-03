@@ -165,4 +165,15 @@ h6 {
 .hidden {
   display: none;
 }
+
+// Transitions ---
+.fade-enter-active,
+.fade-leave-active {
+  transition: $quick-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

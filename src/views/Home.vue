@@ -6,21 +6,24 @@
     </div>
     <div class="featured-products">
       <h2 class="uppercase title">Destacados</h2>
-      <div class="product-wrapper">
-        <product-card
-          v-for="product in featuredProducts"
-          :key="product.id"
-          :id="product.id"
-          :image="product.images[0]"
-          :name="product.name"
-          :shortDescription="product.short_description"
-          :tags="product.tags"
-          :price="product.price"
-          :priceRegular="product.regular_price"
-          :onSale="product.on_sale"
-          class="product"
-        />
-      </div>
+      <transition name="fade" mode="out-in">
+        <shop-spinner v-if="loadingFeaturedProducts" class="spinner" />
+        <div v-else class="product-wrapper">
+          <product-card
+            v-for="product in featuredProducts"
+            :key="product.id"
+            :id="product.id"
+            :image="product.images[0]"
+            :name="product.name"
+            :shortDescription="product.short_description"
+            :tags="product.tags"
+            :price="product.price"
+            :priceRegular="product.regular_price"
+            :onSale="product.on_sale"
+            class="product"
+          />
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -28,10 +31,11 @@
 <script>
 import { mapGetters } from "vuex";
 import ProductCard from "@/components/ProductCard.vue";
+import ShopSpinner from "@/components/ShopSpinner.vue";
 
 export default {
   name: "home",
-  components: { ProductCard },
+  components: { ProductCard, ShopSpinner },
 
   beforeCreate() {
     this.$store.dispatch("setFeaturedProducts");
@@ -40,6 +44,10 @@ export default {
   computed: {
     featuredProducts() {
       return this.$store.state.featuredProducts;
+    },
+
+    loadingFeaturedProducts() {
+      return this.featuredProducts.length == 0;
     }
   }
 };
@@ -90,6 +98,10 @@ export default {
         // font-size: 1.8em;
       }
     }
+  }
+
+  .spinner {
+    margin: 0 auto;
   }
 }
 

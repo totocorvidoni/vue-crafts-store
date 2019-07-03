@@ -39,7 +39,7 @@
           :onSale="product.on_sale"
         />
       </div>
-      <little-spinner class="spinner" v-else />
+      <little-spinner v-else class="spinner" :classTweak="['la-2x', 'la-dark']" />
     </aside>
   </div>
 </template>

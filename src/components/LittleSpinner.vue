@@ -1,5 +1,5 @@
 <template>
-  <div class="la-ball-beat la-2x">
+  <div class="la-ball-beat" :class="classTweak">
     <div></div>
     <div></div>
     <div></div>
@@ -8,7 +8,10 @@
 
 <script>
 export default {
-  name: "little-spinner"
+  name: "little-spinner",
+  props: {
+    classTweak: Array
+  }
 };
 </script>
 
@@ -28,10 +31,10 @@ export default {
 .la-ball-beat {
   display: block;
   font-size: 0;
-  color: $color3;
+  color: $color-light;
 }
 .la-ball-beat.la-dark {
-  color: #333;
+  color: $color3;
 }
 .la-ball-beat > div {
   display: inline-block;

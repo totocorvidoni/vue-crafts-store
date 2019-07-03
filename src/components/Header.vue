@@ -3,7 +3,9 @@
     <router-link :to="{name: 'home'}" class="logo link">PUPE LEPÚ</router-link>
     <nav>
       <router-link :to="{ name: 'shop', params: {page: 1}}" class="page-link link">Tienda</router-link>
+      <little-spinner v-if="loadingCategories" :classTweak="['la-sm']" />
       <main-category
+        v-else
         v-for="category in categories"
         :key="category.id"
         :id="category.id"
@@ -24,15 +26,20 @@
 <script>
 import { mapGetters } from "vuex";
 import MainCategory from "@/components/MainCategory.vue";
+import LittleSpinner from "@/components/LittleSpinner.vue";
 
 export default {
   name: "header-comp",
-  components: { MainCategory },
+  components: { MainCategory, LittleSpinner },
 
   computed: {
     ...mapGetters(["itemsInCart"]),
     categories() {
       return this.$store.state.categories;
+    },
+
+    loadingCategories() {
+      return this.$store.state.loadingCategories;
     }
   }
 };
@@ -77,9 +84,10 @@ header {
   nav {
     justify-self: end;
     display: grid;
-    grid-gap: 1rem;
-    justify-content: start;
     grid-auto-flow: column;
+    grid-gap: 1rem;
+    align-items: center;
+    justify-content: start;
   }
 
   .page-link {
