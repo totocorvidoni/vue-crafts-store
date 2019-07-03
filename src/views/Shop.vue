@@ -66,17 +66,13 @@ export default {
   },
 
   beforeRouteEnter(to, from, next) {
-    // if (to.params.cateogryId != store.activeCategory.id) {
     store.dispatch("setActiveCategory", to.params.categoryId);
-    // }
     store.dispatch("setDisplayedProducts", to.params);
     next();
   },
 
   beforeRouteUpdate(to, from, next) {
-    // if (to.params.cateogryId != this.$store.activeCategory.id) {
     this.$store.dispatch("setActiveCategory", to.params.categoryId);
-    // }
     this.$store.dispatch("setDisplayedProducts", to.params);
     next();
   }
@@ -156,7 +152,6 @@ export default {
       justify-content: center;
       position: sticky;
       bottom: 0;
-      // background: $color-background;
       border-radius: 0.25em;
       padding: 0.5em 0;
       z-index: 50;
