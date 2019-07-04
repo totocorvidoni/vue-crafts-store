@@ -4,8 +4,10 @@
       <h1>PUPE</h1>
       <h1>LEPÚ</h1>
     </div>
+    <intro-comp />
+    <how-to />
     <div class="featured-products">
-      <h2 class="uppercase title">Destacados</h2>
+      <h2 class="uppercase home-title">Destacados</h2>
       <transition name="fade" mode="out-in">
         <shop-spinner v-if="loadingFeaturedProducts" class="spinner" />
         <div v-else class="product-wrapper">
@@ -30,12 +32,14 @@
 
 <script>
 import { mapGetters } from "vuex";
+import IntroComp from "@/components/IntroComp.vue";
+import HowTo from "@/components/HowTo.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import ShopSpinner from "@/components/ShopSpinner.vue";
 
 export default {
   name: "home",
-  components: { ProductCard, ShopSpinner },
+  components: { IntroComp, HowTo, ProductCard, ShopSpinner },
 
   beforeCreate() {
     this.$store.dispatch("setFeaturedProducts");
@@ -73,14 +77,6 @@ export default {
     padding: 1em;
     margin: 1em;
 
-    & > .title {
-      text-align: center;
-      color: $color1;
-      font-size: 2em;
-      margin: 0.5em;
-      letter-spacing: 0.25em;
-    }
-
     .product-wrapper {
       display: flex;
       flex-wrap: wrap;
@@ -94,10 +90,15 @@ export default {
       .title {
         font-family: $font-title;
         color: $color1;
-        // font-weight: 400;
-        // font-size: 1.8em;
       }
     }
+  }
+
+  .home-title {
+    text-align: center;
+    color: $color1;
+    margin: 1em;
+    letter-spacing: 0.25em;
   }
 
   .spinner {
