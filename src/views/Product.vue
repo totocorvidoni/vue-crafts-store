@@ -14,6 +14,7 @@
         </div>
         <price-tag :price="info.price" :priceRegular="info.regular_price" />
         <div class="call-to-action">
+          <!-- TODO - Add a link to cart when product added. -->
           <button class="button action add" v-if="!productInCart" @click="onAddToCartClick">
             <img src="@/assets/add.svg" />
             <span class="text">Agregar al pedido</span>
