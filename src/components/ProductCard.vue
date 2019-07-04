@@ -59,9 +59,8 @@ export default {
   position: relative;
   display: flex;
   flex-flow: column;
-  border: $border-card;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   cursor: pointer;
   font-family: $font-regular;
   transition: $slow-balanced;
@@ -100,7 +99,12 @@ export default {
     grid-template-rows: 1fr auto;
     justify-content: space-between;
     background: $color-light;
-    padding: 1em;
+    border: $border-card;
+    border-top: none;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 0.5em;
+    transition: $slow-balanced;
     z-index: 10;
 
     .name {
@@ -113,7 +117,7 @@ export default {
       grid-area: title;
       color: $color1;
       font-family: $font-title;
-      margin-bottom: 0.5em;
+      margin: 0.5em;
       text-align: center;
     }
 
@@ -153,7 +157,12 @@ export default {
       transform: $image-zoom;
       filter: $little-light;
     }
+
+    .details {
+      border-color: transparent;
+    }
   }
+
   &:active {
     .image {
       transition: $quick-out;

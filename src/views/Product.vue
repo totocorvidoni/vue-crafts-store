@@ -26,7 +26,7 @@
       </div>
     </main>
     <aside class="related">
-      <h2>Nuestras sugerencias</h2>
+      <h2>Creemos que también te gustarían</h2>
       <div class="products" v-if="!isLoading">
         <product-card
           v-for="product in relatedProducts"
@@ -197,7 +197,6 @@ export default {
   .price-tag {
     font-size: 1.5em;
     justify-content: center;
-    margin: 1rem;
   }
 
   .call-to-action {
@@ -246,7 +245,6 @@ export default {
     & > h2 {
       color: $color1;
       text-align: center;
-      // margin: 1em 0;
       text-transform: uppercase;
     }
 

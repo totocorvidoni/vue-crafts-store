@@ -11,21 +11,19 @@
     </aside>
     <transition name="fade" mode="out-in">
       <shop-spinner v-if="isLoading" class="spinner" />
-      <div class="catalog-wrapper" v-else-if="productsToDisplay.length != 0">
-        <div class="catalog">
-          <product-card
-            v-for="product in productsToDisplay"
-            :key="product.id"
-            :id="product.id"
-            :image="product.images[0]"
-            :name="product.name"
-            :shortDescription="product.short_description"
-            :tags="product.tags"
-            :price="product.price"
-            :priceRegular="product.regular_price"
-            :onSale="product.on_sale"
-          />
-        </div>
+      <div v-else-if="productsToDisplay.length != 0" class="catalog">
+        <product-card
+          v-for="product in productsToDisplay"
+          :key="product.id"
+          :id="product.id"
+          :image="product.images[0]"
+          :name="product.name"
+          :shortDescription="product.short_description"
+          :tags="product.tags"
+          :price="product.price"
+          :priceRegular="product.regular_price"
+          :onSale="product.on_sale"
+        />
       </div>
       <main v-else class="not-found">
         <img src="@/assets/crochet.svg" alt />
@@ -95,18 +93,12 @@ export default {
     z-index: 50;
   }
 
-  .catalog-wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    justify-items: center;
-  }
-
   .catalog {
     position: relative;
     justify-self: start;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 1rem;
     align-content: start;
     padding: 1em;
     width: 100%;
