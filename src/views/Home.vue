@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <div class="hero">
-      <h1>PUPE</h1>
-      <h1>LEPÚ</h1>
+      <div class="logo-wrapper">
+        <h1 class="logo">PUPE</h1>
+        <h1 class="logo">LEPÚ</h1>
+      </div>
     </div>
     <intro-comp />
     <how-to />
@@ -60,16 +62,24 @@ export default {
 <style lang="scss">
 .home {
   .hero {
-    background: no-repeat top/cover url("../assets/forest-no-hill.svg");
-    box-shadow: inset 0 -10px 10px -5px $color-background;
-    color: $color-brand;
-    font-size: 5rem;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 1em;
+    background: no-repeat top/cover url("../assets/forest-no-hill.svg"), $color3;
+    box-shadow: inset 0 -10px 0 -5px $color-background;
+    padding: 5em;
 
-    & > * {
+    .logo-wrapper {
+      background: $color-brand;
+      border-radius: 1em;
+      padding: 2.5em;
+      width: min-content;
+      margin: 0 auto;
+    }
+
+    .logo {
+      color: $color-light;
       font-family: $font-brand;
+      font-size: 5rem;
+      text-align: center;
+      text-transform: uppercase;
     }
   }
 
