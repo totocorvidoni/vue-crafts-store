@@ -27,8 +27,7 @@ export default {
     commit("stopLoadingCategories");
   },
 
-  setActiveCategory({ commit, state }, id) {
-    // const category = state.categories.find(category => category.id == id);
+  setActiveCategory({ commit }, id) {
     commit("setActiveCategory", id);
   },
 
