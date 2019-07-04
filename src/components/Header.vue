@@ -94,7 +94,7 @@ header {
     transition: $quick-out;
 
     &:hover {
-      box-shadow: 0 3px 0 0 rgba($color: $color-dark, $alpha: 0.9);
+      box-shadow: 0 3px 0 0 rgba($color: $color-light, $alpha: 0.9);
     }
   }
 
