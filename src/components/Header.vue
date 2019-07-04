@@ -2,7 +2,7 @@
   <header>
     <router-link :to="{name: 'home'}" class="logo link">PUPE LEPÚ</router-link>
     <nav>
-      <router-link :to="{ name: 'shop', params: {page: 1}}" class="page-link link">Tienda</router-link>
+      <router-link :to="{ name: 'shop', params: {page: 1}}" class="page-link link">Catálogo</router-link>
       <little-spinner v-if="loadingCategories" :classTweak="['la-sm']" />
       <main-category
         v-else

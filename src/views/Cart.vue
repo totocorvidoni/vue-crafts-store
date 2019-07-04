@@ -18,7 +18,7 @@
       <h2 class="big">¿Nada?</h2>
       <p>No hay articulos en el pedido</p>
       <p>Para conocer que podemos ofrecerte te invitamos a visitar</p>
-      <router-link :to="{ name: 'shop', params: { page: 1 }}" class="link">Nuestra Tienda</router-link>
+      <router-link :to="{ name: 'shop', params: { page: 1 }}" class="link">Nuestro Catálogo</router-link>
     </div>
     <div class="totals">
       <div class="title">
