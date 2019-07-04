@@ -37,6 +37,7 @@ export default {
     padding: 1rem 2rem;
     grid-column: 1 / 2;
     text-align: justify;
+
     p {
       margin-bottom: 1em;
     }

@@ -6,34 +6,50 @@
       <p>Dolor sed viverra ipsum nunc aliquet bibendum.</p>
       <p>Tincidunt augue interdum velit euismod in pellentesque massa placerat duis. Aliquam vestibulum morbi blandit cursus risus. Nec feugiat nisl pretium fusce id velit.</p>
     </div>
-    <form action="post" class="contact-form">
-      <div class="field">
-        <label for="name">Nombre</label>
-        <input name="name" type="text">
+    <transition name="fade" mode="out-in">
+      <div class="sent" v-if="sent">
+        <img src="@/assets/envelope-open-text-solid.svg" class="icon" />
+        <h2>Mensaje Enviado!</h2>
+        <p>Muchas gracias por comunicarte con nosotros.</p>
+        <p>En breve nos vamos a estar poniendo en contacto</p>
+        <p>Que tengas lindo día</p>
       </div>
-      <div class="field">
-        <label for="email">Mail</label>
-        <input name="email" type="email">
-      </div>
-      <div class="field">
-        <label for="phone">Teléfono</label>
-        <input name="phone" type="tel">
-      </div>
-      <div class="field">
-        <label for="comment">Comentarios</label>
-        <textarea name="comment" type="text"></textarea>
-      </div>
-      <input type="submit" value="Enviar" class="button" @click.prevent="onContactSubmit">
-    </form>
+      <form v-else action="post" class="contact-form">
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input name="name" type="text" />
+        </div>
+        <div class="field">
+          <label for="email">Mail</label>
+          <input name="email" type="email" />
+        </div>
+        <div class="field">
+          <label for="phone">Teléfono</label>
+          <input name="phone" type="tel" />
+        </div>
+        <div class="field">
+          <label for="comment">Comentarios</label>
+          <textarea name="comment" type="text"></textarea>
+        </div>
+        <input type="submit" value="Enviar" class="button" @click.prevent="onContactSubmit" />
+      </form>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
   name: "contact-us",
+  data() {
+    return {
+      sent: false
+    };
+  },
+
   methods: {
     onContactSubmit() {
-      // Add post request once back-end implementacion is done.
+      // Add post request once back-end implementation is done.
+      this.sent = true;
     }
   }
 };
@@ -43,22 +59,42 @@ export default {
 .contact-us {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2em;
-  padding: 1em 2em;
+  grid-gap: 5rem;
+  padding: 2em;
   justify-content: center;
-  // align-items: center;
+  align-items: center;
   margin: 0 auto;
 
   .information {
     max-width: 450px;
     text-align: end;
-    margin-top: 2em;
     h1 {
       color: $color1;
+      margin: 0.5em 0;
     }
     p {
       color: $color-dark-light;
       margin-bottom: 0.5em;
+    }
+  }
+
+  .sent {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+
+    h2 {
+      color: $color1;
+      margin: 1em;
+    }
+
+    p {
+      margin: 1em;
+    }
+
+    .icon {
+      width: 10rem;
+      height: auto;
     }
   }
 
