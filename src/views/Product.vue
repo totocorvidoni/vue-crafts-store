@@ -60,6 +60,11 @@ export default {
     PriceTag,
     LittleSpinner
   },
+  data() {
+    return {
+      featuredsAmount: 3
+    };
+  },
 
   methods: {
     onAddToCartClick() {
@@ -68,6 +73,21 @@ export default {
 
     onRemoveFromCartClick() {
       return this.$store.dispatch("removeFromCart", this.info.id);
+    },
+
+    suggestions(amount) {
+      const {
+        cross_sell_ids,
+        upsell_ids,
+        related_ids
+      } = this.$store.state.activeProduct;
+      // Make an array concatenating the 3 properties then generate an object
+      // keeping only unique values and then turn in back to an array.
+      // TODO - Find a simpler way of doing this.
+      const uniqueIds = [
+        ...new Set([...cross_sell_ids, ...upsell_ids, ...related_ids])
+      ];
+      return uniqueIds.slice(0, amount);
     }
   },
 
@@ -83,23 +103,28 @@ export default {
 
     productInCart() {
       return this.$store.getters.productInCart(this.info.id);
+    },
+
+    ids() {
+      return this.suggestions(this.featuredsAmount);
     }
   },
 
   async beforeRouteEnter(to, from, next) {
     await store.dispatch("setActiveProduct", to.params.id);
-    await store.dispatch(
-      "setRelatedProducts",
-      store.state.activeProduct.related_ids
-    );
-    next();
+    next(async vm => {
+      await vm.$store.dispatch(
+        "setRelatedProducts",
+        vm.suggestions(vm.featuredsAmount)
+      );
+    });
   },
 
   async beforeRouteUpdate(to, from, next) {
     await this.$store.dispatch("setActiveProduct", to.params.id);
     await this.$store.dispatch(
       "setRelatedProducts",
-      this.$store.state.activeProduct.related_ids
+      this.suggestions(this.featuredsAmount)
     );
     next();
   }
