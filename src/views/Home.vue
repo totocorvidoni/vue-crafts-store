@@ -96,8 +96,8 @@ export default {
     }
 
     .product {
-      width: 20%;
-      margin: 0.5em;
+      width: 15em;
+      margin: 0.25em;
 
       .title {
         font-family: $font-title;
@@ -158,7 +158,7 @@ export default {
         margin: 0;
 
         .details {
-          border: none;
+          border: 1px solid transparent;
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
           margin-bottom: 1em;
