@@ -4,7 +4,7 @@
     <div class="steps-wrapper">
       <div class="step">
         <img src="@/assets/store-solid.svg" class="icon" />
-        <h3>Explorá</h3>
+        <h3>Descubrí</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut omnis officia facere natus ratione, voluptatum corporis, cum esse eum aliquam unde voluptates ea dicta soluta, quia excepturi explicabo laboriosam.</p>
       </div>
       <div class="step">

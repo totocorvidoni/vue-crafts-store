@@ -7,7 +7,7 @@
 
     <p
       class="text"
-    >Porque los materiales que elegimos? hablar de la importancia de las texturas y de la energia del producto hecho a mano y Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas nam sit obcaecati fugiat nemo rerum fugit dolorem! Itaque id explicabo ipsam totam, ad dolor eaque cupiditate voluptatem accusamus aspernatur distinctio.</p>
+    >Porque los materiales que elegimos? hablar de la importancia de las texturas y de la energia del producto hecho a mano, ademas la exclusividad del juguete y personalización del producto y Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas nam sit obcaecati fugiat nemo rerum fugit dolorem! Itaque id explicabo ipsam totam, ad dolor eaque cupiditate voluptatem accusamus aspernatur distinctio.</p>
   </div>
 </template>
 
