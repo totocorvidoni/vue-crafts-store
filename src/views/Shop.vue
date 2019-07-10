@@ -1,6 +1,7 @@
 <template>
   <div id="store">
     <aside class="store-nav">
+      <!-- TODO - wrap cateogries if there are too many -->
       <menu-category
         v-for="category in categories"
         :key="category.id"
