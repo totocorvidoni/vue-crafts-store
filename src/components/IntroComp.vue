@@ -36,4 +36,12 @@ export default {
     width: 50%;
   }
 }
+
+@media screen and (max-width: $semi-wide) {
+  .intro {
+    .text {
+      width: 80%;
+    }
+  }
+}
 </style>

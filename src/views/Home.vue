@@ -69,14 +69,13 @@ export default {
 
     .logo-wrapper {
       align-self: center;
+      justify-self: center;
       display: flex;
       justify-content: center;
-      padding: 1rem;
       height: 80%;
     }
 
     .logo {
-      font-family: $font-brand;
       height: 100%;
       width: auto;
     }
@@ -121,6 +120,18 @@ export default {
 
 @media all and (max-width: $narrow) {
   .home {
+    .hero {
+      .logo-wrapper {
+        height: auto;
+        width: 80%;
+      }
+
+      .logo {
+        height: auto;
+        width: 100%;
+      }
+    }
+
     .category-wrapper {
       grid-auto-flow: row;
       margin: 0 auto;
@@ -145,6 +156,13 @@ export default {
       .product {
         width: 100%;
         margin: 0;
+
+        .details {
+          border: none;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          margin-bottom: 1em;
+        }
       }
     }
   }
