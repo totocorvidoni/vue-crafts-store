@@ -13,15 +13,20 @@
           </ul>
         </div>
         <price-tag :price="info.price" :priceRegular="info.regular_price" />
-        <div class="call-to-action">
-          <!-- TODO - Add a link to cart when product added. -->
-          <button class="button action add" v-if="!productInCart" @click="onAddToCartClick">
+        <div v-if="!productInCart" class="call-to-action">
+          <button class="button action add" @click="onAddToCartClick">
             <img src="@/assets/add.svg" />
-            <span class="text">Agregar al pedido</span>
+            <span class="text">Agregar</span>
           </button>
-          <button class="button action remove" v-else @click="onRemoveFromCartClick">
+        </div>
+        <div class="call-to-action" v-else>
+          <router-link :to="{name: 'cart' }" tag="button" class="link button action to-cart">
+            <img src="@/assets/shopping-bag.svg" alt />
+            Ver pedido
+          </router-link>
+          <button class="button action remove" @click="onRemoveFromCartClick">
             <img src="@/assets/delete.svg" />
-            <span class="text">Eliminar del pedido</span>
+            <span class="text">Eliminar</span>
           </button>
         </div>
       </div>
@@ -82,8 +87,8 @@ export default {
         upsell_ids,
         related_ids
       } = this.$store.state.activeProduct;
-      // Make an array concatenating the 3 properties then generate an object
-      // keeping only unique values and then turn in back to an array.
+      // Makes an array concatenating the 3 properties then it generates an
+      // object keeping only unique values and then turns in back to an array.
       // TODO - Find a simpler way of doing this.
       const uniqueIds = [
         ...new Set([...cross_sell_ids, ...upsell_ids, ...related_ids])
@@ -161,14 +166,14 @@ export default {
       & > .name {
         font-family: $font-title;
         color: $color1;
-        margin-bottom: 0.25em;
+        margin-bottom: 0.5r em;
       }
 
       .details {
         border-bottom: $border-card;
         border-bottom-left-radius: 0.5em;
         border-bottom-right-radius: 0.5em;
-        margin: 1em 5em;
+        margin: 1rem 5rem;
         font-size: 0.8em;
         padding: 1em 0;
       }
@@ -196,12 +201,14 @@ export default {
   }
 
   .price-tag {
-    font-size: 1.5em;
+    font-size: 2em;
     justify-content: center;
+    margin-bottom: 1rem;
   }
 
   .call-to-action {
-    margin: 1rem;
+    display: flex;
+    justify-content: center;
   }
 
   .action {
@@ -212,8 +219,9 @@ export default {
     border-radius: 0.5em;
     color: $color-light;
     font-size: 1.1em;
-    margin: 0 auto;
-    padding: 1em;
+    margin: 0 0.25em;
+    padding: 0.75em;
+    width: 9em;
 
     img {
       width: auto;
@@ -229,6 +237,11 @@ export default {
 
   .remove {
     background: $color-bad;
+  }
+
+  .to-cart {
+    display: flex;
+    background: $color4-strong;
   }
 
   .divider {
@@ -250,12 +263,16 @@ export default {
     }
 
     .products {
-      font-size: 0.6em;
+      font-size: 0.8em;
       display: grid;
       justify-content: center;
-      grid-gap: 1.5em;
+      grid-gap: 1em;
       grid-template-columns: repeat(auto-fit, 180px);
       padding: 1em;
+
+      .price-wrapper {
+        justify-self: center;
+      }
     }
   }
 
@@ -281,10 +298,6 @@ export default {
       .showcase {
         padding: 0;
       }
-    }
-
-    .call-to-action {
-      justify-content: flex-end;
     }
   }
 }
