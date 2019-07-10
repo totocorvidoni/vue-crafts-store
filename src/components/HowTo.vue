@@ -42,7 +42,7 @@ export default {
   }
 
   .step {
-    background: $color4-light;
+    background: $color-light-faded;
     padding: 1em;
   }
 

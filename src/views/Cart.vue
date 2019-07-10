@@ -168,13 +168,13 @@ export default {
     grid-column-gap: 3rem;
     grid-row-gap: 1.5rem;
     justify-content: center;
-    background: $color4-light;
+    background: $color-light-faded;
     border-radius: 0.5em;
     padding: 1em;
   }
 
   .no-items {
-    background: $color4-light;
+    background: $color-light-faded;
     color: $color-adaptable;
     padding: 1em;
     text-align: center;
@@ -249,7 +249,7 @@ export default {
   }
 
   .note {
-    background: $color4-light;
+    background: $color-light-faded;
     margin: 1em;
     border-radius: 0.5em;
     padding: 1em;
