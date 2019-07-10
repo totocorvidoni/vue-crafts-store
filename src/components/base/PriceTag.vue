@@ -26,6 +26,7 @@ export default {
 .price-tag {
   display: grid;
   grid-auto-flow: column;
+  grid-gap: 0.25em;
   align-items: center;
   justify-content: end;
   font-family: $font-title;
@@ -39,14 +40,11 @@ export default {
     font-size: 0.8em;
     text-decoration: line-through $color-bad;
     text-align: center;
-    margin-right: 0.25em;
   }
 
   .price {
-    background: $color-good;
     border-radius: 0.25em;
-    color: $color-light;
-    padding: 0.1em 0.2em;
+    color: $color-good;
   }
 }
 </style>

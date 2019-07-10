@@ -3,14 +3,16 @@
     <div class="on-cart" v-if="productInCart">En el pedido</div>
     <img :src="coverImage.shop_catalog" :alt="coverImage.alt" class="image" />
     <div class="details">
-      <div class="name">
+      <div class="main">
         <h2 class="title">{{ name }}</h2>
         <p class="description" v-html="shortDescription"></p>
       </div>
-      <div class="tags">
-        <span v-for="tag in tags" :key="tag.id" class="tag">{{ tag.name }}</span>
+      <div class="secondary">
+        <div class="tags">
+          <span v-for="tag in tags" :key="tag.id" class="tag">{{ tag.name }}</span>
+        </div>
+        <price-tag :price="price" :priceRegular="priceRegular" />
       </div>
-      <price-tag :price="price" :priceRegular="priceRegular" />
     </div>
   </router-link>
 </template>
@@ -90,14 +92,6 @@ export default {
 
   .details {
     flex-grow: 2;
-    display: grid;
-    grid-row-gap: 0.5em;
-    grid-template-areas:
-      "name name name name"
-      "tag   tag   tag  price";
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr auto;
-    justify-content: space-between;
     background: $color-light;
     border: $border-card;
     border-top: none;
@@ -107,7 +101,7 @@ export default {
     transition: $slow-balanced;
     z-index: 10;
 
-    .name {
+    .main {
       grid-area: name;
       align-self: center;
       margin-bottom: 0.5em;
@@ -128,14 +122,19 @@ export default {
       font-size: 0.9em;
     }
 
+    .secondary {
+      display: flex;
+      justify-content: space-between;
+    }
+
     .tags {
-      grid-area: tag;
-      align-self: end;
       color: $color-dark-faded;
       font-size: 0.8em;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+      margin: auto 0;
+
       .tag:not(:last-of-type) {
         &:after {
           content: ", ";
@@ -143,11 +142,10 @@ export default {
       }
     }
 
-    .price-wrapper {
-      min-width: 100px;
-      justify-self: end;
-      grid-area: price;
-      margin-left: 5px;
+    .price-tag {
+      flex-grow: 2;
+      font-size: 1.2em;
+      margin: 0 0.25em;
     }
   }
 
