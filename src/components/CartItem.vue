@@ -35,7 +35,7 @@
       <p class="number">{{ formatPrice(total) }}</p>
       <transition name="fade">
         <div class="close-wrapper button" @click="deletePrompt = true" v-show="!deletePrompt">
-          <img src="@/assets/delete.svg" alt class="close">
+          <img src="@/assets/delete.svg" alt class="close" />
         </div>
       </transition>
     </div>
@@ -87,6 +87,7 @@ export default {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 150px 1fr auto;
+  background: $color-background;
 
   .picture-wrapper {
     height: 100%;
@@ -100,10 +101,12 @@ export default {
     transition: $quick-out;
     height: 100%;
     width: 100%;
+
     &:hover {
       cursor: pointer;
       filter: $little-light;
     }
+
     &:active {
       filter: $big-light;
     }
@@ -114,7 +117,7 @@ export default {
     border-bottom: $border-card;
     display: flex;
     align-content: center;
-    padding: 0.25em 0.5em;
+    padding: 0.5em;
     width: 100%;
   }
 
@@ -203,8 +206,9 @@ export default {
     text-transform: uppercase;
     min-width: 5em;
     z-index: 10;
-    .text {
-      font-weight: 400;
+
+    .number {
+      font-weight: 700;
     }
   }
 
@@ -216,16 +220,19 @@ export default {
     justify-content: flex-end;
     border-radius: 0 0.5em 0 0.25em;
     background: $color-bad;
-    height: 1.2em;
-    padding: 4px;
+    height: 1.5em;
+    padding: 0.25em;
     transition: $quick-out;
+
     .close {
       margin: auto 0;
       height: 100%;
     }
+
     &:active {
       transform: none;
     }
+
     &:active .close {
       transform: $press;
     }
