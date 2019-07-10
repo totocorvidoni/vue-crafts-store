@@ -90,7 +90,7 @@ h6 {
     }
   }
   &:hover {
-    filter: contrast(130%);
+    filter: contrast(120%);
     cursor: pointer;
   }
   &:active {
