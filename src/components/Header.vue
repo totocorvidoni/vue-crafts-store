@@ -1,8 +1,10 @@
 <template>
   <header>
-    <router-link :to="{name: 'home'}" class="logo link">PUPE LEPÚ</router-link>
+    <router-link :to="{ name: 'home' }" class="page-link">
+      <img src="@/assets/logo/negative-alone.svg" alt class="logo" />
+    </router-link>
     <nav>
-      <router-link :to="{ name: 'shop', params: {page: 1}}" class="page-link link">Catálogo</router-link>
+      <router-link :to="{ name: 'shop', params: { page: 1 }}" class="page-link link">Catálogo</router-link>
       <little-spinner v-if="loadingCategories" :classTweak="['la-sm']" />
       <main-category
         v-else
@@ -69,15 +71,12 @@ header {
   }
 
   .logo {
-    color: $color-light;
-    white-space: nowrap;
-    font-family: $font-brand;
-    font-size: 1.3em;
-    font-weight: 400;
+    height: 1.5em;
+    width: auto;
     transition: $quick-out;
 
     &:hover {
-      color: $color-adaptable;
+      // box-shadow: 0 3px 0 0 rgba($color: $color-light, $alpha: 0.9);
     }
   }
 
