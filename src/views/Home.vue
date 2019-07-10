@@ -2,9 +2,9 @@
   <div class="home">
     <div class="hero">
       <div class="logo-wrapper">
-        <h1 class="logo">PUPE</h1>
-        <h1 class="logo">LEPÚ</h1>
+        <img src="@/assets/logo/bottom.svg" class="logo" />
       </div>
+      <div class="divider"></div>
     </div>
     <intro-comp />
     <how-to />
@@ -62,25 +62,28 @@ export default {
 <style lang="scss">
 .home {
   .hero {
-    background: no-repeat top/cover url("../assets/forest-no-hill.svg"), $color3;
-    box-shadow: inset 0 -10px 0 -5px $color-background;
-    padding: 5em;
+    display: grid;
+    grid-template-rows: 1fr 100px;
+    background: url("../assets/hero-background.svg");
+    min-height: 95vh;
 
     .logo-wrapper {
-      background: $color-brand;
-      border-radius: 1em;
-      padding: 2.5em;
-      width: min-content;
-      margin: 0 auto;
+      align-self: center;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      height: 80%;
     }
 
     .logo {
-      color: $color-light;
       font-family: $font-brand;
-      font-size: 5rem;
-      text-align: center;
-      text-transform: uppercase;
+      height: 100%;
+      width: auto;
     }
+  }
+
+  .divider {
+    background: repeat top url("../assets/saw.svg");
   }
 
   .featured-products {
