@@ -1,7 +1,10 @@
 <template>
   <div class="cart">
     <div class="section-title">
-      <h1>Lo que voy a pedir</h1>
+      <transition name="fade" mode="out-in">
+        <h1 v-if="sent" key="sent">Lo que pedí!</h1>
+        <h1 v-else key="to-send">Lo que voy a pedir</h1>
+      </transition>
     </div>
     <div v-if="itemsInCart" class="items-wrapper">
       <cart-item
@@ -20,34 +23,47 @@
       <p>Para conocer que podemos ofrecerte te invitamos a visitar</p>
       <router-link :to="{ name: 'shop', params: { page: 1 }}" class="link">Nuestro Catálogo</router-link>
     </div>
-    <div class="totals">
-      <div class="title">
-        <h2>Resumen</h2>
-      </div>
-      <div class="content">
-        <div class="separator">
-          <span>Sub Total:</span>
-          <span>{{ formatPrice(priceSum) }}</span>
-        </div>
-        <div class="separator">
-          <span>Descuentos:</span>
-          <span>- {{ formatPrice(discount) }}</span>
-        </div>
-        <div class="separator">
-          <span>
-            <strong>Total:</strong>
-          </span>
-          <span>
-            <strong>{{ formatPrice(total) }}</strong>
-          </span>
-        </div>
+    <transition name="fade" mode="out-in">
+      <div class="sent" v-if="sent" key="sent">
+        <img src="@/assets/parachute-box-solid.svg" class="icon" />
+        <h2 class="title">Recibimos tu pedido ¡Muchas gracias!</h2>
         <p
-          class="note"
-        >Acá pensaba poner algo asi como que una vez recibamos tu pedido nos vamos a estar contactando para definir los detalles, personalizacion, metodo de pago, forma de envio etc.</p>
-        <button class="button confirm">ENVIAR PEDIDO</button>
+          class="text"
+        >Nos vamos a poner en contacto con vos lo antes posibles para coordinar los detalles de pago y envio.</p>
       </div>
-      <add-coupon @addDiscount="onAddDiscount" />
-    </div>
+      <div v-else class="totals" key="totals">
+        <div class="title">
+          <h2>Resumen</h2>
+        </div>
+        <div class="content">
+          <div class="separator">
+            <span>Sub Total:</span>
+            <span>{{ formatPrice(priceSum) }}</span>
+          </div>
+          <div class="separator">
+            <span>Descuentos:</span>
+            <span>- {{ formatPrice(discount) }}</span>
+          </div>
+          <div class="separator">
+            <span>
+              <strong>Total:</strong>
+            </span>
+            <span>
+              <strong>{{ formatPrice(total) }}</strong>
+            </span>
+          </div>
+          <p
+            class="note"
+          >Acá pensaba poner algo asi como que una vez recibamos tu pedido nos vamos a estar contactando para definir los detalles, personalizacion, metodo de pago, forma de envio etc.</p>
+          <button
+            class="button confirm"
+            @click.prevent="onSent"
+            :disabled="itemsInCart == 0"
+          >ENVIAR PEDIDO</button>
+        </div>
+        <add-coupon @addDiscount="onAddDiscount" />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -66,7 +82,8 @@ export default {
 
   data() {
     return {
-      discount: 0
+      discount: 0,
+      sent: false
     };
   },
 
@@ -75,6 +92,10 @@ export default {
   methods: {
     onAddDiscount(coupon) {
       const discount = this.processCoupon(coupon);
+    },
+
+    onSent() {
+      this.sent = true;
     },
 
     processCoupon(coupon) {
@@ -137,19 +158,19 @@ export default {
     border-top-right-radius: 0.5em;
     padding: 0 1em;
     color: $color1;
-    & > h1 {
-      font-weight: 400;
-      font-size: 1.5em;
-    }
+    margin: 0 auto;
   }
 
   .items-wrapper {
     grid-column: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-column-gap: 3rem;
     grid-row-gap: 1.5rem;
     justify-content: center;
+    background: $color4-light;
+    border-radius: 0.5em;
+    padding: 1em;
   }
 
   .no-items {
@@ -164,7 +185,7 @@ export default {
     }
 
     .link {
-      color: $color3;
+      color: $color1;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -178,8 +199,6 @@ export default {
 
     .title {
       background: $color4;
-      // border-top-left-radius: 0.5em;
-      // border-top-right-radius: 0.5em;
       color: $color-adaptable;
       text-transform: uppercase;
       text-align: start;
@@ -199,6 +218,25 @@ export default {
     .coupon {
       margin-top: 1em;
       justify-self: center;
+    }
+  }
+
+  .sent {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    text-align: center;
+    margin: auto 0;
+
+    .icon {
+      display: block;
+      height: 10rem;
+      margin: 0 auto;
+      width: auto;
+    }
+
+    .title {
+      color: $color1;
+      margin: 0.5em;
     }
   }
 
