@@ -71,13 +71,11 @@ header {
   }
 
   .logo {
+    display: block;
     height: 1.5em;
     width: auto;
     transition: $quick-out;
-
-    &:hover {
-      // box-shadow: 0 3px 0 0 rgba($color: $color-light, $alpha: 0.9);
-    }
+    margin: auto 0;
   }
 
   nav {
