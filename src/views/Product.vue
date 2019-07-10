@@ -309,7 +309,6 @@ export default {
         font-size: 0.8em;
         grid-gap: 0;
         grid-template-columns: 1fr;
-        // padding: 0;
       }
     }
   }

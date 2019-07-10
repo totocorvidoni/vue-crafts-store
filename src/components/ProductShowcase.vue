@@ -24,7 +24,6 @@
         :alt="image.alt"
         :data-id="image.id"
       />
-      <div class="more">⇣</div>
     </div>
   </div>
 </template>
@@ -127,16 +126,6 @@ export default {
   .active {
     opacity: 1;
   }
-
-  .more {
-    display: none;
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    color: $color-dark-light;
-    font-size: 2em;
-    user-select: none;
-  }
 }
 
 @media all and (max-width: $narrow) {
@@ -153,18 +142,12 @@ export default {
         margin-right: 10px;
         height: 100px;
         width: 100px;
+
         &:last-of-type {
           margin-right: 0;
         }
       }
     }
-
-    .more {
-      display: block;
-    }
   }
-}
-
-@media all and (max-width: $smallest) {
 }
 </style>

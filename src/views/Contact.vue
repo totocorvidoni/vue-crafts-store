@@ -59,7 +59,7 @@ export default {
 .contact-us {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5rem;
+  grid-gap: 3rem;
   padding: 2em;
   justify-content: center;
   align-items: center;
@@ -144,6 +144,16 @@ export default {
       text-transform: uppercase;
       font-family: $font-regular;
       width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: $narrow) {
+  .contact-us {
+    .contact-form {
+      input[type="submit"] {
+        width: 100%;
+      }
     }
   }
 }

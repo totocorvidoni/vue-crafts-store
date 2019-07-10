@@ -24,14 +24,14 @@
       <router-link :to="{ name: 'shop', params: { page: 1 }}" class="link">Nuestro Catálogo</router-link>
     </div>
     <transition name="fade" mode="out-in">
-      <div class="sent" v-if="sent" key="sent">
+      <div class="info sent" v-if="sent" key="sent">
         <img src="@/assets/parachute-box-solid.svg" class="icon" />
         <h2 class="title">Recibimos tu pedido ¡Muchas gracias!</h2>
         <p
           class="text"
         >Nos vamos a poner en contacto con vos lo antes posibles para coordinar los detalles de pago y envio.</p>
       </div>
-      <div v-else class="totals" key="totals">
+      <div v-else class="info totals" key="totals">
         <div class="title">
           <h2>Resumen</h2>
         </div>
@@ -191,9 +191,12 @@ export default {
     }
   }
 
-  .totals {
+  .info {
     grid-column: 2;
     grid-row: 1 / -1;
+  }
+
+  .totals {
     font-family: $font-title;
     min-width: 250px;
 
@@ -267,7 +270,7 @@ export default {
   }
 }
 
-@media all and (max-width: $narrow) {
+@media all and (max-width: $semi-wide) {
   .cart {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
@@ -280,9 +283,18 @@ export default {
       grid-row: 2;
     }
 
-    .totals {
+    .info {
       grid-column: 1;
       grid-row: 3;
+    }
+  }
+}
+
+@media screen and (max-width: $narrow) {
+  .cart {
+    .items-wrapper {
+      justify-self: center;
+      display: block;
     }
   }
 }

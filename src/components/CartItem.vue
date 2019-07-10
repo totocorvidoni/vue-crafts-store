@@ -13,7 +13,7 @@
       <transition name="fade" mode="out-in">
         <div v-if="!deletePrompt" key="item" class="item">
           <div class="info-wrapper">
-            <h2 class="title">{{ name }}</h2>
+            <h2 class="title" :title="name">{{ name }}</h2>
             <div class="price-card">Precio por unidad: {{ formatPrice(price) }}</div>
           </div>
           <div class="amount">{{ amount }}</div>
@@ -202,9 +202,10 @@ export default {
     border-bottom-right-radius: 0.5em;
     color: $color-light;
     font-family: $font-title;
+    min-width: 5em;
+    padding-top: 0.5em;
     text-align: center;
     text-transform: uppercase;
-    min-width: 5em;
     z-index: 10;
 
     .number {
@@ -220,12 +221,12 @@ export default {
     justify-content: flex-end;
     border-radius: 0 0.5em 0 0.25em;
     background: $color-bad;
-    height: 1.5em;
-    padding: 0.25em;
+    height: 2em;
+    padding: 0.5em;
     transition: $quick-out;
 
     .close {
-      margin: auto 0;
+      margin: auto;
       height: 100%;
     }
 
@@ -243,6 +244,7 @@ export default {
     margin: auto;
     text-align: center;
     padding: 0 1em;
+
     .yes,
     .no {
       background: none;
@@ -252,25 +254,49 @@ export default {
       padding: 0.2em 0.4em;
       margin: 0.3em;
     }
+
     .yes {
       background: $color-bad;
       color: $color-light;
       border-color: transparent;
     }
+
     .no:hover {
       color: $color-dark;
     }
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: $medium-balanced;
-}
+@media screen and (max-width: $narrow) {
+  .cart-item {
+    display: block;
+    width: 300px;
 
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+    &:not(:last-of-type) {
+      margin-bottom: 1em;
+    }
+
+    .picture-wrapper {
+      height: 10em;
+    }
+
+    .title {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .picture,
+    .total,
+    .close-wrapper {
+      border-radius: 0;
+    }
+
+    .close-wrapper {
+      position: static;
+      margin-top: 0.5em;
+    }
+  }
 }
 </style>
  
