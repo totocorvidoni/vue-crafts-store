@@ -21,6 +21,19 @@ export default {
     this.$store.dispatch("setCategories");
   },
 
+  mounted() {
+    if (localStorage.getItem("pupeCart")) {
+      try {
+        this.$store.commit(
+          "setCart",
+          JSON.parse(localStorage.getItem("pupeCart"))
+        );
+      } catch (e) {
+        localStorage.removeItem("pupeCart");
+      }
+    }
+  },
+
   computed: {
     ...mapGetters(["itemsInCart"])
   }

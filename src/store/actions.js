@@ -81,20 +81,24 @@ export default {
   addToCart(store, product) {
     Vue.set(product, "amount", 1);
     store.commit("addToCart", product);
+    localStorage.setItem("pupeCart", JSON.stringify(store.state.cart));
   },
 
   removeFromCart(store, productId) {
     const index = findIndexById(store.state.cart, productId);
     store.commit("removeFromCart", index);
+    localStorage.setItem("pupeCart", JSON.stringify(store.state.cart));
   },
 
   incrementItemInCart(store, productId) {
     const index = findIndexById(store.state.cart, productId);
     store.commit("incrementItemInCart", index);
+    localStorage.setItem("pupeCart", JSON.stringify(store.state.cart));
   },
 
   decrementItemInCart(store, productId) {
     const index = findIndexById(store.state.cart, productId);
     store.commit("decrementItemInCart", index);
+    localStorage.setItem("pupeCart", JSON.stringify(store.state.cart));
   }
 };

@@ -47,6 +47,10 @@ export default {
     state.relatedProducts = payload;
   },
 
+  setCart(state, payload) {
+    state.cart = payload;
+  },
+
   addToCart(state, product) {
     state.cart.push(product);
   },
