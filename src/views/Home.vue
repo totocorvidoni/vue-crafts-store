@@ -64,7 +64,7 @@ export default {
   .hero {
     display: grid;
     grid-template-rows: 1fr 100px;
-    background: url("../assets/hero-background.svg");
+    background: no-repeat center/cover url("../assets/hero-background.svg");
     min-height: 95vh;
 
     .logo-wrapper {
@@ -82,7 +82,7 @@ export default {
   }
 
   .divider {
-    background: repeat top url("../assets/saw.svg");
+    background: repeat-x 0 5px url("../assets/saw.svg");
   }
 
   .featured-products {

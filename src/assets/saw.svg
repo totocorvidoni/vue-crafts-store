@@ -1,1 +1,36 @@
-<svg id="svg845" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.46 283.46"><defs><style>.cls-1{fill:#fff;}</style></defs><title>saw</title><polygon class="cls-1" points="283.46 283.46 0 283.46 0 141.73 141.73 0 283.46 141.73 283.46 283.46"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="100" version="1.1" viewBox="0 0 1600 100" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>saw</dc:title>
+    <dc:title>saw</dc:title>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style>.cls-1{fill:#fff;}</style>
+ </defs>
+ <title>saw</title>
+ <g fill="#fff">
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 200 1e-6)" points="0 141.73 141.73 0 283.46 141.73 283.46 283.46 0 283.46"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 500 1e-6)" points="141.73 0 283.46 141.73 283.46 283.46 0 283.46 0 141.73"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 600 1e-6)" points="141.73 0 283.46 141.73 283.46 283.46 0 283.46 0 141.73"/>
+  <polygon class="cls-1" transform="scale(.35278)" points="283.46 283.46 0 283.46 0 141.73 141.73 0 283.46 141.73"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 300 1e-6)" points="141.73 0 283.46 141.73 283.46 283.46 0 283.46 0 141.73"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 100 1e-6)" points="0 141.73 141.73 0 283.46 141.73 283.46 283.46 0 283.46"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 400 1e-6)" points="141.73 0 283.46 141.73 283.46 283.46 0 283.46 0 141.73"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 700 1e-6)" points="0 141.73 141.73 0 283.46 141.73 283.46 283.46 0 283.46"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 1e3 1e-6)" points="141.73 0 283.46 141.73 283.46 283.46 0 283.46 0 141.73"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 1300 1e-6)" points="283.46 141.73 283.46 283.46 0 283.46 0 141.73 141.73 0"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 1400 1e-6)" points="283.46 141.73 283.46 283.46 0 283.46 0 141.73 141.73 0"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 800 0)" points="0 283.46 0 141.73 141.73 0 283.46 141.73 283.46 283.46"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 1100 1e-6)" points="283.46 141.73 283.46 283.46 0 283.46 0 141.73 141.73 0"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 900 1e-6)" points="141.73 0 283.46 141.73 283.46 283.46 0 283.46 0 141.73"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 1200 1e-6)" points="283.46 141.73 283.46 283.46 0 283.46 0 141.73 141.73 0"/>
+  <polygon class="cls-1" transform="matrix(.35278 0 0 .35278 1500 1e-6)" points="141.73 0 283.46 141.73 283.46 283.46 0 283.46 0 141.73"/>
+  <rect y="50" width="1600" height="50" opacity=".99" style="paint-order:stroke fill markers"/>
+ </g>
+</svg>
