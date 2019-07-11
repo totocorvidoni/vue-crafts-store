@@ -80,7 +80,7 @@ export default {
     padding: 5px;
     border-bottom-left-radius: 0.5em;
     border-top-left-radius: 0.5em;
-    z-index: 50;
+    z-index: 2;
   }
 
   .image {
