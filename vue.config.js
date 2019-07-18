@@ -1,9 +1,5 @@
 module.exports = {
-  publicPath: "/vue-crafts-store/",
-
-  devServer: {
-    proxy: "https://localhost/"
-  },
+  publicPath: "/",
 
   css: {
     loaderOptions: {
