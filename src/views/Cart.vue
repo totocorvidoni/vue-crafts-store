@@ -29,7 +29,7 @@
         <h2 class="title">Recibimos tu pedido ¡Muchas gracias!</h2>
         <p
           class="text"
-        >Nos vamos a poner en contacto con vos lo antes posibles para coordinar los detalles de pago y envio.</p>
+        >Nos vamos a poner en contacto con vos lo antes posible para coordinar los detalles de pago y envio.</p>
       </div>
       <div v-else class="info totals" key="totals">
         <div class="title">
