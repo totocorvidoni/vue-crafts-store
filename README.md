@@ -9,3 +9,4 @@ I have set up a Wordpress installation with WooCommerce for the client to manage
 ## Support
 
 Did you find an issue? Have a suggestion maybe? You can contact me at [totocorvidoni@gmail.com](mailto:totocorvidoni@gmail.com).
+
