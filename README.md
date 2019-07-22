@@ -1,34 +1,11 @@
-# front
+# Crafts Store
 
-## Project setup
-```
-npm install
-```
+Made for an artisan who sells her crochet creations. You can check out her site [here](https://tomascorridoni.com/pupe-lepu/).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+It aims to focus on a narrow set of products to let visitors appreciate how much detail and love is put on every creation while at the same time giving a more personal feel than a regular e-shop.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+I have set up a Wordpress instalation with WooCommerce for the client to manage her products. The information is then requested by API calls from the front end app made with Vue.js.
 
-### Run your tests
-```
-npm run test
-```
+## Support
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Did you find an issue? Have a suggestion maybe? You can contact me at [totocorvidoni@gmail.com](mailto:totocorvidoni@gmail.com).
